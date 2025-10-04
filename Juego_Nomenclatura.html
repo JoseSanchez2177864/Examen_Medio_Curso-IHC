@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Nomenclatura</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <style>
+        .compound {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 50px 0;
+        }
+
+        .highlight {
+            color: red;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.6);
+        }
+
+        .elemento {
+            width: 70px;
+            height: 80px;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin: 2px;
+            font-size: 12px;
+            transition: 0.3s;
+            background-color: transparent;
+            /* Por defecto transparente */
+        }
+
+        /* Hover según tipo */
+        .metal:hover {
+            background-color: #b3e5fc;
+        }
+
+        .no-metal:hover {
+            background-color: #c8e6c9;
+        }
+
+        .metaloide:hover {
+            background-color: #fff9c4;
+        }
+
+        .noble:hover {
+            background-color: #cc66ff;
+        }
+
+        .elemento:hover {
+            transform: scale(1.1);
+            border: 2px solid #000;
+            cursor: pointer;
+        }
+
+        .tabla-periodica {
+            display: grid;
+            grid-template-columns: repeat(18, 70px);
+            /* 18 columnas */
+            gap: 2px;
+            justify-content: start;
+            /* Alinea al inicio dentro del modal */
+            margin: auto;
+            /* Centra horizontalmente */
+            max-width: 100%;
+            /* No se sale del modal */
+        }
+
+
+        .numero {
+            font-size: 10px;
+            align-self: flex-start;
+            margin-left: 3px;
+        }
+
+        .simbolo {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .peso {
+            font-size: 10px;
+        }
+
+        .ox {
+            font-size: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body class="bg-light text-center">
+
+    <div class="container py-5">
+        <h1 class="mb-4">Juego de Nomenclatura Química</h1>
+
+        <!-- Botón para abrir modal -->
+        <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#tablaModal">
+            Ver Tabla Periódica
+        </button>
+
+        <!-- Compuesto -->
+        <div class="compound">
+            <span class="highlight">H</span>Cl
+        </div>
+
+        <!-- Pregunta -->
+        <h4 class="mb-3">¿Qué tipo de compuesto es?</h4>
+
+        <!-- Botones de opciones -->
+        <div class="d-flex justify-content-center gap-3">
+            <button class="btn btn-danger btn-lg">Ácido</button>
+            <button class="btn btn-primary btn-lg">Óxido</button>
+            <button class="btn btn-success btn-lg">Sal</button>
+            <button class="btn btn-warning btn-lg">Base</button>
+        </div>
+    </div>
+
+    <!-- Modal ÚNICO -->
+    <div class="modal fade" id="tablaModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tabla Periódica</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" style="overflow-x: auto;">
+                    <div class="tabla-periodica mx-auto">
+
+                        <!-- Hidrógeno -->
+                        <div class="elemento no-metal">
+                            <div class="numero">1</div>
+                            <div class="simbolo">H</div>
+                            <div class="peso">1.008</div>
+                            <div class="ox">+1, -1</div>
+                        </div>
+
+                        <!-- Helio -->
+                        <div class="elemento noble" style="grid-column: 18">
+                            <div class="numero">2</div>
+                            <div class="simbolo">He</div>
+                            <div class="peso">4.003</div>
+                            <div class="ox">0</div>
+                        </div>
+
+                        <!-- Litio -->
+                        <div class="elemento metal" style="grid-row: 2">
+                            <div class="numero">3</div>
+                            <div class="simbolo">Li</div>
+                            <div class="peso">6.941</div>
+                            <div class="ox">+1</div>
+                        </div>
+
+                        <!-- Berilio -->
+                        <div class="elemento metal" style="grid-row: 2">
+                            <div class="numero">4</div>
+                            <div class="simbolo">Be</div>
+                            <div class="peso">9.012</div>
+                            <div class="ox">+2</div>
+                        </div>
+
+                        <!-- Boro -->
+                        <div class="elemento metaloide" style="grid-row: 2; grid-column: 13">
+                            <div class="numero">5</div>
+                            <div class="simbolo">B</div>
+                            <div class="peso">10.81</div>
+                            <div class="ox">+3</div>
+                        </div>
+
+                        <!-- Carbono -->
+                        <div class="elemento no-metal" style="grid-row: 2; grid-column: 14">
+                            <div class="numero">6</div>
+                            <div class="simbolo">C</div>
+                            <div class="peso">12.01</div>
+                            <div class="ox">+4, -4</div>
+                        </div>
+
+                        <!-- Nitrógeno -->
+                        <div class="elemento no-metal" style="grid-row: 2; grid-column: 15">
+                            <div class="numero">7</div>
+                            <div class="simbolo">N</div>
+                            <div class="peso">14.00</div>
+                            <div class="ox">+-1, +-2, +-3, +-4, +-5</div>
+                        </div>
+
+                        <!-- Oxígeno -->
+                        <div class="elemento no-metal" style="grid-row: 2; grid-column: 16">
+                            <div class="numero">8</div>
+                            <div class="simbolo">O</div>
+                            <div class="peso">16.00</div>
+                            <div class="ox">-2</div>
+                        </div>
+
+                        <!-- Fluor -->
+                        <div class="elemento no-metal" style="grid-row: 2; grid-column: 17">
+                            <div class="numero">9</div>
+                            <div class="simbolo">F</div>
+                            <div class="peso">18.99</div>
+                            <div class="ox">-1</div>
+                        </div>
+
+                        <!-- Neón -->
+                        <div class="elemento noble" style="grid-row: 2; grid-column: 18">
+                            <div class="numero">10</div>
+                            <div class="simbolo">Ne</div>
+                            <div class="peso">20.17</div>
+                            <div class="ox"></div>
+                        </div>
+
+                        <!-- Sodio -->
+                        <div class="elemento metal" style="grid-row: 3; grid-column: 1">
+                            <div class="numero">11</div>
+                            <div class="simbolo">Na</div>
+                            <div class="peso">22.98</div>
+                            <div class="ox">+1</div>
+                        </div>
+
+                        <!-- Magnesio -->
+                        <div class="elemento metal" style="grid-row: 3; grid-column: 2">
+                            <div class="numero">12</div>
+                            <div class="simbolo">Mg</div>
+                            <div class="peso">24.30</div>
+                            <div class="ox">+2</div>
+                        </div>
+
+                        <!-- Aluminio -->
+                        <div class="elemento metal" style="grid-row: 3; grid-column: 13">
+                            <div class="numero">13</div>
+                            <div class="simbolo">Al</div>
+                            <div class="peso">26.98</div>
+                            <div class="ox">+3</div>
+                        </div>
+
+                        <!-- Silicio -->
+                        <div class="elemento metaloide" style="grid-row: 3; grid-column: 14">
+                            <div class="numero">14</div>
+                            <div class="simbolo">Si</div>
+                            <div class="peso">28.08</div>
+                            <div class="ox">+2, +-4</div>
+                        </div>
+
+                        <!-- Fósforo -->
+                        <div class="elemento no-metal" style="grid-row: 3; grid-column: 15">
+                            <div class="numero">15</div>
+                            <div class="simbolo">P</div>
+                            <div class="peso">30.97</div>
+                            <div class="ox">+-3, +-5</div>
+                        </div>
+
+                        <!-- Azufre -->
+                        <div class="elemento no-metal" style="grid-row: 3; grid-column: 16">
+                            <div class="numero">16</div>
+                            <div class="simbolo">S</div>
+                            <div class="peso">32.06</div>
+                            <div class="ox">+-2, +4, +6</div>
+                        </div>
+
+                        <!-- Cloro -->
+                        <div class="elemento no-metal" style="grid-row: 3; grid-column: 17">
+                            <div class="numero">17</div>
+                            <div class="simbolo">Cl</div>
+                            <div class="peso">35.45</div>
+                            <div class="ox">+-1, +3, +5, +7</div>
+                        </div>
+
+                        <!-- Argón -->
+                        <div class="elemento noble" style="grid-row: 3; grid-column: 18">
+                            <div class="numero">18</div>
+                            <div class="simbolo">Ar</div>
+                            <div class="peso">39.94</div>
+                            <div class="ox"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
