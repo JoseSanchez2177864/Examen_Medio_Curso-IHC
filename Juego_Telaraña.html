@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego Nomenclatura - Telaraña</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="J_T-Diseño.css">
+
+</head>
+<body class="bg-light text-center p-5">
+
+  <h1 class="mb-4">Juego de Telaraña</h1>
+  <p class="mb-5">Une las palabras y elementos para formar el nombre correcto del compuesto</p>
+
+  <div class="web-container">
+    <!-- Líneas radiales -->
+    <div class="line" style="transform: rotate(0deg);"></div>
+    <div class="line" style="transform: rotate(60deg);"></div>
+    <div class="line" style="transform: rotate(120deg);"></div>
+    <div class="line" style="transform: rotate(180deg);"></div>
+    <div class="line" style="transform: rotate(240deg);"></div>
+    <div class="line" style="transform: rotate(300deg);"></div>
+
+    <!-- Círculo central -->
+    <div class="center-circle">HCl</div>
+
+    <!-- Botones izquierda (palabras) -->
+    <button class="btn btn-word btn-circle" style="top: 20%; left: 20%;">Ácido</button>
+    <button class="btn btn-word btn-circle" style="top: 50%; left: 15%;">Hidrógeno</button>
+    <button class="btn btn-word btn-circle" style="top: 80%; left: 20%;">Cloruro</button>
+
+    <!-- Botones derecha (elementos) -->
+    <button class="btn btn-element btn-circle" style="top: 25%; left: 80%;">H</button>
+    <button class="btn btn-element btn-circle" style="top: 55%; left: 85%;">Cl</button>
+    <button class="btn btn-element btn-circle" style="top: 75%; left: 80%;">O</button>
+  </div>
+
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="J_T-Script.js"></script>
+</body>
+</html>

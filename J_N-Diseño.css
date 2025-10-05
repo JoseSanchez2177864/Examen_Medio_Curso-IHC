@@ -1,0 +1,86 @@
+.compound {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 50px 0;
+}
+
+.highlight {
+    color: red;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.elemento {
+    width: 70px;
+    height: 80px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2px;
+    font-size: 12px;
+    transition: 0.3s;
+    background-color: transparent;
+    /* Por defecto transparente */
+}
+
+/* Hover según tipo */
+.metal:hover {
+    background-color: #b3e5fc;
+}
+
+.no-metal:hover {
+    background-color: #c8e6c9;
+}
+
+.metaloide:hover {
+    background-color: #fff9c4;
+}
+
+.noble:hover {
+    background-color: #cc66ff;
+}
+
+.sintetico:hover {
+    background-color: #bfbfbf;
+}
+
+.elemento:hover {
+    transform: scale(1.1);
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+.tabla-periodica {
+    display: grid;
+    grid-template-columns: repeat(18, 70px);
+    /* 18 columnas */
+    gap: 2px;
+    justify-content: start;
+    /* Alinea al inicio dentro del modal */
+    margin: auto;
+    /* Centra horizontalmente */
+    max-width: 100%;
+    /* No se sale del modal */
+}
+
+
+.numero {
+    font-size: 10px;
+    align-self: flex-start;
+    margin-left: 3px;
+}
+
+.simbolo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.peso {
+    font-size: 10px;
+}
+
+.ox {
+    font-size: 10px;
+    color: #555;
+}
