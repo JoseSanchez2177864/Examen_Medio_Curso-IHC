@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memorama Químico</title>
+    <link rel="stylesheet" href="J_M.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Memorama Químico</h1>
+        <p class="subtitle">Empareja los elementos con sus propiedades</p>
+    </header>
+
+    <div class="game-info">
+        <div class="stats">
+            <div class="stat">
+                <span class="label">Pares Encontrados:</span>
+                <span id="pairs-found">0</span>/<span id="total-pairs">8</span>
+            </div>
+            <div class="stat">
+                <span class="label">Intentos:</span>
+                <span id="attempts">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Tiempo:</span>
+                <span id="timer">0</span>s
+            </div>
+        </div>
+        <div class="controls">
+            <button id="restart-btn" class="btn">Reiniciar Juego</button>
+            <button id="hint-btn" class="btn hint">Pista</button>
+        </div>
+    </div>
+
+    <div class="game-board" id="game-board">
+    </div>
+
+    <div class="message" id="message">
+        <div class="message-content">
+            <h2 id="message-title">¡Felicidades!</h2>
+            <p id="message-text">Has completado el juego.</p>
+            <button id="close-message" class="btn">Continuar</button>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h3>Instrucciones</h3>
+        <p>Encuentra todos los pares de elementos químicos y sus propiedades. Haz clic en las cartas para voltearlas y encontrar las coincidencias.</p>
+    </div>
+</div>
+
+<script src="J_M.js"></script>
+</body>
+</html>
