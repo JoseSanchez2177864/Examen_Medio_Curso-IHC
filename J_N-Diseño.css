@@ -9,6 +9,52 @@
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
+#contenedorPuntaje {
+    background: #ffffff;
+    padding: 10px 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+#contenedorPuntaje span.fs-4 {
+    color: #0d6efd; /* azul Bootstrap */
+}
+
+#Compuesto {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.iluminado {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffaa00;
+    animation: brillo 1.2s ease-in-out;
+}
+
+@keyframes brillo {
+    0% { text-shadow: 0 0 5px #ffd700; }
+    50% { text-shadow: 0 0 20px #ffaa00, 0 0 30px #ffcc00; }
+    100% { text-shadow: 0 0 5px #ffd700; }
+}
+
+#modalCorrecto .modal-content {
+  animation: aparecer 0.4s ease-out;
+}
+
+@keyframes aparecer {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .elemento {
     width: 70px;
     height: 80px;
@@ -25,8 +71,27 @@
 }
 
 /* Hover según tipo */
-.metal:hover {
-    background-color: #b3e5fc;
+.alcalino:hover{
+    background-color: #b3ffff;
+}
+.alcalinoterreos:hover {
+    background-color: #ff6666;
+}
+
+.metal:hover{
+    background-color: #6699ff;
+}
+
+.posttransicionales:hover{
+    background-color: #ffaa80;
+}
+
+.lantinidos:hover{
+    background-color: #ccffe6;
+}
+
+.actinidos:hover{
+    background-color: #ffb3d9;
 }
 
 .no-metal:hover {
@@ -43,6 +108,50 @@
 
 .sintetico:hover {
     background-color: #bfbfbf;
+}
+
+#contenedor-nombre.alcalino {
+    background-color: #b3ffff;
+}
+
+#contenedor-nombre.alcalinoterreos {
+    background-color: #ff6666;
+}
+
+#contenedor-nombre.metal{
+    background-color: #6699ff;
+}
+
+#contenedor-nombre.posttransicionales{
+    background-color: #ffaa80;
+}
+
+#contenedor-nombre.lantinidos{
+    background-color: #ccffe6;
+}
+
+#contenedor-nombre.actinidos{
+    background-color: #ffb3d9;
+}
+
+#contenedor-nombre.no-metal {
+    background-color: #c8e6c9;
+}
+
+#contenedor-nombre.metaloide {
+    background-color: #fff9c4;
+}
+
+#contenedor-nombre.noble {
+    background-color: #cc66ff;
+}
+
+#contenedor-nombre.sintetico {
+    background-color: #bfbfbf;
+}
+
+#contenedor-nombre {
+    transition: background-color 0.3s ease;
 }
 
 .elemento:hover {
@@ -64,6 +173,24 @@
     /* No se sale del modal */
 }
 
+#contenedor-nombre {
+  width: 200px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.espacio {
+  width: 70px;
+  height: 70px;
+  visibility: hidden;
+}
 
 .numero {
     font-size: 10px;
