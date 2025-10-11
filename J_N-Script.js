@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     ]
     function obtenerCompuestoAleatorio() {
-        while (Total < 26) {
+        while (Total < 2) {
             let disponibles = Compuestos.filter(c => !c.aparicion);
             let indice = Math.floor(Math.random() * disponibles.length);
             let seleccionado = disponibles[indice];
@@ -105,9 +105,11 @@ $(document).ready(function () {
         let tipoSeleccionado = $(this).attr('id');
         if (tipoSeleccionado === tipoCorrecto) {
             puntaje += 1
+            Total += 1
             $("#contenedorPuntaje").html('<i class="bi bi-star-fill text-warning"></i> Puntaje: ' + puntaje + '/25');
             let modalCorrecto = new bootstrap.Modal(document.getElementById('modalCorrecto'));
             modalCorrecto.show();
+            $("#modalCorrecto .modal-content").addClass("animate__animated animate__pulse");
             setTimeout(() => {
                 modalCorrecto.hide();
                 mostrarCompuesto();
@@ -119,9 +121,11 @@ $(document).ready(function () {
             $('#errorTitulo').text(`❌ Respuesta incorrecta`);
             $('#errorCuerpo').html(`<strong>Pista sobre los ${tipoCorrecto}:</strong><br>${comentario}`);
             modalError.show();
-            mostrarCompuesto();
+            Total += 1
+            $('#modalError').off('hidden.bs.modal').on('hidden.bs.modal', function () {
+                mostrarCompuesto();
+            });
         }
-        Total += 1
     });
     function mostrarModalFinal() {
         let modalFinal = new bootstrap.Modal(document.getElementById('modalFinal'));

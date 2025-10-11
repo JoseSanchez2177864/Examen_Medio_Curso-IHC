@@ -1,3 +1,4 @@
+/* === ELEMENTOS PRINCIPALES === */
 .compound {
     font-size: 4rem;
     font-weight: bold;
@@ -9,23 +10,251 @@
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
-#contenedorPuntaje {
-    background: #ffffff;
-    padding: 10px 25px;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-}
-#contenedorPuntaje span.fs-4 {
-    color: #0d6efd;
+/* === BOTONES GENERALES === */
+.btn,
+#btnInicio,
+#btnSiguiente,
+.btn-tabla,
+button[data-bs-target="#tablaModal"] {
+    font-family: 'Fredoka One', cursive;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.3);
 }
 
-#Compuesto {
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
+.btn i {
+    margin-right: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px currentColor;
+    filter: brightness(1.1);
+}
+
+/* === BOTONES ESPECIALES === */
+#btnInicio {
+    border: 2px solid #2575fc;
+    color: #2575fc;
+    background: transparent;
+}
+
+#btnInicio:hover {
+    background: #2575fc;
+    color: #fff;
+    box-shadow: 0 0 10px #2575fc;
+}
+
+#btnSiguiente {
+    background: #00f5d4;
+    color: #000;
+}
+
+#btnSiguiente:hover {
+    background: #00c9a7;
+    box-shadow: 0 0 10px #00f5d4;
+}
+
+/* === PALETA DE BOTONES POR COMPUESTO === */
+#Hidrácidos {
+    background: #ff006e;
+}
+
+#Oxiácidos {
+    background: #7b2ff7;
+}
+
+#Sales\ Haloideas {
+    background: #00c9a7;
+}
+
+#Sales\ Ácidas {
+    background: #ff9f1c;
+}
+
+#Oxisales {
+    background: #00f5d4;
+}
+
+#Hidruros {
+    background: #06d6a0;
+}
+
+#Óxidos\ Metálicos {
+    background: #118ab2;
+}
+
+#Anhidridos {
+    background: #ef476f;
+}
+
+#Bases {
+    background: #fde047;
+}
+
+/* === BOTONES PRINCIPALES Y SECUNDARIOS === */
+.btn-lg {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #262626;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-lg:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.45);
+}
+
+.btn-outline-primary {
+    border: 2px solid #3b82f6;
+    color: #3b82f6;
+    background: #fff;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.btn-outline-primary:hover {
+    background: #3b82f6;
+    color: #fff;
+}
+
+/* === BOTÓN “Ver Tabla Periódica” === */
+.btn-tabla,
+button[data-bs-target="#tablaModal"] {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    box-shadow: 0 0 15px rgba(37, 117, 252, 0.4);
+}
+
+.btn-tabla:hover,
+button[data-bs-target="#tablaModal"]:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    box-shadow: 0 0 20px rgba(37, 117, 252, 0.6);
+}
+
+/* === ENCABEZADO Y PUNTAJE === */
+.actividad-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.titulo-actividad {
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+    font-size: 2.2rem;
+}
+
+.puntaje {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 10px 25px;
+    color: #0d6efd;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    transition: 0.3s ease;
+}
+
+.puntaje i {
+    color: #ffd700;
+    text-shadow: 0 0 8px #ffd700;
+}
+
+.puntaje:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* === MODALES === */
+.modal-content {
+    background: rgba(20, 20, 20, 0.95);
+    color: #fff;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 0, 110, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(255, 0, 110, 0.3);
+    animation: aparecer 0.4s ease-out;
+}
+
+#modalCorrecto .modal-content {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+    color: #166534;
+}
+
+#modalFinal .modal-content {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    color: #1e3a8a;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}
+
+.modal-header.bg-info {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-header.bg-danger {
+    background: linear-gradient(135deg, #ff006e, #ff3c8b);
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-body p,
+.modal-body li {
+    font-family: 'Quicksand', sans-serif;
+    color: #ccc;
+}
+
+/* === ANIMACIONES === */
+@keyframes aparecer {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#modalCorrecto h4,
+#modalFinal h3 {
+    animation: pop 0.6s ease-in-out;
 }
 
 .iluminado {
@@ -35,179 +264,170 @@
 }
 
 @keyframes brillo {
-    0% { text-shadow: 0 0 5px #ffd700; }
-    50% { text-shadow: 0 0 20px #ffaa00, 0 0 30px #ffcc00; }
-    100% { text-shadow: 0 0 5px #ffd700; }
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px #ffd700;
+    }
+
+    50% {
+        text-shadow: 0 0 30px #ffcc00;
+    }
 }
 
-#modalCorrecto .modal-content {
-  animation: aparecer 0.4s ease-out;
+/* === CONTENEDORES === */
+#contenedorPuntaje {
+    background: #fff;
+    padding: 8px 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes aparecer {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+#Compuesto {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 70px;
 }
 
-.elemento {
+/* === TABLA PERIÓDICA === */
+.tabla-periodica {
+    display: grid;
+    grid-template-columns: repeat(18, 70px);
+    gap: 4px;
+    margin: auto;
+    padding: 10px;
+}
+
+.elemento,
+.espacio {
     width: 70px;
     height: 80px;
-    border: 1px solid #ccc;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin: 2px;
-    font-size: 12px;
-    transition: 0.3s;
-    background-color: transparent;
-    /* Por defecto transparente */
-}
-
-/* Hover según tipo */
-.alcalino:hover{
-    background-color: #b3ffff;
-}
-.alcalinoterreos:hover {
-    background-color: #ff6666;
-}
-
-.metal:hover{
-    background-color: #6699ff;
-}
-
-.posttransicionales:hover{
-    background-color: #ffaa80;
-}
-
-.lantinidos:hover{
-    background-color: #ccffe6;
-}
-
-.actinidos:hover{
-    background-color: #ffb3d9;
-}
-
-.no-metal:hover {
-    background-color: #c8e6c9;
-}
-
-.metaloide:hover {
-    background-color: #fff9c4;
-}
-
-.noble:hover {
-    background-color: #cc66ff;
-}
-
-.sintetico:hover {
-    background-color: #bfbfbf;
-}
-
-#contenedor-nombre.alcalino {
-    background-color: #b3ffff;
-}
-
-#contenedor-nombre.alcalinoterreos {
-    background-color: #ff6666;
-}
-
-#contenedor-nombre.metal{
-    background-color: #6699ff;
-}
-
-#contenedor-nombre.posttransicionales{
-    background-color: #ffaa80;
-}
-
-#contenedor-nombre.lantinidos{
-    background-color: #ccffe6;
-}
-
-#contenedor-nombre.actinidos{
-    background-color: #ffb3d9;
-}
-
-#contenedor-nombre.no-metal {
-    background-color: #c8e6c9;
-}
-
-#contenedor-nombre.metaloide {
-    background-color: #fff9c4;
-}
-
-#contenedor-nombre.noble {
-    background-color: #cc66ff;
-}
-
-#contenedor-nombre.sintetico {
-    background-color: #bfbfbf;
-}
-
-#contenedor-nombre {
-    transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #f1f1f1;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.25s ease-in-out;
+    text-align: center;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
 .elemento:hover {
-    transform: scale(1.1);
-    border: 2px solid #000;
+    transform: scale(1.15);
+    border: 2px solid #fff;
     cursor: pointer;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
 }
 
-.tabla-periodica {
-    display: grid;
-    grid-template-columns: repeat(18, 70px);
-    /* 18 columnas */
-    gap: 2px;
-    justify-content: start;
-    /* Alinea al inicio dentro del modal */
-    margin: auto;
-    /* Centra horizontalmente */
-    max-width: 100%;
-    /* No se sale del modal */
-}
-
-#contenedor-nombre {
-  width: 200px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f5f5f5;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.espacio {
-  width: 70px;
-  height: 70px;
-  visibility: hidden;
-}
-
-.numero {
+.numero,
+.peso,
+.ox {
     font-size: 10px;
-    align-self: flex-start;
-    margin-left: 3px;
+    opacity: 0.85;
 }
 
 .simbolo {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 }
 
-.peso {
-    font-size: 10px;
+.espacio {
+    visibility: hidden;
 }
 
-.ox {
-    font-size: 10px;
-    color: #555;
+/* === CONTENEDOR DE NOMBRE DE ELEMENTO === */
+#contenedor-nombre {
+    width: 220px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    margin: 10px auto;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* === COLORES DE GRUPOS QUÍMICOS === */
+.alcalino:hover,
+#contenedor-nombre.alcalino {
+    background-color: rgba(0, 255, 255, 0.25);
+    box-shadow: 0 0 12px #00ffff;
+}
+
+.alcalinoterreos:hover,
+#contenedor-nombre.alcalinoterreos {
+    background-color: rgba(255, 100, 100, 0.25);
+    box-shadow: 0 0 12px #ff6666;
+}
+
+.metal:hover,
+#contenedor-nombre.metal {
+    background-color: rgba(102, 153, 255, 0.25);
+    box-shadow: 0 0 12px #6699ff;
+}
+
+.posttransicionales:hover,
+#contenedor-nombre.posttransicionales {
+    background-color: rgba(255, 170, 128, 0.25);
+    box-shadow: 0 0 12px #ffaa80;
+}
+
+.lantinidos:hover,
+#contenedor-nombre.lantinidos {
+    background-color: rgba(204, 255, 230, 0.25);
+    box-shadow: 0 0 12px #66ffcc;
+}
+
+.actinidos:hover,
+#contenedor-nombre.actinidos {
+    background-color: rgba(255, 179, 217, 0.25);
+    box-shadow: 0 0 12px #ff80bf;
+}
+
+.no-metal:hover,
+#contenedor-nombre.no-metal {
+    background-color: rgba(200, 230, 201, 0.25);
+    box-shadow: 0 0 12px #80ff80;
+}
+
+.metaloide:hover,
+#contenedor-nombre.metaloide {
+    background-color: rgba(255, 249, 196, 0.25);
+    box-shadow: 0 0 12px #ffff80;
+}
+
+.noble:hover,
+#contenedor-nombre.noble {
+    background-color: rgba(204, 102, 255, 0.25);
+    box-shadow: 0 0 12px #cc66ff;
+}
+
+.sintetico:hover,
+#contenedor-nombre.sintetico {
+    background-color: rgba(191, 191, 191, 0.25);
+    box-shadow: 0 0 12px #bfbfbf;
+}
+
+/* === TÍTULOS === */
+h5 {
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+}
+
+h4,
+h3 {
+    color: #000;
 }
