@@ -7,6 +7,161 @@
     background: radial-gradient(circle, #f9f9f9, #eaeaea);
     border: 2px dashed #bbb;
 }
+.elemento {
+    width: 70px;
+    height: 80px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2px;
+    font-size: 12px;
+    transition: 0.3s;
+    background-color: transparent;
+    /* Por defecto transparente */
+}
+
+/* Hover según tipo */
+.alcalino:hover{
+    background-color: #b3ffff;
+}
+.alcalinoterreos:hover {
+    background-color: #ff6666;
+}
+
+.metal:hover{
+    background-color: #6699ff;
+}
+
+.posttransicionales:hover{
+    background-color: #ffaa80;
+}
+
+.lantinidos:hover{
+    background-color: #ccffe6;
+}
+
+.actinidos:hover{
+    background-color: #ffb3d9;
+}
+
+.no-metal:hover {
+    background-color: #c8e6c9;
+}
+
+.metaloide:hover {
+    background-color: #fff9c4;
+}
+
+.noble:hover {
+    background-color: #cc66ff;
+}
+
+.sintetico:hover {
+    background-color: #bfbfbf;
+}
+
+#contenedor-nombre.alcalino {
+    background-color: #b3ffff;
+}
+
+#contenedor-nombre.alcalinoterreos {
+    background-color: #ff6666;
+}
+
+#contenedor-nombre.metal{
+    background-color: #6699ff;
+}
+
+#contenedor-nombre.posttransicionales{
+    background-color: #ffaa80;
+}
+
+#contenedor-nombre.lantinidos{
+    background-color: #ccffe6;
+}
+
+#contenedor-nombre.actinidos{
+    background-color: #ffb3d9;
+}
+
+#contenedor-nombre.no-metal {
+    background-color: #c8e6c9;
+}
+
+#contenedor-nombre.metaloide {
+    background-color: #fff9c4;
+}
+
+#contenedor-nombre.noble {
+    background-color: #cc66ff;
+}
+
+#contenedor-nombre.sintetico {
+    background-color: #bfbfbf;
+}
+
+#contenedor-nombre {
+    transition: background-color 0.3s ease;
+}
+
+.elemento:hover {
+    transform: scale(1.1);
+    border: 2px solid #000;
+    cursor: pointer;
+}
+.tabla-periodica {
+    display: grid;
+    grid-template-columns: repeat(18, 70px);
+    /* 18 columnas */
+    gap: 2px;
+    justify-content: start;
+    /* Alinea al inicio dentro del modal */
+    margin: auto;
+    /* Centra horizontalmente */
+    max-width: 100%;
+    /* No se sale del modal */
+}
+
+#contenedor-nombre {
+  width: 200px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.espacio {
+  width: 70px;
+  height: 70px;
+  visibility: hidden;
+}
+
+.numero {
+    font-size: 10px;
+    align-self: flex-start;
+    margin-left: 3px;
+}
+
+.simbolo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.peso {
+    font-size: 10px;
+}
+
+.ox {
+    font-size: 10px;
+    color: #555;
+}
 
 .center-circle {
     position: absolute;
