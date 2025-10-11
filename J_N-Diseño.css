@@ -49,14 +49,28 @@ button[data-bs-target="#tablaModal"] {
     box-shadow: 0 0 10px #2575fc;
 }
 
-#btnSiguiente {
-    background: #00f5d4;
-    color: #000;
+#btnRepetir {
+    border: 2px solid #00f5d4;
+background: transparent;
+    color: #00f5d4;
 }
 
-#btnSiguiente:hover {
-    background: #00c9a7;
+#btnRepetir:hover {
+    background: #00f5d4;
+    color: #fff;
     box-shadow: 0 0 10px #00f5d4;
+}
+
+#btnMasJuegos {
+    background: transparent;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+}
+
+#btnMasJuegos:hover {
+    background: #ffcc00;
+    color: #fff;
+    box-shadow: 0 0 10px #ffcc00;
 }
 
 /* === PALETA DE BOTONES POR COMPUESTO === */
@@ -99,7 +113,7 @@ button[data-bs-target="#tablaModal"] {
 /* === BOTONES PRINCIPALES Y SECUNDARIOS === */
 .btn-lg {
     background: linear-gradient(135deg, #3b82f6, #2563eb);
-    color: #262626;
+    color: #fff;
     font-weight: 600;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);

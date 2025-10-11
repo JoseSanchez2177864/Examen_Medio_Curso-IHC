@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     ]
     function obtenerCompuestoAleatorio() {
-        while (Total < 2) {
+        while (Total < 25) {
             let disponibles = Compuestos.filter(c => !c.aparicion);
             let indice = Math.floor(Math.random() * disponibles.length);
             let seleccionado = disponibles[indice];
@@ -75,7 +75,7 @@ $(document).ready(function () {
     function mostrarCompuesto() {
         let compuesto = obtenerCompuestoAleatorio();
         if (!compuesto) return;
-        $('.btn-lg').removeClass('btnError btnSiguiente activo');
+        $('.btn-lg').removeClass('btnError btnSiguiente');
         let compuestoHTML = compuesto.compuesto.replace(
             compuesto.iluminar,
             `<span class="iluminado">${compuesto.iluminar}</span>`
@@ -156,4 +156,10 @@ $(document).ready(function () {
                 .addClass('nombre-elemento');
         }
     );
+    document.getElementById('btnRepetir').addEventListener('click', () => {
+        location.reload();
+    });
+    document.getElementById('btnMasJuegos').addEventListener('click', () => {
+        window.location.href = 'dashboard.html';
+    });
 });
