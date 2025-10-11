@@ -134,6 +134,9 @@ body {
 .circulo.medium { bottom: 25%; left: 35%; background: #2575fc; }
 .triangulo.small { bottom: 8%; right: 5%; border-bottom-color: #ffd700; }
 .cuadrado.large { top: 35%; left: 65%; background: #00f5d4; }
+.decor, .fondo-figura, .figura {
+    pointer-events: none;
+}
 
 /* Animaciones */
 @keyframes float {
@@ -234,9 +237,11 @@ body {
     color: #ff006e !important;
 }
 
+#btnSesion,
 .nav-link.btn {
-    border: 2px solid #fff !important;
+    border: 2px solid #fff;
     border-radius: 50px;
+    background: transparent;
     padding: 8px 20px !important;
     transition: 0.3s;
     font-weight: 600;

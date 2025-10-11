@@ -132,12 +132,6 @@ $(document).ready(function () {
         $('#mensajeFinal').html(`Tu puntaje final fue de <strong>${puntaje}/25</strong>. ¡Excelente trabajo!`);
         modalFinal.show();
     }
-    $(document).on('click', '#btnInicio', function () {
-        window.location.href = 'index.html';
-    });
-    $(document).on('click', '#btnSiguiente', function () {
-        window.location.href = 'Juego_Telaraña.html';
-    });
     $('.elemento').hover(
         function () {
             $('#nombreElemento').text($(this).attr('id'));

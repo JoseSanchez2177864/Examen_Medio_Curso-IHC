@@ -5,6 +5,15 @@
     margin: auto;
     border-radius: 50%;
 }
+
+#Titulo{
+    text-shadow:
+        0 0 5px #ff007f,
+        0 0 10px #ff007f,
+        0 0 20px #ff007f,
+        0 0 40px #ff007f;
+}
+
 .center-circle {
   width: 160px;
   height: 160px;
@@ -27,22 +36,6 @@
 .center-circle:hover {
   box-shadow: 0 0 30px #2575fc;
 }
-
-
-.btn-option.correct {
-  background-color: #28a745 !important; /* verde */
-  color: white !important;
-  box-shadow: 0 0 10px 2px #28a745;
-  transition: all 0.3s ease;
-}
-
-.btn-option.incorrect {
-  background-color: #dc3545 !important; /* rojo */
-  color: white !important;
-  box-shadow: 0 0 10px 2px #dc3545;
-  transition: all 0.3s ease;
-}
-
 
 .modal-content {
     background: rgba(20, 20, 20, 0.95);
@@ -254,15 +247,15 @@ button[data-bs-target="#tablaModal"]:hover {
     transition: 0.3s ease;
 }
 
-/* 🔹 Estilo base para los botones de opciones */
+/* === BOTONES CON EFECTO NEÓN AZUL (MISMO ESTILO QUE EL SEGUNDO CSS) === */
 .btn-option {
-  position: absolute;
-  width: 140px;           /* ⬅️ Más largos */
+  position: relative;
+  width: 140px;
   height: 90px;
-  border-radius: 45px;    /* ⬅️ Redondeado, pero ya no círculo perfecto */
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 45px;
+  border: 3px solid rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
   color: #fff;
   font-family: 'Fredoka One', cursive;
   font-size: 1.1rem;
@@ -270,20 +263,22 @@ button[data-bs-target="#tablaModal"]:hover {
   text-shadow: 0 0 6px rgba(0,0,0,0.5);
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
-  z-index: 10;
+  box-shadow: 0 0 20px rgba(37,117,252,0.3);
   text-align: center;
-  padding: 0 10px;        /* Espacio interior para texto más largo */
+  padding: 0 10px;
 }
 
-/* 🔹 Hover: iluminación tipo neón */
+/* 🔹 Hover con animación azul brillante */
 .btn-option:hover {
-  background: rgba(255, 0, 110, 0.15);
-  border-color: #ff006e;
-  box-shadow: 0 0 15px #ff006e, 0 0 30px rgba(255,0,110,0.5);
+  border-color: #2575fc;
+  box-shadow: 
+      0 0 20px #2575fc,
+      0 0 40px rgba(37,117,252,0.5),
+      0 0 60px rgba(37,117,252,0.3);
+  background: rgba(37,117,252,0.15);
 }
 
-/* 🔹 Estado correcto */
+/* 🔹 Estado correcto e incorrecto mantienen el efecto neón */
 .btn-option.correct {
   background: rgba(0, 255, 153, 0.2);
   border-color: #00f5d4;
@@ -291,7 +286,6 @@ button[data-bs-target="#tablaModal"]:hover {
   color: #00f5d4;
 }
 
-/* 🔹 Estado incorrecto */
 .btn-option.incorrect {
   background: rgba(255, 0, 110, 0.2);
   border-color: #ff006e;
@@ -311,20 +305,26 @@ button[data-bs-target="#tablaModal"]:hover {
 
 /* === CONTENEDORES === */
 #contenedorPuntaje {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.08);
     padding: 8px 15px;
     border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 
+        0 0 10px rgba(37, 117, 252, 0.4),
+        0 0 20px rgba(37, 117, 252, 0.3),
+        0 0 40px rgba(37, 117, 252, 0.2); /* 💡 Efecto neón azul */
+    border: 2px solid rgba(37, 117, 252, 0.4);
+    transition: all 0.3s ease;
 }
 
-#Compuesto {
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 70px;
+#contenedorPuntaje:hover {
+    box-shadow: 
+        0 0 20px rgba(37, 117, 252, 0.6),
+        0 0 40px rgba(37, 117, 252, 0.5),
+        0 0 60px rgba(37, 117, 252, 0.4);
+    transform: scale(1.03);
 }
 
 /* === PALETA DE BOTONES POR COMPUESTO === */
@@ -517,6 +517,3 @@ button[data-bs-target="#tablaModal"]:hover {
     min-width: 120px; 
 }
 
-.btn-option {
-    background: #90caf9; 
-}

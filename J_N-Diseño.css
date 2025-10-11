@@ -5,6 +5,15 @@
     margin: 50px 0;
 }
 
+#Titulo{
+    text-shadow:
+        0 0 5px #ff007f,
+        0 0 10px #ff007f,
+        0 0 20px #ff007f,
+        0 0 40px #ff007f;
+}
+
+
 .highlight {
     color: red;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.6);
@@ -74,40 +83,61 @@ background: transparent;
 }
 
 /* === PALETA DE BOTONES POR COMPUESTO === */
-#Hidrácidos {
-    background: #ff006e;
+/* 🔹 Estilo base general */
+.btn-option {
+  width: 140px;
+  height: 90px;
+  border-radius: 45px;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 6px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  text-align: center;
+  padding: 0 10px;
+  margin: 10px;
 }
 
-#Oxiácidos {
-    background: #7b2ff7;
+/* 🔹 Hover: efecto neón general */
+.btn-option:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+  border-color: currentColor;
 }
 
-#Sales\ Haloideas {
-    background: #00c9a7;
+/* 🔸 Colores personalizados por tipo de compuesto */
+.btn-hidracido {
+  color: #ff2b7a;
 }
-
-#Sales\ Ácidas {
-    background: #ff9f1c;
+.btn-oxiácido {
+  color: #a74bff;
 }
-
-#Oxisales {
-    background: #00f5d4;
+.btn-sal-haloidea {
+  color: #00e6b8;
 }
-
-#Hidruros {
-    background: #06d6a0;
+.btn-sal-acida {
+  color: #ffa836;
 }
-
-#Óxidos\ Metálicos {
-    background: #118ab2;
+.btn-oxisal {
+  color: #00ffe1;
 }
-
-#Anhidridos {
-    background: #ef476f;
+.btn-hidruro {
+  color: #00ccff;
 }
-
-#Bases {
-    background: #fde047;
+.btn-oxido-metalico {
+  color: #00b7ff;
+}
+.btn-oxido-no-metalico {
+  color: #ff4b8e;
+}
+.btn-base {
+  color: #ffe94b;
 }
 
 /* === BOTONES PRINCIPALES Y SECUNDARIOS === */
@@ -192,7 +222,7 @@ button[data-bs-target="#tablaModal"]:hover {
 
 .puntaje:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.5);
 }
 
 /* === MODALES === */
@@ -290,15 +320,77 @@ button[data-bs-target="#tablaModal"]:hover {
 }
 
 /* === CONTENEDORES === */
+/* === CONTENEDOR DE PUNTAJE CON BRILLO AZUL === */
 #contenedorPuntaje {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.08);
     padding: 8px 15px;
     border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 
+        0 0 10px rgba(37, 117, 252, 0.4),
+        0 0 20px rgba(37, 117, 252, 0.3),
+        0 0 40px rgba(37, 117, 252, 0.2); /* 💡 Efecto neón azul */
+    border: 2px solid rgba(37, 117, 252, 0.4);
+    transition: all 0.3s ease;
 }
+
+#contenedorPuntaje:hover {
+    box-shadow: 
+        0 0 20px rgba(37, 117, 252, 0.6),
+        0 0 40px rgba(37, 117, 252, 0.5),
+        0 0 60px rgba(37, 117, 252, 0.4);
+    transform: scale(1.03);
+}
+
+/* === BOTONES CON EFECTO NEÓN AZUL (MISMO ESTILO QUE EL SEGUNDO CSS) === */
+.btn-option {
+  position: relative;
+  width: 140px;
+  height: 90px;
+  border-radius: 45px;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 6px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(37,117,252,0.3);
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* 🔹 Hover con animación azul brillante */
+.btn-option:hover {
+  transform: scale(1.08);
+  border-color: #2575fc;
+  box-shadow: 
+      0 0 20px #2575fc,
+      0 0 40px rgba(37,117,252,0.5),
+      0 0 60px rgba(37,117,252,0.3);
+  background: rgba(37,117,252,0.15);
+}
+
+/* 🔹 Estado correcto e incorrecto mantienen el efecto neón */
+.btn-option.correct {
+  background: rgba(0, 255, 153, 0.2);
+  border-color: #00f5d4;
+  box-shadow: 0 0 20px #00f5d4, 0 0 40px rgba(0,255,204,0.5);
+  color: #00f5d4;
+}
+
+.btn-option.incorrect {
+  background: rgba(255, 0, 110, 0.2);
+  border-color: #ff006e;
+  box-shadow: 0 0 20px #ff006e, 0 0 40px rgba(255,0,110,0.5);
+  color: #ff006e;
+}
+
 
 #Compuesto {
     font-size: 3rem;

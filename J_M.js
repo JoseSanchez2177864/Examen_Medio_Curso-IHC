@@ -10,6 +10,11 @@ const messageTitle = document.getElementById('message-title');
 const messageText = document.getElementById('message-text');
 const closeMessage = document.getElementById('close-message');
 
+let modal = new bootstrap.Modal(document.getElementById('modalIntroduccion'));
+modal.show();
+let modalFinal = new bootstrap.Modal(document.getElementById('modalFinal'));
+
+
 let cards = [];
 let flippedCards = [];
 let matchedPairs = 0;
@@ -73,7 +78,7 @@ function createCards() {
 
         let propertyValue, propertyDisplay;
 
-        switch(randomType) {
+        switch (randomType) {
             case 'symbol':
                 propertyValue = element.symbol;
                 propertyDisplay = `Símbolo: ${element.symbol}`;
@@ -134,7 +139,7 @@ function renderCards() {
 
 // Obtener nombre legible para el tipo de carta
 function getTypeName(type) {
-    switch(type) {
+    switch (type) {
         case 'element': return 'Elemento';
         case 'symbol': return 'Símbolo';
         case 'atomicNumber': return 'Núm. Atómico';
@@ -214,9 +219,9 @@ function endGame() {
     clearInterval(timerInterval);
 
     // Mostrar mensaje de felicitaciones
-    messageTitle.textContent = '¡Felicidades!';
-    messageText.textContent = `Has completado el juego en ${timer} segundos con ${attempts} intentos.`;
-    message.style.display = 'flex';
+    const mensajeFinal = document.getElementById('mensajeFinal');
+  mensajeFinal.textContent = `Completaste el juego en ${timer} segundos y ${attempts} intentos.`;
+  modalFinal.show();
 }
 
 // Dar pista al jugador
@@ -269,6 +274,20 @@ restartBtn.addEventListener('click', initGame);
 hintBtn.addEventListener('click', giveHint);
 closeMessage.addEventListener('click', () => {
     message.style.display = 'none';
+});
+
+// Botones del modal final
+document.getElementById('btnInicio').addEventListener('click', () => {
+  window.location.href = 'index.html'; // Cambia por la ruta real
+});
+
+document.getElementById('btnRepetir').addEventListener('click', () => {
+  modalFinal.hide();
+  initGame(); // Reinicia el juego
+});
+
+document.getElementById('btnMasJuegos').addEventListener('click', () => {
+  window.location.href = 'dashboard.html'; // Cambia por tu página de juegos
 });
 
 document.addEventListener('DOMContentLoaded', initGame);
