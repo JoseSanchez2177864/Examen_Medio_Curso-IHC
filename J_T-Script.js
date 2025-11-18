@@ -1,6 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     let modal = new bootstrap.Modal(document.getElementById('modalIntroduccion'));
     modal.show();
+    // ====== PRE-CARGA DE SONIDOS ======
+    const SCorrecto = new Audio('Sonidos/SCorrecto.mp3');
+    const SError = new Audio('Sonidos/SError.mp3');
+    const SFinal = new Audio('Sonidos/SFinal.mp3');
+
+    // Volúmenes (0.0 a 1.0)
+    SCorrecto.volume = 0.6;
+    SError.volume = 0.5;
+    SFinal.volume = 0.8;
+
+    // Pre-cargar sonidos en memoria
+    SCorrecto.preload = 'auto';
+    SError.preload = 'auto';
+    SFinal.preload = 'auto';
     const optionButtons = document.querySelectorAll('.btn-option');
     const gameRounds = [
         { compound: 'HCl', tipo: 'Hidrácidos', correctName: ['Ácido', 'Clorhídrico'], options: ['Ácido', 'Cloroso', 'Hidruro', 'Clorhídrico', 'de', 'Cloro'], aparicion: false },
@@ -28,11 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
         { compound: 'Fe(OH)₃', tipo: 'Bases', correctName: ['Hidróxido', 'Férrico'], options: ['Hierro', 'Férrico', 'de', 'Hidróxido', 'Ferroso', '(III)'], aparicion: false },
         { compound: 'AgOH', tipo: 'Bases', correctName: ['Hidróxido', 'de', 'Plata'], options: ['Plata', 'Hidruro', 'Argéntico', 'Hidróxido', 'de', 'Base'], aparicion: false },
         { compound: 'Pt(OH)₂', tipo: 'Bases', correctName: ['Hidróxido', 'Platinoso'], options: ['Platínico', '(II)', 'de', 'Platino', 'Hidróxido', 'Platinoso'], aparicion: false },
-        { compound: 'PtO', tipo: 'Óxido Metálicos', correctName: ['Óxido', 'Platinoso'], options: ['Platínico', '(II)', 'de', 'Platino', 'Óxido', 'Platinoso'], aparicion: false },
-        { compound: 'Ag₂O', tipo: 'Óxido Metálicos', correctName: ['Óxido', 'de', 'Plata'], options: ['Plata', 'Argéntico', 'de', 'Anhídrido', 'Óxido', 'Platino'], aparicion: false },
-        { compound: 'HgO', tipo: 'Óxido Metálicos', correctName: ['Óxido', 'Mercúrico'], options: ['Mercurio', 'de', 'Mercuroso', 'Óxido', '(I)', 'Mercúrico'], aparicion: false },
-        { compound: 'Mn₂O₇', tipo: 'Óxido Metálicos', correctName: ['Óxido', 'Permangánico'], options: ['Mangánico', 'Manganeso', 'de', 'Óxido', 'Permangánico', 'Manganoso'], aparicion: false },
-        { compound: 'Fe₂O₃', tipo: 'Óxido Metálicos', correctName: ['Óxido', 'Férrico'], options: ['Hierro (II)', 'Óxido', 'Anhídrido', 'Ferroso', 'Férrico', 'de'], aparicion: false },
+        { compound: 'PtO', tipo: 'Óxidos Metálicos', correctName: ['Óxido', 'Platinoso'], options: ['Platínico', '(II)', 'de', 'Platino', 'Óxido', 'Platinoso'], aparicion: false },
+        { compound: 'Ag₂O', tipo: 'Óxidos Metálicos', correctName: ['Óxido', 'de', 'Plata'], options: ['Plata', 'Argéntico', 'de', 'Anhídrido', 'Óxido', 'Platino'], aparicion: false },
+        { compound: 'HgO', tipo: 'Óxidos Metálicos', correctName: ['Óxido', 'Mercúrico'], options: ['Mercurio', 'de', 'Mercuroso', 'Óxido', '(I)', 'Mercúrico'], aparicion: false },
+        { compound: 'Mn₂O₇', tipo: 'Óxidos Metálicos', correctName: ['Óxido', 'Permangánico'], options: ['Mangánico', 'Manganeso', 'de', 'Óxido', 'Permangánico', 'Manganoso'], aparicion: false },
+        { compound: 'Fe₂O₃', tipo: 'Óxidos Metálicos', correctName: ['Óxido', 'Férrico'], options: ['Hierro (II)', 'Óxido', 'Anhídrido', 'Ferroso', 'Férrico', 'de'], aparicion: false },
         { compound: 'LiH', tipo: 'Hidruros', correctName: ['Hidruro', 'de', 'Litio'], options: ['Lítico', 'Hidróxido', 'Hidruro', 'de', 'Litio', 'Ácido'], aparicion: false },
         { compound: 'RbH', tipo: 'Hidruros', correctName: ['Hidruro', 'de', 'Rubidio'], options: ['Rubidio', 'Hidróxido', 'de', 'Ácido', 'Hidruro', 'Base'], aparicion: false },
         { compound: 'BaH₂', tipo: 'Hidruros', correctName: ['Hidruro', 'de', 'Bario'], options: ['Bórico', 'de', 'Bario', 'Hidróxido', 'Hidruro', 'Base'], aparicion: false },
@@ -65,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let Total = 0;
     const roundsAleatorios = [...gameRounds].sort(() => Math.random() - 0.5);
     const obtenerCompuestoAleatorio = () => {
-        while (Total < 25) {
+        while (Total < 15) {
             let disponibles = gameRounds.filter(c => !c.aparicion);
             let indice = Math.floor(Math.random() * disponibles.length);
             let seleccionado = disponibles[indice];
@@ -88,6 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     let currentCompound = null;
     function mostrarModalFinal() {
+        SFinal.currentTime = 0;
+        SFinal.play();
         let modalFinal = new bootstrap.Modal(document.getElementById('modalFinal'));
         $('#mensajeFinal').html(`Tu puntaje final fue de <strong>${puntaje}/25</strong>. ¡Excelente trabajo!`);
         modalFinal.show();
@@ -106,6 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (correctasSeleccionadas.length === currentCompound.correctName.length) {
                     puntaje++;
                     Total++;
+                    SCorrecto.currentTime = 0;
+                    SCorrecto.play();
                     document.getElementById('contenedorPuntaje').innerHTML =
                         `<i class="bi bi-star-fill"></i> Puntaje: ${puntaje}/25`;
                     let modalCorrecto = new bootstrap.Modal(document.getElementById('modalCorrecto'));
@@ -125,7 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 btn.classList.add('incorrect');
                 optionButtons.forEach(b => b.disabled = true);
-
+                SError.currentTime = 0;
+                SError.play();
                 const error = Errores.find(e => e.tipo === tipoCorrecto);
                 const comentario = error ? error.comentario : "Revisa bien las características del compuesto.";
 
@@ -160,6 +179,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 .addClass('nombre-elemento');
         }
     );
+    document.getElementById('btnInicio').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
     document.getElementById('btnRepetir').addEventListener('click', () => {
         location.reload(); 
     });

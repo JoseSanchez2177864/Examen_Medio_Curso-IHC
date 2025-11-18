@@ -10,6 +10,21 @@ const messageTitle = document.getElementById('message-title');
 const messageText = document.getElementById('message-text');
 const closeMessage = document.getElementById('close-message');
 
+// ====== PRE-CARGA DE SONIDOS ======
+const SCorrecto = new Audio('Sonidos/SCorrecto.mp3');
+const SError = new Audio('Sonidos/SError.mp3');
+const SFinal = new Audio('Sonidos/SFinal.mp3');
+
+// Volúmenes (0.0 a 1.0)
+SCorrecto.volume = 0.6;
+SError.volume = 0.5;
+SFinal.volume = 0.8;
+
+// Pre-cargar sonidos en memoria
+SCorrecto.preload = 'auto';
+SError.preload = 'auto';
+SFinal.preload = 'auto';
+
 let modal = new bootstrap.Modal(document.getElementById('modalIntroduccion'));
 modal.show();
 let modalFinal = new bootstrap.Modal(document.getElementById('modalFinal'));
@@ -184,6 +199,8 @@ function checkMatch() {
         // Es un par
         card1.matched = true;
         card2.matched = true;
+        SCorrecto.currentTime = 0;
+        SCorrecto.play();
         matchedPairs++;
         pairsFoundElement.textContent = matchedPairs;
 
@@ -197,6 +214,8 @@ function checkMatch() {
         }
     } else {
         // No es un par, voltear de nuevo
+        SError.currentTime = 0;
+        SError.play();
         document.querySelector(`.card[data-id="${card1.id}"]`).classList.remove('flipped');
         document.querySelector(`.card[data-id="${card2.id}"]`).classList.remove('flipped');
     }
@@ -219,9 +238,11 @@ function endGame() {
     clearInterval(timerInterval);
 
     // Mostrar mensaje de felicitaciones
+    SFinal.currentTime = 0;
+    SFinal.play();
     const mensajeFinal = document.getElementById('mensajeFinal');
-  mensajeFinal.textContent = `Completaste el juego en ${timer} segundos y ${attempts} intentos.`;
-  modalFinal.show();
+    mensajeFinal.textContent = `Completaste el juego en ${timer} segundos y ${attempts} intentos.`;
+    modalFinal.show();
 }
 
 // Dar pista al jugador
@@ -278,16 +299,16 @@ closeMessage.addEventListener('click', () => {
 
 // Botones del modal final
 document.getElementById('btnInicio').addEventListener('click', () => {
-  window.location.href = 'index.html'; // Cambia por la ruta real
+    window.location.href = 'index.html'; // Cambia por la ruta real
 });
 
 document.getElementById('btnRepetir').addEventListener('click', () => {
-  modalFinal.hide();
-  initGame(); // Reinicia el juego
+    modalFinal.hide();
+    initGame(); // Reinicia el juego
 });
 
 document.getElementById('btnMasJuegos').addEventListener('click', () => {
-  window.location.href = 'dashboard.html'; // Cambia por tu página de juegos
+    window.location.href = 'dashboard.html'; // Cambia por tu página de juegos
 });
 
 document.addEventListener('DOMContentLoaded', initGame);

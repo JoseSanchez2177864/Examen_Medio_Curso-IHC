@@ -1,6 +1,21 @@
 $(document).ready(function () {
     let modal = new bootstrap.Modal(document.getElementById('modalIntroduccion'));
     modal.show();
+    // ====== PRE-CARGA DE SONIDOS ======
+    const SCorrecto = new Audio('Sonidos/SCorrecto.mp3');
+    const SError = new Audio('Sonidos/SError.mp3');
+    const SFinal = new Audio('Sonidos/SFinal.mp3');
+
+    // Volúmenes (0.0 a 1.0)
+    SCorrecto.volume = 0.6;
+    SError.volume = 0.5;
+    SFinal.volume = 0.8;
+
+    // Pre-cargar sonidos en memoria
+    SCorrecto.preload = 'auto';
+    SError.preload = 'auto';
+    SFinal.preload = 'auto';
+
     let puntaje = 0;
     let Total = 0;
     let Compuestos = [
@@ -63,7 +78,7 @@ $(document).ready(function () {
 
     ]
     function obtenerCompuestoAleatorio() {
-        while (Total < 25) {
+        while (Total < 15) {
             let disponibles = Compuestos.filter(c => !c.aparicion);
             let indice = Math.floor(Math.random() * disponibles.length);
             let seleccionado = disponibles[indice];
@@ -106,6 +121,8 @@ $(document).ready(function () {
         if (tipoSeleccionado === tipoCorrecto) {
             puntaje += 1
             Total += 1
+            SCorrecto.currentTime = 0;
+            SCorrecto.play();
             $("#contenedorPuntaje").html('<i class="bi bi-star-fill text-warning"></i> Puntaje: ' + puntaje + '/25');
             let modalCorrecto = new bootstrap.Modal(document.getElementById('modalCorrecto'));
             modalCorrecto.show();
@@ -117,6 +134,8 @@ $(document).ready(function () {
         } else {
             let error = Errores.find(e => e.tipo === tipoCorrecto);
             let comentario = error ? error.comentario : "Revisa bien las características del compuesto.";
+            SError.currentTime = 0;
+            SError.play();
             let modalError = new bootstrap.Modal(document.getElementById('modalError'));
             $('#errorTitulo').text(`❌ Respuesta incorrecta`);
             $('#errorCuerpo').html(`<strong>Pista sobre los ${tipoCorrecto}:</strong><br>${comentario}`);
@@ -128,6 +147,8 @@ $(document).ready(function () {
         }
     });
     function mostrarModalFinal() {
+        SFinal.currentTime = 0;
+        SFinal.play();
         let modalFinal = new bootstrap.Modal(document.getElementById('modalFinal'));
         $('#mensajeFinal').html(`Tu puntaje final fue de <strong>${puntaje}/25</strong>. ¡Excelente trabajo!`);
         modalFinal.show();
@@ -150,6 +171,9 @@ $(document).ready(function () {
                 .addClass('nombre-elemento');
         }
     );
+    document.getElementById('btnInicio').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
     document.getElementById('btnRepetir').addEventListener('click', () => {
         location.reload();
     });
