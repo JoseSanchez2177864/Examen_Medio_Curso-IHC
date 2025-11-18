@@ -1,5 +1,7 @@
 $(document).ready(function () {
     let modal = new bootstrap.Modal(document.getElementById('modalIntroduccion'));
+    let ayudaTimer = null;
+
     modal.show();
     // ====== PRE-CARGA DE SONIDOS ======
     const SCorrecto = new Audio('Sonidos/SCorrecto.mp3');
@@ -87,19 +89,96 @@ $(document).ready(function () {
         }
         mostrarModalFinal();
     }
+    function limpiarAyuda() {
+        // Selector para tus botones de opción
+        $('.btn-option').removeClass('ayuda-correcta');
+    }
+function colorearCompuesto(compuesto) {
+    const polianiones = ["CO₃", "SO₄", "PO₄", "ClO", "NO₃"];
+    const metales = ["Na", "K", "Li", "Ca", "Mg", "Fe", "Pb", "Ag", "Pt", "Ba", "Rb", "Hg", "Mn", "Al"];
+    const noMetales = ["Cl", "Br", "I", "S", "Se", "P", "N"];
+
+    // Ordenar por longitud descendente para que símbolos largos se detecten primero
+    polianiones.sort((a, b) => b.length - a.length);
+    metales.sort((a, b) => b.length - a.length);
+    noMetales.sort((a, b) => b.length - a.length);
+
+    let resultado = '';
+    let i = 0;
+
+    while (i < compuesto.length) {
+        let encontrado = false;
+
+        // Checar polianiones
+        for (let p of polianiones) {
+            if (compuesto.substr(i, p.length) === p) {
+                resultado += `<span class="polianion">${p}</span>`;
+                i += p.length;
+                encontrado = true;
+                break;
+            }
+        }
+        if (encontrado) continue;
+
+        // Checar metales
+        for (let m of metales) {
+            if (compuesto.substr(i, m.length) === m) {
+                resultado += `<span class="metal">${m}</span>`;
+                i += m.length;
+                encontrado = true;
+                break;
+            }
+        }
+        if (encontrado) continue;
+
+        // Checar no metales
+        for (let n of noMetales) {
+            if (compuesto.substr(i, n.length) === n) {
+                resultado += `<span class="no-metal">${n}</span>`;
+                i += n.length;
+                encontrado = true;
+                break;
+            }
+        }
+        if (encontrado) continue;
+
+        // Si no coincide nada, agregar el carácter tal cual
+        resultado += compuesto[i];
+        i++;
+    }
+
+    return resultado;
+}
+
+
+
+// Iluminar parte específica (H, O, OH, etc.)
+function iluminarParte(compuesto) {
+    let simbolo = compuesto.iluminar;
+    if (!simbolo) return;
+
+    // Escapar caracteres especiales
+    let escaped = simbolo.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    
+    // Solo iluminar lo que NO está ya dentro de un span
+    let regex = new RegExp(`(?![^<]*>)(` + escaped + `)(?![^<]*>)`, "g");
+
+    let html = $('#Compuesto').html();
+    $('#Compuesto').html(html.replace(regex, `<span class="iluminado">$1</span>`));
+}
+
     function mostrarCompuesto() {
+        clearTimeout(ayudaTimer);   // ya lo tenías, perfecto
+        limpiarAyuda();            // quita cualquier resaltado anterior
+
         let compuesto = obtenerCompuestoAleatorio();
         if (!compuesto) return;
         $('.btn-lg').removeClass('btnError btnSiguiente');
-        let compuestoHTML = compuesto.compuesto.replace(
-            compuesto.iluminar,
-            `<span class="iluminado">${compuesto.iluminar}</span>`
-        );
-        $('#Compuesto')
-            .html(compuestoHTML)
-            .addClass('resaltado');
+        let compuestoHTML = colorearCompuesto(compuesto.compuesto);
+        $('#Compuesto').html(compuestoHTML);
         setTimeout(() => $('#Compuesto').removeClass('resaltado'), 1000);
         $('.elemento').removeClass('iluminado');
+        iluminarParte(compuesto);
         let simbolo = compuesto.iluminar;
         let elemento = $(`.elemento[data-simbolo="${simbolo}"]`);
         elemento.addClass('iluminado');
@@ -111,19 +190,50 @@ $(document).ready(function () {
         $('.btn-lg').not('#' + tipo).addClass('btnError');
         $('#' + compuesto.tipo).addClass('btnSiguiente activo');
         $('.btn-lg').not('#' + compuesto.tipo).addClass('btnError');
+        clearTimeout(ayudaTimer); // limpiar el anterior
+
+        // Activar ayuda después de 40 segundos
+        ayudaTimer = setTimeout(() => {
+            resaltarOpcionCorrecta();
+        }, 40000);
 
         $('#Compuesto').data('tipo-correcto', compuesto.tipo);
+        // ===== GENERAR OPCIONES =====
+        let tiposDisponibles = Errores.map(e => e.tipo);
+
+        // 1. Tipo correcto
+        let tipoCorrecto = compuesto.tipo;
+
+        // 2. Sacar 3 tipos incorrectos
+        let incorrectos = tiposDisponibles.filter(t => t !== tipoCorrecto);
+        incorrectos = incorrectos.sort(() => Math.random() - 0.5).slice(0, 3);
+
+        // 3. Unir opciones
+        let opciones = [tipoCorrecto, ...incorrectos];
+
+        // 4. Mezclarlas
+        opciones = opciones.sort(() => Math.random() - 0.5);
+
+        // 5. Poner texto en botones
+        $("#btn1").text(opciones[0]);
+        $("#btn2").text(opciones[1]);
+        $("#btn3").text(opciones[2]);
+        $("#btn4").text(opciones[3]);
+
     };
     $('.btnSiguiente').on('click', mostrarCompuesto);
     $(document).on('click', '.btn-lg', function () {
         let tipoCorrecto = $('#Compuesto').data('tipo-correcto');
-        let tipoSeleccionado = $(this).attr('id');
+        let tipoSeleccionado = $(this).text();
+        clearTimeout(ayudaTimer);   // ya lo tenías, perfecto
+        limpiarAyuda();            // quita cualquier resaltado anterior
+
         if (tipoSeleccionado === tipoCorrecto) {
             puntaje += 1
             Total += 1
             SCorrecto.currentTime = 0;
             SCorrecto.play();
-            $("#contenedorPuntaje").html('<i class="bi bi-star-fill text-warning"></i> Puntaje: ' + puntaje + '/25');
+            $("#contenedorPuntaje").html('<i class="bi bi-star-fill text-warning"></i> Puntaje: ' + puntaje + '/15');
             let modalCorrecto = new bootstrap.Modal(document.getElementById('modalCorrecto'));
             modalCorrecto.show();
             $("#modalCorrecto .modal-content").addClass("animate__animated animate__pulse");
@@ -146,11 +256,21 @@ $(document).ready(function () {
             });
         }
     });
+    function resaltarOpcionCorrecta() {
+        let tipoCorrecto = $('#Compuesto').data('tipo-correcto');
+
+        // Encontrar el botón cuyo texto coincide
+        $('.btn-lg').each(function () {
+            if ($(this).text().trim() === tipoCorrecto) {
+                $(this).addClass('ayuda-correcta');
+            }
+        });
+    }
     function mostrarModalFinal() {
         SFinal.currentTime = 0;
         SFinal.play();
         let modalFinal = new bootstrap.Modal(document.getElementById('modalFinal'));
-        $('#mensajeFinal').html(`Tu puntaje final fue de <strong>${puntaje}/25</strong>. ¡Excelente trabajo!`);
+        $('#mensajeFinal').html(`Tu puntaje final fue de <strong>${puntaje}/15</strong>. ¡Excelente trabajo!`);
         modalFinal.show();
     }
     $('.elemento').hover(

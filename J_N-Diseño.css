@@ -13,6 +13,56 @@
         0 0 40px #ff007f;
 }
 
+.ayuda-correcta {
+    animation: ayudaPulso 1.3s ease-in-out infinite;
+    border: 3px solid #198754 !important; /* más grueso */
+    border-radius: 10px; /* suave y moderno */
+}
+
+@keyframes ayudaPulso {
+    0% { 
+        box-shadow: 0 0 0 rgba(25, 135, 84, 0); 
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 18px rgba(25, 135, 84, 0.8); 
+        transform: scale(1.03); /* pequeño zoom elegante */
+    }
+    100% { 
+        box-shadow: 0 0 0 rgba(25, 135, 84, 0); 
+        transform: scale(1);
+    }
+}
+
+.metal {
+    color: #4a90e2;
+    font-weight: bold;
+    text-shadow: 0 0 3px #4a90e2, 0 0 6px #4a90e2;
+    animation: brilloDiscreto 1.2s ease-in-out;
+}
+
+.no-metal {
+    color: #7ed321;
+    font-weight: bold;
+    text-shadow: 0 0 3px #7ed321, 0 0 6px #7ed321;
+    animation: brilloDiscreto 1.2s ease-in-out;
+}
+
+.polianion {
+    color: #b37eff;
+    font-weight: bold;
+    text-shadow: 0 0 3px #b37eff, 0 0 6px #b37eff;
+    animation: brilloDiscreto 1.2s ease-in-out;
+}
+
+@keyframes brilloDiscreto {
+    0%, 100% {
+        text-shadow: 0 0 2px currentColor;
+    }
+    50% {
+        text-shadow: 0 0 8px currentColor;
+    }
+}
 
 .highlight {
     color: red;
