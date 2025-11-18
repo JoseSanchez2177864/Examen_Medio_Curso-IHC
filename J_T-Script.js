@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let modal = new bootstrap.Modal(document.getElementById('modalIntroduccion'));
     modal.show();
+    let ayudaTimer = null;
     // ====== PRE-CARGA DE SONIDOS ======
     const SCorrecto = new Audio('Sonidos/SCorrecto.mp3');
     const SError = new Audio('Sonidos/SError.mp3');
@@ -89,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mostrarModalFinal();
     }
     const mostrarCompuesto = (compuesto) => {
+        clearTimeout(ayudaTimer);
         let compuestoActual = obtenerCompuestoAleatorio();
         if (!compuestoActual) return;
         $('#circle').html(compuestoActual.compound);
@@ -99,6 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = false;
         });
         currentCompound = compuestoActual;
+        ayudaTimer = setTimeout(() => {
+            optionButtons.forEach(btn => {
+                if (currentCompound.correctName.includes(btn.textContent.trim())) {
+                    btn.classList.add('ayuda-correcta'); // iluminar respuesta correcta
+                }
+            });
+        }, 40000);
     };
     let currentCompound = null;
     function mostrarModalFinal() {
@@ -125,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     SCorrecto.currentTime = 0;
                     SCorrecto.play();
                     document.getElementById('contenedorPuntaje').innerHTML =
-                        `<i class="bi bi-star-fill"></i> Puntaje: ${puntaje}/25`;
+                        `<i class="bi bi-star-fill"></i> Puntaje: ${puntaje}/15`;
                     let modalCorrecto = new bootstrap.Modal(document.getElementById('modalCorrecto'));
                     modalCorrecto.show();
                     $("#modalCorrecto .modal-content").addClass("animate__animated animate__pulse");
@@ -183,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'index.html';
     });
     document.getElementById('btnRepetir').addEventListener('click', () => {
-        location.reload(); 
+        location.reload();
     });
     document.getElementById('btnMasJuegos').addEventListener('click', () => {
         window.location.href = 'dashboard.html';

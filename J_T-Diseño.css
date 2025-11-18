@@ -14,6 +14,22 @@
         0 0 40px #ff007f;
 }
 
+.ayuda-correcta {
+    animation: ayudaPulso 1.3s ease-in-out infinite;
+    border: 3px solid #198754 !important; /* más grueso */
+    border-radius: 10px; /* suave y moderno */
+}
+
+@keyframes ayudaPulso {
+    0%, 100% { 
+        box-shadow: 0 0 0 rgba(25, 135, 84, 0); 
+    }
+    50% { 
+        box-shadow: 0 0 18px rgba(25, 135, 84, 0.8); 
+    }
+}
+
+
 .center-circle {
   width: 160px;
   height: 160px;
