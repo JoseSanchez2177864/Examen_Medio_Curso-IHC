@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +13,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
   <!-- CSS personalizado -->
   <link rel="stylesheet" href="dashboard.css" />
@@ -27,27 +29,23 @@
     </button>
   </nav>
 
-  <!-- Contenido principal -->
   <main class="dashboard">
     <div class="container text-center">
       <h1 class="dashboard-title">Tus Asignaturas</h1>
       <p class="dashboard-subtitle">Selecciona una materia para comenzar a practicar</p>
 
       <div class="row justify-content-center g-4 mt-4">
-        <!-- Química -->
         <div class="col-md-4 col-lg-3">
           <div class="dash-card main-card" id="quimica-card" style="position: relative; z-index: 2;">
             <i class="bi bi-thermometer-half" style="font-size:3rem; color:#ff006e;"></i>
             <h5>Química</h5>
           </div>
-
-          <!-- Subpanel de minijuegos -->
-          <div class="subgames mt-3" id="quimica-games" style="display: none;">
+          <div class="subgames mt-3 d-flex flex-column" id="quimica-games" style="display: none;">
             <div class="dash-card sub-card" onclick="window.location.href='Juego_memorama.html'">
               <h6>Memorama Químico</h6>
             </div>
             <div class="dash-card sub-card" onclick="window.location.href='Juego_Nomenclatura.html'">
-              <h6>Juego de Clasificación</h6>
+              <h6>Clasificación de Compuestos</h6>
             </div>
             <div class="dash-card sub-card" onclick="window.location.href='Juego_Telaraña.html'">
               <h6>Juego de Telaraña</h6>
@@ -55,27 +53,57 @@
           </div>
         </div>
 
-        <!-- Matemáticas -->
         <div class="col-md-4 col-lg-3">
-          <div class="dash-card main-card" style="position: relative; z-index:2;">
-            <i class="bi bi-calculator" style="font-size:3rem; color:#ff006e;"></i>
+          <div class="dash-card main-card" id="matematicas-card" style="position: relative; z-index:2;">
+            <i class="bi bi-calculator" style="font-size:3rem; color:#007bff;"></i>
             <h5>Matemáticas</h5>
           </div>
-        </div>
-
-        <!-- Física -->
-        <div class="col-md-4 col-lg-3">
-          <div class="dash-card main-card" style="position: relative; z-index:2;">
-            <i class="bi bi-lightning-charge" style="font-size:3rem; color:#ff006e;"></i>
-            <h5>Física</h5>
+          <div class="subgames mt-3 d-flex flex-column" id="matematicas-games" style="display: none;">
+            <div class="dash-card sub-card" onclick="window.location.href='Juego_Graficas.html'">
+              <h6>Identifica la Gráfica</h6>
+            </div>
+            <div class="dash-card sub-card" onclick="window.location.href='Juego_Funciones.html'">
+              <h6>Identifica la Gráfica</h6>
+            </div>
+            <div class="dash-card sub-card" onclick="window.location.href='Juego_Funciones.html'">
+              <h6>Identifica la Gráfica</h6>
+            </div>
           </div>
         </div>
 
-        <!-- Historia -->
         <div class="col-md-4 col-lg-3">
-          <div class="dash-card main-card" style="position: relative; z-index:2;">
-            <i class="bi bi-book" style="font-size:3rem; color:#ff006e;"></i>
+          <div class="dash-card main-card" id="fisica-card" style="position: relative; z-index:2;">
+            <i class="bi bi-lightning-charge" style="font-size:3rem; color:#ffc107;"></i>
+            <h5>Física</h5>
+          </div>
+          <div class="subgames mt-3 d-flex flex-column" id="fisica-games" style="display: none;">
+            <div class="dash-card sub-card" onclick="window.location.href='Juego_Unidades.html'">
+              <h6>El Desafío de Unidades</h6>
+            </div>
+            <div class="dash-card sub-card" onclick="window.location.href='Juego_Unidades.html'">
+              <h6>El Desafío de Unidades</h6>
+            </div>
+            <div class="dash-card sub-card" onclick="window.location.href='Juego_Unidades.html'">
+              <h6>El Desafío de Unidades</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-lg-3">
+          <div class="dash-card main-card" id="historia-card" style="position: relative; z-index:2;">
+            <i class="bi bi-book" style="font-size:3rem; color:#28a745;"></i>
             <h5>Historia</h5>
+          </div>
+          <div class="subgames mt-3 d-flex flex-column" id="historia-games" style="display: none;">
+            <div class="dash-card sub-card" onclick="window.location.href='Juego_Hilo.html'">
+              <h6>Acomoda el Evento Histórico</h6>
+            </div>
+            <div class="dash-card sub-card" onclick="window.location.href='Juego_Hilo.html'">
+              <h6>Acomoda el Evento Histórico</h6>
+            </div>
+            <div class="dash-card sub-card" onclick="window.location.href='Juego_Hilo.html'">
+              <h6>Acomoda el Evento Histórico</h6>
+            </div>
           </div>
         </div>
       </div>
@@ -84,31 +112,58 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- JS para mostrar/ocultar minijuegos -->
   <script>
-    const quimicaCard = document.getElementById('quimica-card');
-    const quimicaGames = document.getElementById('quimica-games');
+    // Función genérica para manejar el despliegue
+    function toggleGames(cardId, gamesId) {
+      const mainCard = document.getElementById(cardId);
+      const gamesContainer = document.getElementById(gamesId);
 
-    quimicaCard.addEventListener('click', () => {
-       if (quimicaGames.style.display === "none") {
-    quimicaGames.style.display = "flex";
+      if (!mainCard || !gamesContainer) return; // Salir si no encuentra los elementos
 
-    // Agregar clase 'show' con retraso para cada sub-card
-    const subcards = quimicaGames.querySelectorAll('.sub-card');
-    subcards.forEach((card, index) => {
-      card.style.animationDelay = `${index * 0.15}s`;
-      card.classList.add('show');
+      // 1. Ocultar todos los demás submenús
+      document.querySelectorAll('.subgames').forEach(subgames => {
+        if (subgames.id !== gamesId) {
+          subgames.style.display = 'none';
+          subgames.querySelectorAll('.sub-card').forEach(card => card.classList.remove('show'));
+        }
+      });
+
+      // 2. Alternar la visibilidad del menú seleccionado
+      if (gamesContainer.style.display === "none" || gamesContainer.style.display === "") {
+        gamesContainer.style.display = "flex";
+
+        // Agregar clase 'show' con retraso para animar
+        const subcards = gamesContainer.querySelectorAll('.sub-card');
+        subcards.forEach((card, index) => {
+          // Pequeño retraso para una animación escalonada
+          card.style.animationDelay = `${index * 0.15}s`;
+          card.classList.add('show');
+        });
+
+      } else {
+        // Ocultar subcards
+        gamesContainer.querySelectorAll('.sub-card').forEach(card => card.classList.remove('show'));
+        gamesContainer.style.display = "none";
+      }
+    }
+
+    // Asignar el evento de clic a cada tarjeta principal
+    document.getElementById('quimica-card').addEventListener('click', () => {
+      toggleGames('quimica-card', 'quimica-games');
     });
 
-  } else {
-    // Ocultar subcards y quitar clase show para que vuelva a animar después
-    const subcards = quimicaGames.querySelectorAll('.sub-card');
-    subcards.forEach(card => card.classList.remove('show'));
-    quimicaGames.style.display = "none";
-  }
-});
+    document.getElementById('matematicas-card').addEventListener('click', () => {
+      toggleGames('matematicas-card', 'matematicas-games');
+    });
 
+    document.getElementById('fisica-card').addEventListener('click', () => {
+      toggleGames('fisica-card', 'fisica-games');
+    });
+
+    document.getElementById('historia-card').addEventListener('click', () => {
+      toggleGames('historia-card', 'historia-games');
+    });
   </script>
 </body>
+
 </html>

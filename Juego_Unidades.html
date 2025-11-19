@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Desafío de Unidades (Física)</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="J_N-Diseño.css">
+    <link rel="stylesheet" href="main-diseño.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body class="bg-light text-center">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">GameLearn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Acerca</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Más Asignaturas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Más Juegos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2" href="#">Regístrate!</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br><br>
+
+    <div class="container py-5">
+        <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap">
+            <div id="contenedorPuntaje" class="puntaje">
+                <i class="bi bi-gear-fill"></i> Puntaje: 0/10
+            </div>
+            <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0"> El Desafío de Unidades</h2>
+            <button class="btn btn-tabla btn-sm" data-bs-toggle="modal" data-bs-target="#unidadesModal">
+                <i class="bi bi-table"></i> Tabla SI
+            </button>
+        </div>
+        <br>
+        
+        <div id="ProblemaFisico" class="compound p-4 border rounded shadow-lg bg-warning bg-opacity-75 text-dark text-start">
+             <h4 class="mb-3">**Problema:**</h4>
+             <p class="fs-5">Calcula la **Fuerza** necesaria para mover un objeto de **$15 \text{ kg}$** con una aceleración de **$4 \text{ m/s}^2$**.</p>
+             <p class="h4 text-center mt-4">El resultado de tu cálculo es: **$60$**</p>
+        </div>
+        <br>
+
+        <h5 class="mb-3">¿Cuál es la unidad SI correcta para este resultado?</h5>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <button id="btn1" class="btn btn-option btn-lg">$$ \text{kg} \cdot \text{m} $$</button>
+            <button id="btn2" class="btn btn-option btn-lg">$$ \text{Pascal (Pa)} $$</button>
+            <button id="btn3" class="btn btn-option btn-lg">$$ \text{Newton (N)} $$</button>
+            <button id="btn4" class="btn btn-option btn-lg">$$ \text{Joule (J)} $$</button>
+        </div><br>
+    </div>
+
+    <div class="modal fade" id="unidadesModal" tabindex="-1" aria-labelledby="unidadesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-dark">
+                    <h5 class="modal-title" id="unidadesModalLabel">Tabla de Unidades SI Derivadas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p>Referencia rápida de las unidades.</p>
+                    
+
+[Image of SI derived units table]
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <!-- Imágenes de Fondo-->
+    <div class="decor circulo"></div>
+    <div class="decor triangulo"></div>
+    <div class="decor cuadrado"></div>
+    <div class="decor circulo small"></div>
+    <div class="decor circulo medium"></div>
+    <div class="decor estrella"></div>
+    <div class="decor triangulo small"></div>
+    <div class="decor cuadrado large"></div>
+    
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="J_N-Script.js"></script>
+</body>
+</html>
