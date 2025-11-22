@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="J_N-Diseño.css">
     <link rel="stylesheet" href="main-diseño.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -63,18 +62,83 @@
         </div><br>
     </div>
 
-    <div class="modal fade" id="curvasModal" tabindex="-1" aria-labelledby="curvasModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+    <!-- ------------------------------------------------------------- -->
+    <!-- MODALES -->
+    <!-- ------------------------------------------------------------- -->
+
+    <!-- Modal de introducción (Usado para comenzar el juego) -->
+    <div class="modal fade" id="modalIntroduccion" tabindex="-1" aria-labelledby="modalIntroduccionLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="curvasModalLabel">Tipos de Gráficas Comunes</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido al Desafío Histórico!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
                 </div>
-                <div class="modal-body text-center">
-                    <p>Aquí podría ir una tabla o imagen de referencia que muestre ejemplos de las formas de las gráficas (Parábola, Hipérbola, Línea, etc.).</p>
+                <div class="modal-body text-start">
+                    <p>En este juego, tu misión es ubicar correctamente los grandes eventos de la historia en su Periodo
+                        Histórico correspondiente.</p>
+                    <ul class="text-start">
+                        <li>**Objetivo:** Clasificar 15 eventos.</li>
+                        <li>**Pista:** Usa el botón de Pista para resaltar la respuesta correcta, pero úsalo con
+                            moderación.</li>
+                        <li>**Periodos:** Prehistoria, Antigüedad, Edad Media, Edad Moderna, Edad Contemporánea.</li>
+                    </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">¡Comenzar!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Correcto -->
+    <div class="modal fade" id="modalCorrecto" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+                <h4 class="mb-3 fw-bold">✅ ¡Correcto!</h4>
+                <p class="fs-5 mb-0">¡Bien hecho! Continúa con el siguiente evento.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Error (Con explicación) -->
+    <div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="errorTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-danger">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="errorTitulo">❌ Respuesta incorrecta</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="errorCuerpo">
+                    <!-- Aquí se insertará dinámicamente el comentario -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Felicitación -->
+    <div class="modal fade" id="modalFinal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+                <h3 class="mb-3 fw-bold">🎉 ¡Felicidades!</h3>
+                <p id="mensajeFinal" class="fs-5 mb-4"></p>
+
+                <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+                    <button id="btnInicio" class="btn btn-outline-primary" href="index.html">
+                        <i class="bi bi-house-door"></i> Inicio
+                    </button>
+                    <button id="btnRepetir" class="btn btn-outline-success" href="Juego_Nomenclatura.html">
+                        <i class="bi bi-arrow-repeat"></i> Repetir
+                    </button>
+                    <button id="btnMasJuegos" class="btn btn-outline-warning hero-btn" href="dashboard.html">
+                        <i class="bi bi-controller"></i> Más juegos
+                    </button>
                 </div>
             </div>
         </div>
@@ -90,7 +154,8 @@
     <div class="decor triangulo small"></div>
     <div class="decor cuadrado large"></div>
     
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="J_N-Script.js"></script>
+    <script src="J_G-Script.js"></script>
 </body>
 </html>
