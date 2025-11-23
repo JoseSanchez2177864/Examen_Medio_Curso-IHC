@@ -1,6 +1,3 @@
-// ---------------
-// CONFIG BÁSICA
-// ---------------
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -37,7 +34,6 @@ let isPausedForQuestion = false;
 let currentQuestionIndex = null;
 let countdownIntervalId = null;
 
-// Para dashboard
 window.flappyQuizData = {
     subject: "Física",
     scorePipes: 0,
@@ -46,9 +42,6 @@ window.flappyQuizData = {
     lastUpdated: null
 };
 
-// ---------------
-// PREGUNTAS FÍSICA PREPARATORIA
-// ---------------
 const questions = [
     {
         question: "Un coche pasa de 0 a 20 m/s en 5 s. ¿Cuál es su aceleración promedio?",
@@ -109,9 +102,6 @@ const questions = [
 
 const TOTAL_QUESTIONS = questions.length;
 
-// ---------------
-// CONTROL DE PREGUNTAS SIN REPETICIÓN
-// ---------------
 let questionOrder = [];
 
 function shuffleQuestions() {
@@ -127,9 +117,6 @@ function shuffleQuestions() {
 
 shuffleQuestions();
 
-// ---------------
-// FUNCIONES DEL JUEGO
-// ---------------
 function resetGame(fullReset = true) {
     if (countdownIntervalId) {
         clearInterval(countdownIntervalId);
@@ -199,9 +186,6 @@ function drawInitialScreen() {
     drawBird();
 }
 
-// ---------------
-// FIN DEL JUEGO (tras 10 preguntas)
-// ---------------
 function endGame() {
     if (countdownIntervalId) {
         clearInterval(countdownIntervalId);
@@ -218,9 +202,7 @@ function endGame() {
         `Preguntas correctas: <strong>${scoreQuiz}</strong> de ${TOTAL_QUESTIONS}`;
 }
 
-// ---------------
 // TUBOS
-// ---------------
 function spawnPipe() {
     const topHeight = Math.random() * 200 + 40;
     const bottomY = topHeight + pipeGap;
@@ -232,9 +214,7 @@ function spawnPipe() {
     });
 }
 
-// ---------------
-// PREGUNTA (solo al pasar tubo)
-// ---------------
+// PREGUNTA 
 function showQuestion() {
     // Si ya se hicieron todas las preguntas → terminar juego
     if (questionsAsked >= TOTAL_QUESTIONS || questionOrder.length === 0) {
@@ -266,9 +246,6 @@ function showQuestion() {
     questionBox.classList.remove("hidden");
 }
 
-// ---------------
-// CUENTA REGRESIVA (entre preguntas)
-// ---------------
 function startCountdown() {
     if (countdownIntervalId) {
         clearInterval(countdownIntervalId);
@@ -295,9 +272,6 @@ function startCountdown() {
     }, 1000);
 }
 
-// ---------------
-// RESPUESTA
-// ---------------
 function handleAnswer(selected) {
     const q = questions[currentQuestionIndex];
     const correct = selected === q.correctIndex;
@@ -331,9 +305,6 @@ function handleAnswer(selected) {
     }
 }
 
-// ---------------
-// GAME LOOP
-// ---------------
 function gameLoop() {
     requestAnimationFrame(gameLoop);
 
@@ -374,7 +345,7 @@ function gameLoop() {
     drawPipes();
     drawBird();
 
-    // -------- COLISIONES: reinicio sin pregunta --------
+    //  COLISIONES
 
     // Suelo o techo
     if (bird.y <= 0 || bird.y + bird.height >= canvas.height) {
@@ -395,9 +366,8 @@ function gameLoop() {
     }
 }
 
-// ---------------
+
 // CONTROLES
-// ---------------
 document.addEventListener("keydown", (e) => {
     // Evitar que Space/Enter activen el botón enfocado
     if (e.code === "Space" || e.code === "Enter") {
@@ -428,13 +398,9 @@ btnHome.addEventListener("click", (e) => {
     window.location.href = "dashboard.html";
 });
 
-
-// ---------------
 // INICIO
-// ---------------
-// ============================================
-//      POPUP DE BIENVENIDA (nueva lógica)
-// ============================================
+
+
 const welcomeModal = document.getElementById("welcomeModal");
 const startGameButton = document.getElementById("startGameButton");
 
@@ -448,10 +414,11 @@ document.addEventListener("DOMContentLoaded", () => {
 startGameButton.addEventListener("click", () => {
     welcomeModal.style.display = "none";
 
-    // Muestra mensaje: “Presiona una tecla para comenzar”
+    // “Presiona una tecla para comenzar”
     overlay.classList.remove("hidden");
 });
 
 resetGame(true);
 gameLoop();
+
 
