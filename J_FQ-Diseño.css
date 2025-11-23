@@ -11,7 +11,6 @@ body {
     overflow-x: hidden;
 }
 
-/* ====== FONDO CON FORMAS ANIMADAS ====== */
 .bg-shapes {
     position: fixed;
     inset: 0;
@@ -30,7 +29,6 @@ body {
     animation-timing-function: linear;
 }
 
-/* Círculos */
 .shape-circle {
     width: 260px;
     height: 260px;
@@ -50,7 +48,6 @@ body {
     animation-name: floatCircle2;
 }
 
-/* Cuadrados */
 .shape-square {
     width: 220px;
     height: 220px;
@@ -69,7 +66,6 @@ body {
     animation-name: floatSquare2;
 }
 
-/* Rombo */
 .shape-diamond {
     width: 190px;
     height: 190px;
@@ -80,7 +76,6 @@ body {
     animation-name: floatDiamond;
 }
 
-/* Animaciones */
 @keyframes floatCircle1 {
     0%   { transform: translate(0, 0) scale(1); }
     25%  { transform: translate(40px, -40px) scale(1.05); }
@@ -120,8 +115,6 @@ body {
     75%  { transform: translate(-30px, 40px) rotate(60deg); }
     100% { transform: translate(0, 0) rotate(45deg); }
 }
-
-/* ====== HEADER TIPO GAMELEARN ====== */
 
 #mainHeader {
     position: sticky;
@@ -183,8 +176,6 @@ body {
     border-color: #ff007f;
 }
 
-/* ====== CONTENIDO PRINCIPAL ====== */
-
 #mainContent {
     padding: 20px 15px 40px 15px;
 }
@@ -195,7 +186,6 @@ h1 {
     color: #fdfdfd;
 }
 
-/* Panel de info con estilo glass */
 #infoPanel {
     display: flex;
     justify-content: center;
@@ -213,7 +203,6 @@ h1 {
     margin-right: auto;
 }
 
-/* Botones superiores */
 #buttonsPanel {
     margin: 10px 0 15px 0;
     display: flex;
@@ -256,7 +245,6 @@ h1 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-/* Canvas del juego (lo dejamos igual que antes) */
 #gameCanvas {
     background: #4ec0ca;
     display: block;
@@ -265,7 +253,6 @@ h1 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
-/* Overlay de inicio / conteos */
 .overlay {
     position: fixed;
     inset: 0;
@@ -291,9 +278,6 @@ h1 {
     display: none;
 }
 
-
-
-/* Cuadro de pregunta */
 #questionBox {
     position: fixed;
     top: 50%;
@@ -326,7 +310,6 @@ h1 {
     font-size: 16px;
 }
 
-/* Opciones */
 #optionsContainer {
     display: flex;
     flex-direction: column;
@@ -390,7 +373,6 @@ h1 {
     cursor: pointer;
 }
 
-/* ===== Modal de bienvenida ===== */
 .welcome-overlay {
     position: fixed;
     inset: 0;
@@ -446,4 +428,5 @@ h1 {
 .welcome-btn:hover {
     background: #38a9b4;
     transform: translateY(-3px);
+
 }
