@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Desafío de Unidades (Física)</title>
+    <title>El Desafío de Unidades</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="J_N-Diseño.css">
+    <link rel="stylesheet" href="J_U-Diseño.css">
     <link rel="stylesheet" href="main-diseño.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -38,23 +38,40 @@
     <br><br><br>
 
     <div class="container py-5">
-        <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap">
+        <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap mb-4">
             <div id="contenedorPuntaje" class="puntaje">
-                <i class="bi bi-gear-fill"></i> Puntaje: 0/10
+                <i class="bi bi-star-fill"></i> Puntaje: 0/10
             </div>
-            <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0"> El Desafío de Unidades</h2>
-            <button class="btn btn-tabla btn-sm" data-bs-toggle="modal" data-bs-target="#unidadesModal">
-                <i class="bi bi-table"></i> Tabla SI
+            <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0">Identifica la Unidad</h2>
+            <!-- Botón de Pista -->
+            <button class="btn btn-pista btn-sm btn-uni" id="btnPista" data-bs-toggle="modal"
+                data-bs-target="#modalUnidades">
+                <i class="bi bi-triangle-fill"></i> Tabla de Unidades
             </button>
         </div>
         <br>
-        
-        <div id="ProblemaFisico" class="compound p-4 border rounded shadow-lg bg-warning bg-opacity-75 text-dark text-start">
-             <h4 class="mb-3">**Problema:**</h4>
-             <p class="fs-5">Calcula la **Fuerza** necesaria para mover un objeto de **$15 \text{ kg}$** con una aceleración de **$4 \text{ m/s}^2$**.</p>
-             <p class="h4 text-center mt-4">El resultado de tu cálculo es: **$60$**</p>
+
+        <div id="ProblemaFisico" class="card shadow-lg border-0 bg-light">
+            <div class="card-body">
+                <h4 class="fw-bold text-primary mb-3">
+                    <i class="bi bi-lightning-charge-fill"></i> Problema
+                </h4>
+
+                <p class="fs-5">
+                    <strong></strong>
+                    <strong></strong>
+                    <strong></strong>.
+                </p>
+
+                <div class="resultado text-center mt-4 p-3 rounded bg-primary bg-opacity-10">
+                    <p class="h4 m-0">
+                        <strong></strong>
+                    </p>
+                </div>
+            </div>
         </div>
-        <br>
+
+        <br /><br />
 
         <h5 class="mb-3">¿Cuál es la unidad SI correcta para este resultado?</h5>
         <div class="d-flex justify-content-center gap-3 flex-wrap">
@@ -65,28 +82,220 @@
         </div><br>
     </div>
 
-    <div class="modal fade" id="unidadesModal" tabindex="-1" aria-labelledby="unidadesModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+    <!-- ------------------------------------------------------------- -->
+    <!-- MODALES -->
+    <!-- ------------------------------------------------------------- -->
+
+    <!-- Modal de introducción (Usado para comenzar el juego de Física) -->
+    <div class="modal fade" id="modalIntroduccion" tabindex="-1" aria-labelledby="modalIntroduccionLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header bg-warning text-dark">
-                    <h5 class="modal-title" id="unidadesModalLabel">Tabla de Unidades SI Derivadas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido al Reto de Unidades SI!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
                 </div>
-                <div class="modal-body text-center">
-                    <p>Referencia rápida de las unidades.</p>
-                    
+                <div class="modal-body text-start">
+                    <p>En este juego pondrás a prueba tus conocimientos de física y unidades del Sistema Internacional
+                        (SI). Tu misión es identificar la <strong>unidad correcta</strong> para cada situación física.
+                    </p>
 
-[Image of SI derived units table]
+                    <ul class="text-start">
+                        <li><strong>Objetivo:</strong> Resolver correctamente <strong>10 problemas de
+                                física</strong>.</li>
+                        <li><strong>Pistas:</strong> Puedes usar el botón de pista para iluminar la opción correcta,
+                            ¡pero úsalo sabiamente!</li>
+                        <li><strong>Temas:</strong> Fuerza, Trabajo, Energía, Potencia, Velocidad, Cantidad de
+                            movimiento, Frecuencia, Carga y Resistencia eléctrica, Aceleración y Potencial eléctrico.
+                        </li>
+                    </ul>
 
+                    <p class="mt-2">¿Estás listo para demostrar tu conocimiento en física y convertirte en un maestro de
+                        las unidades SI? ¡Comencemos! </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-warning" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">¡Comenzar!</button>
                 </div>
             </div>
         </div>
     </div>
-    
-        <!-- Imágenes de Fondo-->
+
+
+    <!-- MODAL -->
+    <div class="modal fade" id="modalUnidades" tabindex="-1" aria-labelledby="modalUnidadesLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalUnidadesLabel" style="color:#0ff; text-shadow:0 0 10px #0ff;">
+                        Unidades de Física
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-neon text-center">
+                            <thead>
+                                <tr>
+                                    <th>Cantidad Física</th>
+                                    <th>Unidad</th>
+                                    <th>Símbolo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="TUnidades">
+                                <tr>
+                                    <td>Fuerza</td>
+                                    <td>Newton</td>
+                                    <td>N</td>
+                                </tr>
+                                <tr>
+                                    <td>Masa</td>
+                                    <td>Kilogramo</td>
+                                    <td>kg</td>
+                                </tr>
+                                <tr>
+                                    <td>Aceleración</td>
+                                    <td>Metro/seg²</td>
+                                    <td>m/s²</td>
+                                </tr>
+                                <tr>
+                                    <td>Trabajo</td>
+                                    <td>Joule</td>
+                                    <td>J</td>
+                                </tr>
+                                <tr>
+                                    <td>Energía</td>
+                                    <td>Joule</td>
+                                    <td>J</td>
+                                </tr>
+                                <tr>
+                                    <td>Distancia</td>
+                                    <td>Metro</td>
+                                    <td>m</td>
+                                </tr>
+                                <tr>
+                                    <td>Presión</td>
+                                    <td>Pascal</td>
+                                    <td>Pa</td>
+                                </tr>
+                                <tr>
+                                    <td>Potencia</td>
+                                    <td>Vatio</td>
+                                    <td>W</td>
+                                </tr>
+                                <tr>
+                                    <td>Tiempo</td>
+                                    <td>Segundo</td>
+                                    <td>s</td>
+                                </tr>
+                                <tr>
+                                    <td>Velocidad</td>
+                                    <td>Metro/seg</td>
+                                    <td>m/s</td>
+                                </tr>
+                                <tr>
+                                    <td>Carga eléctrica</td>
+                                    <td>Coulomb</td>
+                                    <td>C</td>
+                                </tr>
+                                <tr>
+                                    <td>Inducción magnética</td>
+                                    <td>Tesla</td>
+                                    <td>T</td>
+                                </tr>
+                                <tr>
+                                    <td>Frecuencia</td>
+                                    <td>Hertz</td>
+                                    <td>Hz</td>
+                                </tr>
+                                <tr>
+                                    <td>Potencial eléctrico</td>
+                                    <td>Voltio</td>
+                                    <td>V</td>
+                                </tr>
+                                <tr>
+                                    <td>Resistencia eléctrica</td>
+                                    <td>Ohmio</td>
+                                    <td>Ω</td>
+                                </tr>
+                                <tr>
+                                    <td>Corriente eléctrica</td>
+                                    <td>Ampere</td>
+                                    <td>A</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-neon" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Correcto -->
+    <div class="modal fade" id="modalCorrecto" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+                <h4 class="mb-3 fw-bold">✅ ¡Correcto!</h4>
+                <p class="fs-5 mb-0">¡Bien hecho! Continúa con el siguiente evento.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Error (Con explicación) -->
+    <div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="errorTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-danger">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="errorTitulo">❌ Respuesta incorrecta</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="errorCuerpo">
+                    <!-- Aquí se insertará dinámicamente el comentario -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Felicitación -->
+    <div class="modal fade" id="modalFinal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+                <h3 class="mb-3 fw-bold">🎉 ¡Felicidades!</h3>
+                <p id="mensajeFinal" class="fs-5 mb-4"></p>
+
+                <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+                    <button id="btnInicio" class="btn btn-outline-primary" href="index.html">
+                        <i class="bi bi-house-door"></i> Inicio
+                    </button>
+                    <button id="btnRepetir" class="btn btn-outline-success" href="Juego_Nomenclatura.html">
+                        <i class="bi bi-arrow-repeat"></i> Repetir
+                    </button>
+                    <button id="btnMasJuegos" class="btn btn-outline-warning hero-btn" href="dashboard.html">
+                        <i class="bi bi-controller"></i> Más juegos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Imágenes de Fondo-->
     <div class="decor circulo"></div>
     <div class="decor triangulo"></div>
     <div class="decor cuadrado"></div>
@@ -95,8 +304,9 @@
     <div class="decor estrella"></div>
     <div class="decor triangulo small"></div>
     <div class="decor cuadrado large"></div>
-    
+
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="J_N-Script.js"></script>
+    <script src="J_U-Script.js"></script>
 </body>
+
 </html>
