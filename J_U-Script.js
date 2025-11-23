@@ -1,174 +1,342 @@
 // Array de problemas de física para identificar la unidad SI correcta.
 const problemasFisica = [
-    // La respuesta correcta SIEMPRE es el índice de la unidad correcta.
     {
         problema: {
             titulo: "Fuerza",
-            formula: "$$ F = m \cdot a $$",
-            texto: "Calcula la **Fuerza** necesaria para mover un objeto de **15 \\mathrm{kg}** con una aceleración de **4 \\mathrm{m/s^2}**.",
+            formula: "$$ F = m \\cdot a $$",
+            texto: "Calcula la <strong>Fuerza</strong> necesaria para mover un objeto de <strong>15 kg</strong> con una aceleración de <strong>4 m/s²</strong>.",
             resultado: "60"
         },
         opciones: [
-            { texto: "kg·m", esCorrecta: false, explicacion: "Incorrecto. La unidad de la Fuerza en el SI es el Newton, equivalente a kg·m/s²." },
-            { texto: "Pascal (Pa)", esCorrecta: false, explicacion: "Incorrecto. El **Pascal (Pa)** es la unidad de la Presión." },
-            { texto: "Newton (N)", esCorrecta: true, explicacion: "¡Correcto! La Fuerza se mide en Newton (N), equivalente a kg·m/s²." },
-            { texto: "Joule (J)", esCorrecta: false, explicacion: "Incorrecto. El Joule es la unidad de la Energía." }
+            { texto: "kg·m", esCorrecta: false, explicacion: "Incorrecto. Aunque contiene las magnitudes de masa y distancia, le falta el término tiempo. La fuerza requiere unidades de <strong>kg·m/s²</strong>" },
+            { texto: "Pascal", esCorrecta: false, explicacion: "Incorrecto. El Pascal es unidad de <strong>presión</strong>, no de fuerza." },
+            { texto: "Newton", esCorrecta: true, explicacion: "¡Correcto! La fuerza se expresa en <strong>Newtons (N)</strong>, equivalentes a <strong>kg·m/s²</strong> según la segunda ley de Newton." },
+            { texto: "Joule", esCorrecta: false, explicacion: "Incorrecto. El Joule es la unidad de <strong>energía</strong> o trabajo." }
         ],
-        respuestaCorrectaTexto: "Newton (N)"
+        respuestaCorrectaTexto: "Newton"
     },
+
     {
         problema: {
             titulo: "Trabajo / Energía",
             formula: "$$ W = F \\cdot d $$",
-            texto: "Calcula el **Trabajo** realizado por una fuerza de **$10 \\text{ N}$** al desplazar un objeto **$5 \\text{ m}$**.",
+            texto: "Calcula el <strong>Trabajo</strong> realizado por una fuerza de <strong>10 N</strong> al desplazar un objeto <strong>5 m</strong>.",
             resultado: "50"
         },
         opciones: [
-            { texto: "$$ \\text{Vatio (W)} $$", esCorrecta: false, explicacion: "Incorrecto. El Vatio es la unidad de la Potencia." },
-            { texto: "$$ \\text{Joule (J)} $$", esCorrecta: true, explicacion: "¡Correcto! El Trabajo se mide en **Joule (J)**, que es equivalente a $\\text{N} \\cdot \\text{m}$." },
-            { texto: "$$ \\text{Tesla (T)} $$", esCorrecta: false, explicacion: "Incorrecto. El Tesla es la unidad de la Inducción Magnética." },
-            { texto: "$$ \\text{Coulomb (C)} $$", esCorrecta: false, explicacion: "Incorrecto. El Coulomb es la unidad de la Carga Eléctrica." }
+            { texto: "Vatio", esCorrecta: false, explicacion: "Incorrecto. El Vatio es la unidad de <strong>potencia</strong> (J/s), no de trabajo." },
+            { texto: "Joule", esCorrecta: true, explicacion: "¡Correcto! El trabajo se mide en <strong>Joules (J)</strong>, resultado de multiplicar una fuerza (N) por una distancia (m)." },
+            { texto: "Tesla", esCorrecta: false, explicacion: "Incorrecto. El Tesla es la unidad del <strong>campo magnético</strong>." },
+            { texto: "Coulomb", esCorrecta: false, explicacion: "Incorrecto. El Coulomb es la unidad de <strong>carga eléctrica</strong>." }
         ],
-        respuestaCorrectaTexto: "Joule (J)"
+        respuestaCorrectaTexto: "Joule"
     },
+
     {
         problema: {
             titulo: "Presión",
             formula: "$$ P = F / A $$",
-            texto: "Calcula la **Presión** ejercida por una fuerza de **$200 \\text{ N}$** sobre un área de **$0.5 \\text{ m}^2$**.",
+            texto: "Calcula la <strong>Presión</strong> ejercida por una fuerza de <strong>200 N</strong> sobre un área de <strong>0.5 m²</strong>.",
             resultado: "400"
         },
         opciones: [
-            { texto: "$$ \\text{Newton (N)} $$", esCorrecta: false, explicacion: "Incorrecto. El Newton es la unidad de la Fuerza." },
-            { texto: "$$ \\text{Pascal (Pa)} $$", esCorrecta: true, explicacion: "¡Correcto! La Presión ($P=F/A$) se mide en **Pascal (Pa)**, que es equivalente a $\\text{N}/\\text{m}^2$." },
-            { texto: "$$ \\text{Joule (J)} $$", esCorrecta: false, explicacion: "Incorrecto. El Joule es la unidad de la Energía." },
-            { texto: "$$ \\text{Hertz (Hz)} $$", esCorrecta: false, explicacion: "Incorrecto. El Hertz es la unidad de la Frecuencia." }
+            { texto: "Newton", esCorrecta: false, explicacion: "Incorrecto. El Newton mide <strong>fuerza</strong>, no presión." },
+            { texto: "Pascal", esCorrecta: true, explicacion: "¡Correcto! La presión se mide en <strong>Pascales (Pa)</strong>, que equivalen a <strong>N/m²<strong> según su definición." },
+            { texto: "Joule", esCorrecta: false, explicacion: "Incorrecto. El Joule es unidad de <strong>energía</strong>." },
+            { texto: "Hertz", esCorrecta: false, explicacion: "Incorrecto. El Hertz mide <strong>frecuencia</strong>." }
         ],
-        respuestaCorrectaTexto: "Pascal (Pa)"
+        respuestaCorrectaTexto: "Pascal"
     },
+
     {
         problema: {
             titulo: "Potencia",
             formula: "$$ P = W / t $$",
-            texto: "Calcula la **Potencia** consumida si se realiza un **Trabajo** de **$1000 \\text{ J}$** en **$10 \\text{ s}$**.",
+            texto: "Calcula la <strong>Potencia</strong> consumida si se realiza un <strong>Trabajo</strong> de <strong>1000 J</strong> en <strong>10 s</strong>",
             resultado: "100"
         },
         opciones: [
-            { texto: "$$ \\text{Voltio (V)} $$", esCorrecta: false, explicacion: "Incorrecto. El Voltio es la unidad del Potencial Eléctrico." },
-            { texto: "$$ \\text{Vatio (W)} $$", esCorrecta: true, explicacion: "¡Correcto! La Potencia ($P=W/t$) se mide en **Vatio (W)**, que es equivalente a $\\text{J}/\\text{s}$." },
-            { texto: "$$ \\text{Ohmio } (\\Omega) $$", esCorrecta: false, explicacion: "Incorrecto. El Ohmio es la unidad de la Resistencia Eléctrica." },
-            { texto: "$$ \\text{Ampere (A)} $$", esCorrecta: false, explicacion: "Incorrecto. El Ampere es la unidad de la Corriente Eléctrica." }
+            { texto: "Voltio", esCorrecta: false, explicacion: "Incorrecto. El Voltio mide <strong>potencial eléctrico</strong>, no potencia." },
+            { texto: "Vatio", esCorrecta: true, explicacion: "¡Correcto! La potencia se expresa en <strong>Vatios (W)</strong>, equivalentes a Joules por segundo." },
+            { texto: "Ohmio", esCorrecta: false, explicacion: "Incorrecto. El Ohmio es la unidad de <strong>resistencia eléctrica</strong>." },
+            { texto: "Ampere", esCorrecta: false, explicacion: "Incorrecto. El Ampere mide <strong>corriente eléctrica</strong>." }
         ],
-        respuestaCorrectaTexto: "Vatio (W)"
+        respuestaCorrectaTexto: "Vatio"
     },
+
     {
         problema: {
             titulo: "Velocidad / Rapidez",
             formula: "$$ v = \\Delta x / \\Delta t $$",
-            texto: "Calcula la **Velocidad** promedio de un coche que recorre **$150 \\text{ metros}$** en **$30 \\text{ segundos}$**.",
+            texto: "Calcula la <strong>Velocidad</strong> promedio de un coche que recorre <strong>150 m</strong> en <strong>30 s</strong>.",
             resultado: "5"
         },
         opciones: [
-            { texto: "$$ \\text{m}/\\text{s} $$", esCorrecta: true, explicacion: "¡Correcto! La Velocidad se mide en **metros por segundo ($\\text{m}/\\text{s}$)**, que es la unidad fundamental para distancia/tiempo." },
-            { texto: "$$ \\text{m}/\\text{s}^2 $$", esCorrecta: false, explicacion: "Incorrecto. $\\text{m}/\\text{s}^2$ es la unidad de la Aceleración." },
-            { texto: "$$ \\text{Segundo (s)} $$", esCorrecta: false, explicacion: "Incorrecto. El Segundo es la unidad del Tiempo." },
-            { texto: "$$ \\text{Joule (J)} $$", esCorrecta: false, explicacion: "Incorrecto. El Joule es la unidad de la Energía." }
+            { texto: "m/s", esCorrecta: true, explicacion: "¡Correcto! La velocidad en el SI se expresa en <strong>metros por segundo (m/s)</strong>." },
+            { texto: "m/s²", esCorrecta: false, explicacion: "Incorrecto. m/s² representa <strong>aceleración</strong>, no velocidad." },
+            { texto: "Segundo", esCorrecta: false, explicacion: "Incorrecto. Esta es la unidad de <strong>tiempo</strong>." },
+            { texto: "Joule", esCorrecta: false, explicacion: "Incorrecto. El Joule es la unidad de <strong>energía</strong>." }
         ],
         respuestaCorrectaTexto: "m/s"
     },
+
     {
         problema: {
             titulo: "Cantidad de Movimiento",
             formula: "$$ p = m \\cdot v $$",
-            texto: "Determina la **Cantidad de Movimiento** de un objeto de **$2 \\text{ kg}$** que viaja a **$8 \\text{ m/s}$**.",
+            texto: "Determina la <strong>Cantidad de Movimiento</strong> de un objeto de <strong>2 kg</strong> que viaja a <strong>8 m/s</strong>.",
             resultado: "16"
         },
         opciones: [
-            { texto: "$$ \\text{Newton (N)} $$", esCorrecta: false, explicacion: "Incorrecto. El Newton es la unidad de Fuerza." },
-            { texto: "$$ \\text{kg} \\cdot \\text{m}/\\text{s} $$", esCorrecta: true, explicacion: "¡Correcto! La Cantidad de Movimiento ($p=m \\cdot v$) se mide en **$\\text{kg} \\cdot \\text{m}/\\text{s}$**." },
-            { texto: "$$ \\text{Newton} \\cdot \\text{segundo} $$", esCorrecta: false, explicacion: "Incorrecto, aunque $\\text{N} \\cdot \\text{s}$ es equivalente, $\\text{kg} \\cdot \\text{m}/\\text{s}$ es la unidad SI base." },
-            { texto: "$$ \\text{Joule (J)} $$", esCorrecta: false, explicacion: "Incorrecto. El Joule es la unidad de la Energía o Trabajo." }
+            { texto: "Newton", esCorrecta: false, explicacion: "Incorrecto. El Newton mide <strong>fuerza</strong>, no cantidad de movimiento." },
+            { texto: "kg·m/s", esCorrecta: true, explicacion: "¡Correcto! La cantidad de movimiento se mide en <strong>kg·m/s</strong>, resultado directo de multiplicar masa por velocidad." },
+            { texto: "Newton·seg", esCorrecta: false, explicacion: "Casi. Es una unidad equivalente, pero la unidad fundamental en el SI es <strong>kg·m/s</strong>." },
+            { texto: "Joule", esCorrecta: false, explicacion: "Incorrecto. El Joule es unidad de <strong>energía</strong>." }
         ],
-        respuestaCorrectaTexto: "kg \\cdot m/s"
+        respuestaCorrectaTexto: "kg · m/s"
     },
+
     {
         problema: {
             titulo: "Frecuencia",
             formula: "$$ f = 1 / T $$",
-            texto: "Si un evento ocurre **$5$ veces** en **$1$ segundo**, ¿cuál es su **Frecuencia** en $\\text{s}^{-1}$?",
+            texto: "Si un evento ocurre <strong>5 veces</strong> en <strong>1 segundo</strong>, ¿cuál es su <strong>Frecuencia</strong> en s<sup>-1</sup>)?",
             resultado: "5"
         },
         opciones: [
-            { texto: "$$ \\text{Joule (J)} $$", esCorrecta: false, explicacion: "Incorrecto. El Joule es la unidad de la Energía." },
-            { texto: "$$ \\text{Hertz (Hz)} $$", esCorrecta: true, explicacion: "¡Correcto! La Frecuencia ($f=1/T$) se mide en **Hertz (Hz)**, que es equivalente a $\\text{s}^{-1}$." },
-            { texto: "$$ \\text{Segundo (s)} $$", esCorrecta: false, explicacion: "Incorrecto. El Segundo es la unidad del Periodo." },
-            { texto: "$$ \\text{Ohmio } (\\Omega) $$", esCorrecta: false, explicacion: "Incorrecto. El Ohmio es la unidad de la Resistencia Eléctrica." }
+            { texto: "Joule", esCorrecta: false, explicacion: "Incorrecto. El Joule mide <strong>energía</strong>, no repetición de eventos." },
+            { texto: "Hertz", esCorrecta: true, explicacion: "¡Correcto! La frecuencia se mide en <strong>Hertz (Hz)</strong>, equivalente a eventos por segundo s<sup>-1</sup>." },
+            { texto: "Segundo", esCorrecta: false, explicacion: "Incorrecto. El segundo mide <strong>tiempo</strong>." },
+            { texto: "Ohmio", esCorrecta: false, explicacion: "Incorrecto. El Ohmio es unidad de <strong>resistencia</strong>." }
         ],
-        respuestaCorrectaTexto: "Hertz (Hz)"
+        respuestaCorrectaTexto: "Hertz"
     },
-    // INICIO: Problemas adicionales
+
     {
         problema: {
             titulo: "Carga Eléctrica",
             formula: "$$ Q = I \\cdot t $$",
-            texto: "Determina la **Carga Eléctrica** que pasa por un circuito con una corriente de **$2 \\text{ A}$** durante **$30 \\text{ s}$**.",
+            texto: "Determina la <strong>Carga Eléctrica</strong> que pasa por un circuito con una corriente de <strong>2 A</strong> durante <strong>30 s</strong>.",
             resultado: "60"
         },
         opciones: [
-            { texto: "$$ \\text{Voltio (V)} $$", esCorrecta: false, explicacion: "Incorrecto. El Voltio es la unidad del Potencial Eléctrico." },
-            { texto: "$$ \\text{Ohmio } (\\Omega) $$", esCorrecta: false, explicacion: "Incorrecto. El Ohmio es la unidad de la Resistencia Eléctrica." },
-            { texto: "$$ \\text{Faradio (F)} $$", esCorrecta: false, explicacion: "Incorrecto. El Faradio es la unidad de la Capacidad Eléctrica." },
-            { texto: "$$ \\text{Coulomb (C)} $$", esCorrecta: true, explicacion: "¡Correcto! La Carga Eléctrica ($Q=I \\cdot t$) se mide en **Coulomb (C)**, equivalente a $\\text{A} \\cdot \\text{s}$." }
+            { texto: "Voltio", esCorrecta: false, explicacion: "Incorrecto. El Voltio mide <strong>diferencia de potencial</strong>." },
+            { texto: "Ohmio", esCorrecta: false, explicacion: "Incorrecto. El Ohmio mide <strong>resistencia eléctrica</strong>." },
+            { texto: "Faradio", esCorrecta: false, explicacion: "Incorrecto. El Faradio mide <strong>capacitancia</strong>." },
+            { texto: "Coulomb", esCorrecta: true, explicacion: "¡Correcto! La carga eléctrica se mide en <strong>Coulombs (C)</strong>, resultado de multiplicar corriente (A) por tiempo (s)." }
         ],
-        respuestaCorrectaTexto: "Coulomb (C)"
+        respuestaCorrectaTexto: "Coulomb"
     },
+
     {
         problema: {
             titulo: "Resistencia Eléctrica",
             formula: "$$ R = V / I $$",
-            texto: "Calcula la **Resistencia** de un conductor si una diferencia de potencial de **$12 \\text{ V}$** genera una corriente de **$3 \\text{ A}$**.",
+            texto: "Calcula la <strong>Resistencia</strong> de un conductor si una diferencia de potencial de <strong>12 V</strong> genera una corriente de <strong>3 A</strong>.",
             resultado: "4"
         },
         opciones: [
-            { texto: "$$ \\text{Voltio (V)} $$", esCorrecta: false, explicacion: "Incorrecto. El Voltio es la unidad del Potencial Eléctrico." },
-            { texto: "$$ \\text{Vatio (W)} $$", esCorrecta: false, explicacion: "Incorrecto. El Vatio es la unidad de la Potencia." },
-            { texto: "$$ \\text{Ohmio } (\\Omega) $$", esCorrecta: true, explicacion: "¡Correcto! La Resistencia ($R=V/I$) se mide en **Ohmio ($\\Omega$)**, equivalente a $\\text{V}/\\text{A}$." },
-            { texto: "$$ \\text{Ampere (A)} $$", esCorrecta: false, explicacion: "Incorrecto. El Ampere es la unidad de la Corriente Eléctrica." }
+            { texto: "Voltio", esCorrecta: false, explicacion: "Incorrecto. Esto mide <strong>voltaje</strong>, no resistencia." },
+            { texto: "Vatio", esCorrecta: false, explicacion: "Incorrecto. Esto mide <strong>potencia</strong>." },
+            { texto: "Ohmio", esCorrecta: true, explicacion: "¡Correcto! La resistencia se mide en <strong>Ohmios (Ω)</strong>, equivalentes a Voltios entre Amperes." },
+            { texto: "Ampere", esCorrecta: false, explicacion: "Incorrecto. El Ampere es unidad de <strong>corriente</strong>." }
         ],
-        respuestaCorrectaTexto: "Ohmio ($\\Omega$)"
+        respuestaCorrectaTexto: "Ohmio"
     },
+
     {
         problema: {
             titulo: "Aceleración",
             formula: "$$ a = \\Delta v / \\Delta t $$",
-            texto: "Calcula la **Aceleración** de un vehículo que pasa de **$10 \\text{ m/s}$** a **$30 \\text{ m/s}$** en **$5 \\text{ s}$**.",
+            texto: "Calcula la <strong>Aceleración</strong> de un vehículo que pasa de <strong>10 m/s</strong> a <strong>30 m/s</strong> en <strong>5 s</strong>.",
             resultado: "4"
         },
         opciones: [
-            { texto: "$$ \\text{m}/\\text{s} $$", esCorrecta: false, explicacion: "Incorrecto. $\\text{m}/\\text{s}$ es la unidad de la Velocidad." },
-            { texto: "$$ \\text{Segundo (s)} $$", esCorrecta: false, explicacion: "Incorrecto. El Segundo es la unidad del Tiempo." },
-            { texto: "$$ \\text{m}/\\text{s}^2 $$", esCorrecta: true, explicacion: "¡Correcto! La Aceleración ($a=\\Delta v / \\Delta t$) se mide en **metros por segundo al cuadrado ($\\text{m}/\\text{s}^2$)**." },
-            { texto: "$$ \\text{Newton (N)} $$", esCorrecta: false, explicacion: "Incorrecto. El Newton es la unidad de la Fuerza." }
+            { texto: "m/s", esCorrecta: false, explicacion: "Incorrecto. Esta es la unidad de <strong>velocidad</strong>." },
+            { texto: "Segundo", esCorrecta: false, explicacion: "Incorrecto. Es la unidad de <strong>tiempo</strong>." },
+            { texto: "m/s²", esCorrecta: true, explicacion: "¡Correcto! La aceleración se mide en <strong>m/s²</strong>, ya que es un cambio de velocidad por unidad de tiempo." },
+            { texto: "Newton (N)", esCorrecta: false, explicacion: "Incorrecto. El Newton mide <strong>fuerza</strong>." }
         ],
-        respuestaCorrectaTexto: "m/s$^2$"
+        respuestaCorrectaTexto: "m/s²"
     },
+
     {
         problema: {
             titulo: "Potencial Eléctrico",
             formula: "$$ V = W / Q $$",
-            texto: "Determina el **Potencial Eléctrico** si se realiza un Trabajo de **$100 \\text{ J}$** para mover una carga de **$5 \\text{ C}$**.",
+            texto: "Determina el <strong>Potencial Eléctrico</strong> si se realiza un Trabajo de <strong>100 J</strong> para mover una carga de <strong>5 C</strong>.",
             resultado: "20"
         },
         opciones: [
-            { texto: "$$ \\text{Ohmio } (\\Omega) $$", esCorrecta: false, explicacion: "Incorrecto. El Ohmio es la unidad de la Resistencia Eléctrica." },
-            { texto: "$$ \\text{Ampere (A)} $$", esCorrecta: false, explicacion: "Incorrecto. El Ampere es la unidad de la Corriente Eléctrica." },
-            { texto: "$$ \\text{Voltio (V)} $$", esCorrecta: true, explicacion: "¡Correcto! El Potencial Eléctrico ($V=W/Q$) se mide en **Voltio (V)**, equivalente a $\\text{J}/\\text{C}$." },
-            { texto: "$$ \\text{Vatio (W)} $$", esCorrecta: false, explicacion: "Incorrecto. El Vatio es la unidad de la Potencia." }
+            { texto: "Ohmio", esCorrecta: false, explicacion: "Incorrecto. El Ohmio mide <strong>resistencia</strong>." },
+            { texto: "Ampere", esCorrecta: false, explicacion: "Incorrecto. El Ampere mide <strong>corriente</strong>." },
+            { texto: "Voltio", esCorrecta: true, explicacion: "¡Correcto! El potencial eléctrico se mide en <strong>Voltios (V)</strong>, definidos como Joules por Coulomb." },
+            { texto: "Vatio", esCorrecta: false, explicacion: "Incorrecto. El Vatio mide <strong>potencia</strong>." }
         ],
-        respuestaCorrectaTexto: "Voltio (V)"
+        respuestaCorrectaTexto: "Voltio"
+    },
+    {
+        problema: {
+            titulo: "Trabajo Mecánico",
+            formula: "$$ W = F \\cdot d $$",
+            texto: "Calcula el <strong>Trabajo</strong> realizado por una fuerza de <strong>20 N</strong> que empuja un objeto <strong>4 m</strong>.",
+            resultado: "80"
+        },
+        opciones: [
+            { texto: "Joule", esCorrecta: true, explicacion: "¡Correcto! El trabajo se expresa en <strong>Joules (J)</strong>." },
+            { texto: "Newton", esCorrecta: false, explicacion: "Incorrecto, esto mide <strong>fuerza</strong>." },
+            { texto: "Watt", esCorrecta: false, explicacion: "Incorrecto, esto es <strong>potencia</strong>." },
+            { texto: "kg", esCorrecta: false, explicacion: "Incorrecto. El kilogramo mide <strong>masa</strong>." }
+        ],
+        respuestaCorrectaTexto: "Joule"
+    },
+
+    {
+        problema: {
+            titulo: "Energía Cinética",
+            formula: "$$ K = \\frac{1}{2} m v^2 $$",
+            texto: "Determina la <strong>Energía Cinética</strong> de un objeto de <strong>3 kg</strong> que se mueve a <strong>6 m/s</strong>.",
+            resultado: "54"
+        },
+        opciones: [
+            { texto: "Joule", esCorrecta: true, explicacion: "¡Correcto! La energía cinética se mide en <strong>Joules</strong>." },
+            { texto: "Watt", esCorrecta: false, explicacion: "Incorrecto. El Watt mide <strong>potencia</strong>." },
+            { texto: "Newton", esCorrecta: false, explicacion: "Incorrecto. El Newton mide <strong>fuerza</strong>." },
+            { texto: "kg·m/s", esCorrecta: false, explicacion: "Incorrecto. Esa es unidad de <strong>cantidad de movimiento</strong>." }
+        ],
+        respuestaCorrectaTexto: "Joule"
+    },
+
+    {
+        problema: {
+            titulo: "Energía Potencial Gravitacional",
+            formula: "$$ U = m g h $$",
+            texto: "Calcula la <strong>Energía Potencial</strong> de un objeto de <strong>5 kg</strong> elevado a <strong>10 m</strong> de altura. Usa g = 9.8.",
+            resultado: "490"
+        },
+        opciones: [
+            { texto: "Newton", esCorrecta: false, explicacion: "Incorrecto. Esto mide fuerza." },
+            { texto: "Joule", esCorrecta: true, explicacion: "¡Correcto! La energía potencial se mide en <strong>Joules</strong>." },
+            { texto: "Watt", esCorrecta: false, explicacion: "Incorrecto. Es unidad de potencia." },
+            { texto: "Pascal", esCorrecta: false, explicacion: "Incorrecto. El Pascal mide presión." }
+        ],
+        respuestaCorrectaTexto: "Joule"
+    },
+
+    {
+        problema: {
+            titulo: "Presión",
+            formula: "$$ P = F / A $$",
+            texto: "Un objeto ejerce una fuerza de <strong>200 N</strong> sobre un área de <strong>4 m²</strong>. Calcula la <strong>Presión</strong> ejercida.",
+            resultado: "50"
+        },
+        opciones: [
+            { texto: "Pascal", esCorrecta: true, explicacion: "¡Correcto! La presión se mide en <strong>Pascales</strong> (N/m²)." },
+            { texto: "Newton", esCorrecta: false, explicacion: "Incorrecto. Esta es fuerza." },
+            { texto: "Watt", esCorrecta: false, explicacion: "Incorrecto. Mide potencia." },
+            { texto: "Joule", esCorrecta: false, explicacion: "Incorrecto. Mide energía." }
+        ],
+        respuestaCorrectaTexto: "Pascal"
+    },
+
+    {
+        problema: {
+            titulo: "Potencia",
+            formula: "$$ P = W / t $$",
+            texto: "Se realizan <strong>300 J</strong> de trabajo en <strong>10 s</strong>. Calcula la <strong>Potencia</strong> generada.",
+            resultado: "30"
+        },
+        opciones: [
+            { texto: "Watt", esCorrecta: true, explicacion: "¡Correcto! La potencia se mide en <strong>Watts</strong>." },
+            { texto: "Joule", esCorrecta: false, explicacion: "Incorrecto. Eso es trabajo o energía." },
+            { texto: "Newton", esCorrecta: false, explicacion: "Mide fuerza, no potencia." },
+            { texto: "m/s²", esCorrecta: false, explicacion: "Unidad de aceleración." }
+        ],
+        respuestaCorrectaTexto: "Watt"
+    },
+
+    {
+        problema: {
+            titulo: "Densidad",
+            formula: "$$ \\rho = m / V $$",
+            texto: "Calcula la <strong>Densidad</strong> de un material cuya masa es <strong>600 kg</strong> y su volumen es <strong>3 m³</strong>.",
+            resultado: "200"
+        },
+        opciones: [
+            { texto: "kg/m³", esCorrecta: true, explicacion: "¡Correcto! La densidad se expresa en <strong>kg/m³</strong>." },
+            { texto: "kg·m/s", esCorrecta: false, explicacion: "Incorrecto. Es cantidad de movimiento." },
+            { texto: "Pascal", esCorrecta: false, explicacion: "Incorrecto. Esto es presión." },
+            { texto: "Joule", esCorrecta: false, explicacion: "Incorrecto. Es energía." }
+        ],
+        respuestaCorrectaTexto: "kg/m³"
+    },
+
+    {
+        problema: {
+            titulo: "Momento de Fuerza (Torque)",
+            formula: "$$ \\tau = F \\cdot r $$",
+            texto: "Calcula el <strong>Torque</strong> generado por una fuerza de <strong>50 N</strong> aplicada a <strong>0.3 m</strong> del eje.",
+            resultado: "15"
+        },
+        opciones: [
+            { texto: "Newton·metro", esCorrecta: true, explicacion: "¡Correcto! El torque se mide en <strong>N·m</strong>." },
+            { texto: "Joule", esCorrecta: false, explicacion: "Aunque comparten unidades, no representan lo mismo." },
+            { texto: "Watt", esCorrecta: false, explicacion: "Es potencia." },
+            { texto: "Pascal", esCorrecta: false, explicacion: "Es presión." }
+        ],
+        respuestaCorrectaTexto: "Newton·metro"
+    },
+
+    {
+        problema: {
+            titulo: "Calor Transferido",
+            formula: "$$ Q = m c \\Delta T $$",
+            texto: "Calcula el <strong>calor</strong> absorbido por <strong>2 kg</strong> de agua (c = 4186) si su temperatura aumenta <strong>5°C</strong>.",
+            resultado: "41860"
+        },
+        opciones: [
+            { texto: "Joule", esCorrecta: true, explicacion: "¡Correcto! El calor se mide en <strong>Joules</strong>." },
+            { texto: "Caloría", esCorrecta: false, explicacion: "Incorrecto. Es otra unidad, pero no del SI." },
+            { texto: "Watt", esCorrecta: false, explicacion: "Es potencia, no calor." },
+            { texto: "Newton", esCorrecta: false, explicacion: "Unidad de fuerza." }
+        ],
+        respuestaCorrectaTexto: "Joule"
+    },
+
+    {
+        problema: {
+            titulo: "Ley de Ohm (Corriente)",
+            formula: "$$ I = V / R $$",
+            texto: "Un circuito tiene <strong>12 V</strong> de voltaje y una resistencia de <strong>6 Ω</strong>. Calcula la <strong>corriente</strong>.",
+            resultado: "2"
+        },
+        opciones: [
+            { texto: "Ampere", esCorrecta: true, explicacion: "¡Correcto! La corriente se mide en <strong>Amperes</strong>." },
+            { texto: "Voltio", esCorrecta: false, explicacion: "Esto es voltaje." },
+            { texto: "Ohmio", esCorrecta: false, explicacion: "Esto es resistencia." },
+            { texto: "Watt", esCorrecta: false, explicacion: "Unidad de potencia." }
+        ],
+        respuestaCorrectaTexto: "Ampere"
+    },
+
+    {
+        problema: {
+            titulo: "Índice de Refracción",
+            formula: "$$ n = c / v $$",
+            texto: "Un rayo de luz viaja en un medio a <strong>2.0 × 10<sup>8</sup> m/s</strong>. Calcula el <strong>índice de refracción</strong> usando c = 3.0 × 10<sup>8</sup>.",
+            resultado: "1.5"
+        },
+        opciones: [
+            { texto: "Sin unidad", esCorrecta: true, explicacion: "¡Correcto! El índice de refracción es una cantidad <strong>adimensional</strong>." },
+            { texto: "m/s", esCorrecta: false, explicacion: "No tiene unidades." },
+            { texto: "Newton", esCorrecta: false, explicacion: "No tiene relación física." },
+            { texto: "Joule", esCorrecta: false, explicacion: "Unidad de energía." }
+        ],
+        respuestaCorrectaTexto: "Sin unidad"
     }
-    // FIN: Problemas adicionales
+
 ];
+
 
 // ... (Resto de variables de Sonidos) ...
 const SCorrecto = new Audio('Sonidos/SCorrecto.mp3');
@@ -192,7 +360,7 @@ let problemasMezclados = [];
 let indiceActual = 0;
 let score = 0;
 let juegoTerminado = false;
-let timerPista; // Variable para el temporizador de la pista automática
+let tiempoLimiteTimer = null;
 
 // Referencias a elementos del DOM (IDs del HTML)
 const contenedorPuntaje = document.getElementById('contenedorPuntaje');
@@ -270,14 +438,7 @@ function setBotonesDisabled(disabled) {
         });
     }
 
-    if (btnPista) {
-        btnPista.disabled = disabled;
-        if (disabled) {
-            btnPista.classList.add('disabled', 'opacity-50');
-        } else {
-            btnPista.classList.remove('disabled', 'opacity-50');
-        }
-    }
+   
 }
 
 /**
@@ -302,7 +463,6 @@ function limpiarClasesResultado() {
  */
 function cargarProblema() {
     // Limpiar el temporizador anterior
-    clearTimeout(timerPista);
 
     if (indiceActual >= NUM_QUESTIONS_TO_PLAY) {
         finalizarJuego();
@@ -323,6 +483,8 @@ function cargarProblema() {
 
     let opcionesParaMezclar = [...problema.opciones];
     shuffle(opcionesParaMezclar);
+    limpiarClasesResultado();
+
 
     opcionesParaMezclar.forEach((opcion) => {
         const button = document.createElement('button');
@@ -337,24 +499,23 @@ function cargarProblema() {
     });
 
     setBotonesDisabled(false);
-    limpiarClasesResultado();
 
     if (typeof MathJax !== 'undefined') {
         MathJax.typesetPromise([contenedorOpciones]);
     }
 
-    // 🚩 CORRECCIÓN 3: Iniciar el temporizador de 40 segundos para la pista automática
-    timerPista = setTimeout(() => {
-        // Verifica si el juego no ha terminado y la respuesta no se ha dado
-        if (!juegoTerminado) {
-            mostrarPista();
-            // Deshabilitamos la pista del botón para que no se pueda usar dos veces
-            if (btnPista) {
-                btnPista.disabled = true;
-                btnPista.classList.add('disabled', 'opacity-50');
-            }
+    // ------- SISTEMA DE ILUMINACIÓN AUTOMÁTICA 40s ---------
+    clearTimeout(tiempoLimiteTimer);
+
+    tiempoLimiteTimer = setTimeout(() => {
+        // Buscar la opción correcta
+        const btnCorrecto = contenedorOpciones.querySelector("[data-correct='true']");
+
+        if (btnCorrecto) {
+            btnCorrecto.classList.add("ayuda-correcta");
         }
-    }, 40000); // 40 segundos
+
+    }, 40000);
 }
 
 /**
@@ -364,7 +525,10 @@ function verificarRespuesta(botonClickeado) {
     if (juegoTerminado) return;
 
     // Detener el temporizador de la pista
-    clearTimeout(timerPista);
+    // Quitar azul a todos los botones antes de marcar la respuesta
+    contenedorOpciones.querySelectorAll('.btn-option').forEach(btn => {
+        btn.classList.remove('btn-primary');
+    });
 
     setBotonesDisabled(true);
 
@@ -393,9 +557,9 @@ function verificarRespuesta(botonClickeado) {
             // Buscamos la explicación de la respuesta correcta para el modal de error
             const respuestaCorrectaObj = problema.opciones.find(op => op.esCorrecta);
 
-            errorCuerpo.innerHTML = `<p class="text-white">❌ **Tu respuesta es incorrecta.**</p>
-                                     <p class="mt-3 text-white">**Unidad correcta:** ${respuestaCorrectaObj.texto}.</p>
-                                     <p class="mt-3 text-white">**Explicación:** ${respuestaCorrectaObj.explicacion}</p>`;
+            errorCuerpo.innerHTML = `
+                                     <p class="mt-3 text-white"><strong>Unidad correcta:</strong> ${respuestaCorrectaObj.texto}.</p>
+                                     <p class="mt-3 text-white"><strong>Explicación:</strong> ${respuestaCorrectaObj.explicacion}</p>`;
         }
 
         SError.currentTime = 0;
@@ -417,7 +581,6 @@ function verificarRespuesta(botonClickeado) {
 
 
 function finalizarJuego() {
-    clearTimeout(timerPista); // Asegurar que el temporizador finalice
     SFinal.currentTime = 0;
     SFinal.play();
     juegoTerminado = true;
@@ -447,6 +610,15 @@ function inicializarJuego() {
 
 
     cargarProblema();
+    document.getElementById('btnInicio').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+    document.getElementById('btnRepetir').addEventListener('click', () => {
+        location.reload();
+    });
+    document.getElementById('btnMasJuegos').addEventListener('click', () => {
+        window.location.href = 'dashboard.html';
+    })
 }
 
 // ---------------------------------------------------------------------
@@ -470,11 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Listener para el botón de pista
-    if (btnPista) {
-        // Usamos la misma función mostrarPista para el clic manual.
-        btnPista.addEventListener('click', mostrarPista);
-    }
+
 
     // 4. Listener para el botón de 'Repetir' en el modal final
     const btnRepetir = document.getElementById('btnRepetir');

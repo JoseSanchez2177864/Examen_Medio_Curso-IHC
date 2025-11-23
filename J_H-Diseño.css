@@ -190,6 +190,42 @@ body {
     color: #ccc;
 }
 
+#btnInicio {
+    border: 2px solid #2575fc;
+    color: #2575fc;
+    background: transparent;
+}
+
+#btnInicio:hover {
+    background: #2575fc;
+    color: #fff;
+    box-shadow: 0 0 10px #2575fc;
+}
+
+#btnRepetir {
+    border: 2px solid #00f5d4;
+    background: transparent;
+    color: #00f5d4;
+}
+
+#btnRepetir:hover {
+    background: #00f5d4;
+    color: #fff;
+    box-shadow: 0 0 10px #00f5d4;
+}
+
+#btnMasJuegos {
+    background: transparent;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+}
+
+#btnMasJuegos:hover {
+    background: #ffcc00;
+    color: #fff;
+    box-shadow: 0 0 10px #ffcc00;
+}
+
 /* === ANIMACIONES === */
 @keyframes aparecer {
     from {

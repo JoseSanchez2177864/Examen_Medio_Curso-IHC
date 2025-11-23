@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Identifica la Gráfica</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="J_N-Diseño.css">
     <link rel="stylesheet" href="main-diseño.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
@@ -39,18 +41,20 @@
     <div class="container py-5">
         <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap">
             <div id="contenedorPuntaje" class="puntaje">
-                <i class="bi bi-graph-up-arrow"></i> Puntaje: 0/10
+                <i class="bi bi-star-fill"></i> Puntaje: 0/8
             </div>
             <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0"> Identifica la Gráfica</h2>
-            <button class="btn btn-tabla btn-sm" data-bs-toggle="modal" data-bs-target="#curvasModal">
-                <i class="bi bi-rulers"></i> Tipos de Curvas
+            <button class="btn btn-pista btn-sm" id="btnPista">
+                <i class="bi bi-lightbulb-fill"></i> Pista
             </button>
         </div>
         <br>
-        
-        <div id="FuncionMatematica" class="compound p-4 border rounded shadow-sm bg-primary text-white">
-             <p class="h3 mb-0">$$ f(x) = \frac{1}{x} $$</p>
+
+        <div id="FuncionMatematica" style="padding: 20px;">
+            <div id="jxgbox" class="jxgbox" style="width: 100%; height: 300px;"></div>
         </div>
+
+
         <br>
 
         <h5 class="mb-3">¿Cuál es la forma general de la gráfica de esta función?</h5>
@@ -72,19 +76,21 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido al Desafío Histórico!</h5>
+                    <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido al Desafío de Funciones!</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body text-start">
-                    <p>En este juego, tu misión es ubicar correctamente los grandes eventos de la historia en su Periodo
-                        Histórico correspondiente.</p>
+                    <p>En este juego, tu misión es identificar correctamente el tipo de cada función matemática según su
+                        fórmula.</p>
                     <ul class="text-start">
-                        <li>**Objetivo:** Clasificar 15 eventos.</li>
-                        <li>**Pista:** Usa el botón de Pista para resaltar la respuesta correcta, pero úsalo con
-                            moderación.</li>
-                        <li>**Periodos:** Prehistoria, Antigüedad, Edad Media, Edad Moderna, Edad Contemporánea.</li>
+                        <li><strong>Objetivo:</strong> Clasificar correctamente todas las funciones presentadas.</li>
+                        <li><strong>Pistas:</strong> Usa el botón de pista para resaltar la respuesta correcta, ¡pero
+                            úsalo con moderación!</li>
+                        <li><strong>Tipos de funciones:</strong> Línea recta, Parábola, Hipérbola, Función Exponencial,
+                            Función Logarítmica, Curva de Raíz Cuadrada, Función Cúbica, Senoide, Coseno, Tangente.</li>
                     </ul>
+                    <p>¡Demuestra tu habilidad para reconocer funciones y completa el desafío!</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-bs-dismiss="modal">¡Comenzar!</button>
@@ -92,6 +98,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Modal de Correcto -->
     <div class="modal fade" id="modalCorrecto" tabindex="-1" aria-hidden="true">
@@ -144,7 +151,7 @@
         </div>
     </div>
 
-        <!-- Imágenes de Fondo-->
+    <!-- Imágenes de Fondo-->
     <div class="decor circulo"></div>
     <div class="decor triangulo"></div>
     <div class="decor cuadrado"></div>
@@ -153,9 +160,12 @@
     <div class="decor estrella"></div>
     <div class="decor triangulo small"></div>
     <div class="decor cuadrado large"></div>
-    
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="J_G-Script.js"></script>
 </body>
+
 </html>

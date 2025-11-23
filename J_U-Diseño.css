@@ -294,12 +294,12 @@ button[data-bs-target="#tablaModal"]:hover {
 .btn-pista {
     font-family: 'Fredoka One', cursive;
 
-    /* 💡 Fondo con degradado morado/rosa como en la imagen */
-    background: linear-gradient(90deg, #9d4edd 0%, #ff007f 100%);
+    /* 💡 Degradado Azul/Verde NEÓN */
+    background: linear-gradient(90deg, #00eaff 0%, #00ffcc 100%);
     color: #fff;
     font-weight: 700;
 
-    /* 💡 Forma de cápsula (más ancho que alto) */
+    /* 💡 Forma redondeada */
     border-radius: 50px;
     padding: 12px 28px;
     font-size: 1rem;
@@ -307,18 +307,27 @@ button[data-bs-target="#tablaModal"]:hover {
 
     transition: all 0.3s ease;
 
-    /* 💡 ILUMINADO NEÓN PINK/PURPLE */
-    box-shadow: 0 0 10px #ff007f, 0 0 20px #9d4edd, 0 0 30px rgba(255, 0, 127, 0.6);
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    /* 💡 Glow NEÓN turquesa/cyan */
+    box-shadow: 
+        0 0 10px #00fff2,
+        0 0 20px #00eaff,
+        0 0 30px rgba(0, 255, 230, 0.6);
+
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.6);
 }
 
 .btn-pista:hover {
     transform: scale(1.05);
-    /* Efecto de levantamiento */
-    filter: brightness(1.2);
+    filter: brightness(1.25);
+
     /* Glow más intenso al pasar el ratón */
-    box-shadow: 0 0 15px #ff007f, 0 0 30px #9d4edd, 0 0 50px rgba(255, 0, 127, 0.8);
+    box-shadow: 
+        0 0 15px #00fff2,
+        0 0 30px #00eaff,
+        0 0 50px rgba(0, 255, 230, 0.8);
 }
+
 
 .btn-pista:active {
     transform: scale(0.98);
