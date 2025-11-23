@@ -57,6 +57,27 @@ main.dashboard {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ====== BOTÓN RANKING ====== */
+.btn-ranking {
+    background-color: #ff006e; /* rosa brillante */
+    color: #fff;
+    font-weight: 600;
+    padding: 15px 40px; /* más ancho y alto */
+    border-radius: 20px; /* esquinas redondeadas */
+    text-decoration: none;
+    font-family: 'Fredoka One', cursive;
+    transition: 0.3s;
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+.btn-ranking:hover {
+    background-color: #ff3c8b;
+    box-shadow: 0 0 15px #ff006e;
+}
+
+
+
 /* ====== TARJETAS PRINCIPALES ====== */
 .dash-card {
   background: rgba(255, 255, 255, 0.1);
