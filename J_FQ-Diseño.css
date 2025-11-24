@@ -128,6 +128,49 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(10px);
 }
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.navbar-brand {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    color: #ff006e !important;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff006e !important;
+}
+
+#btnSesion,
+.nav-link.btn {
+    border: 2px solid #fff;
+    border-radius: 50px;
+    background: transparent;
+    padding: 8px 20px !important;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.nav-link.btn:hover {
+    background: #ff006e !important;
+    border-color: #ff006e !important;
+    color: #fff !important;
+    box-shadow: 0 0 10px #ff006e;
+}
 
 .header-left .logo {
     font-weight: 900;

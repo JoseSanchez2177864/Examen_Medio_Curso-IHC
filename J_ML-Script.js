@@ -1,3 +1,18 @@
+// ====== PRE-CARGA DE SONIDOS ======
+const SCorrecto = new Audio('Sonidos/SCorrecto.mp3');
+const SError = new Audio('Sonidos/SError.mp3');
+const SFinal = new Audio('Sonidos/SFinal.mp3');
+
+// Volúmenes (0.0 a 1.0)
+SCorrecto.volume = 0.6;
+SError.volume = 0.5;
+SFinal.volume = 0.8;
+
+// Pre-cargar sonidos en memoria
+SCorrecto.preload = 'auto';
+SError.preload = 'auto';
+SFinal.preload = 'auto';
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -308,6 +323,8 @@ function handleAnswer(selected) {
     if (correct) {
         scoreQuiz++;
         doorsOpened++;
+        SCorrecto.currentTime = 0;
+        SCorrecto.play();
         feedbackText.textContent = "¡Correcto! La puerta se abre.";
         feedbackText.style.color = "lime";
         updateHUD();
@@ -329,6 +346,8 @@ function handleAnswer(selected) {
     } else {
         feedbackText.textContent = "Incorrecto. Vuelves al inicio.";
         feedbackText.style.color = "red";
+        SError.currentTime = 0;
+        SError.play();
 
         setTimeout(() => {
             questionBox.classList.add("hidden");
@@ -354,6 +373,8 @@ function openDoor(doorChar) {
 }
 
 function endGame(won) {
+    SFinal.currentTime = 0;
+    SFinal.play();
     isRunning = false;
     isPausedForQuestion = true;
     questionBox.classList.add("hidden");

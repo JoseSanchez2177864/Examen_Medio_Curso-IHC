@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const SCorrecto = new Audio('Sonidos/SCorrecto.mp3');
+const SError = new Audio('Sonidos/SError.mp3');
+const SFinal = new Audio('Sonidos/SFinal.mp3');
+
+// Volúmenes (0.0 a 1.0)
+SCorrecto.volume = 0.6;
+SError.volume = 0.5;
+SFinal.volume = 0.8;
+
+// Pre-cargar sonidos en memoria
+SCorrecto.preload = 'auto';
+SError.preload = 'auto';
+SFinal.preload = 'auto';
     
     const META_CASOS = 25; 
     let casosResueltos = 0;
@@ -184,6 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             totalStars += currentStarsPotential;
             casosResueltos++; 
+            SCorrecto.currentTime = 0;
+        SCorrecto.play();
             
             scoreDisplay.innerText = totalStars;
 
@@ -204,7 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 2000);
 
         } else {
-    
+            SError.currentTime = 0;
+        SError.play();
             btnElement.classList.add('incorrect');
             
      
@@ -233,6 +249,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showFinalModal() {
+        SFinal.currentTime = 0;
+    SFinal.play();
         document.getElementById('finalScore').innerText = totalStars;
         modalFinal.show();
     }

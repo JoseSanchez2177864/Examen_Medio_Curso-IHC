@@ -374,6 +374,12 @@ button[data-bs-target="#tablaModal"]:hover {
     transition: 0.2s;
 }
 
+.opcion-tenue {
+    opacity: 0.25 !important;
+    filter: grayscale(100%);
+    pointer-events: none;
+}
+
 
 .modal-content {
     background: rgba(20, 20, 20, 0.95);

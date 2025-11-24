@@ -7,11 +7,43 @@ body {
     min-height: 100vh;
 }
 
+#Titulo {
+    text-shadow:
+        0 0 5px #ff007f,
+        0 0 10px #ff007f,
+        0 0 20px #ff007f,
+        0 0 40px #ff007f;
+}
+
+.ayuda-correcta {
+    animation: ayudaPulso 1.3s ease-in-out infinite;
+    border: 3px solid #198754 !important;
+    /* más grueso */
+    border-radius: 10px;
+    /* suave y moderno */
+}
+
+@keyframes ayudaPulso {
+    0% {
+        box-shadow: 0 0 0 rgba(25, 135, 84, 0);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 18px rgba(25, 135, 84, 0.8);
+        transform: scale(1.03);
+        /* pequeño zoom elegante */
+    }
+
+    100% {
+        box-shadow: 0 0 0 rgba(25, 135, 84, 0);
+        transform: scale(1);
+    }
+}
 
 h1, h2, h3, h4, h5, .navbar-brand, .btn {
     font-family: 'Fredoka One', cursive;
 }
-
 
 .navbar-brand {
     color: #ff006e !important; 
@@ -153,18 +185,82 @@ h1, h2, h3, h4, h5, .navbar-brand, .btn {
 .animate__pop {
     animation: pop 0.4s ease-out forwards;
 }
-
-
 .modal-content {
     background: rgba(20, 20, 20, 0.95);
     color: #fff;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 0, 110, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(255, 0, 110, 0.3);
+    animation: aparecer 0.4s ease-out;
 }
 
-.modal-header { border-bottom: none; }
-.modal-footer { border-top: none; }
+#modalCorrecto .modal-content {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+    color: #166534;
+}
+
+#modalFinal .modal-content {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    color: #1e3a8a;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}
+
+.modal-header.bg-info {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-header.bg-danger {
+    background: linear-gradient(135deg, #ff006e, #ff3c8b);
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-body p,
+.modal-body li {
+    font-family: 'Quicksand', sans-serif;
+    color: #ccc;
+}
+
+/* === ANIMACIONES === */
+@keyframes aparecer {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#modalCorrecto h4,
+#modalFinal h3 {
+    animation: pop 0.6s ease-in-out;
+}
+
+
 
 
 .btn-outline-primary, .btn-outline-success, .btn-outline-warning {
@@ -194,4 +290,86 @@ h1, h2, h3, h4, h5, .navbar-brand, .btn {
         min-height: 80px;
     }
 
+}
+
+.decor {
+    position: absolute;
+    opacity: 0.25;
+    z-index: 3;
+    animation: float 8s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+/* Tamaños base */
+.small { scale: 0.7; }
+.medium { scale: 1; }
+.large { scale: 1.4; }
+
+
+/* Figuras principales */
+.circulo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: #ff006e;
+    top: 10%;
+    left: 10%;
+}
+
+.triangulo {
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 140px solid #ff006e;
+    bottom: 15%;
+    right: 10%;
+    rotate: 25deg;
+}
+
+.cuadrado {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    bottom: 25%;
+    left: 5%;
+    rotate: 35deg;
+}
+
+.estrella {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ff006e 20%, transparent 20%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 
+                       79% 91%, 50% 70%, 21% 91%, 32% 57%, 
+                       2% 35%, 39% 35%);
+    top: 60%;
+    left: 80%;
+    animation: spin 12s linear infinite;
+}
+
+/* Figuras extra */
+.circulo.small { top: 25%; right: 20%; background: #ff006e; }
+.circulo.medium { bottom: 45%; left: 15%; background: #2575fc; }
+.triangulo.small { bottom: 16%; right: 0%; border-bottom-color: #ffd700; }
+.cuadrado.large { top: 35%; left: 65%; background: #00f5d4; }
+.decor, .fondo-figura, .figura {
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    }
+    50% {
+        transform: translateY(-30px) translateX(15px) rotate(25deg) scale(1.15);
+    }
+    100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(360deg) scale(1); }
 }

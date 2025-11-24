@@ -1,3 +1,18 @@
+// ====== PRE-CARGA DE SONIDOS ======
+const SCorrecto = new Audio('Sonidos/SCorrecto.mp3');
+const SError = new Audio('Sonidos/SError.mp3');
+const SFinal = new Audio('Sonidos/SFinal.mp3');
+
+// Volúmenes (0.0 a 1.0)
+SCorrecto.volume = 0.6;
+SError.volume = 0.5;
+SFinal.volume = 0.8;
+
+// Pre-cargar sonidos en memoria
+SCorrecto.preload = 'auto';
+SError.preload = 'auto';
+SFinal.preload = 'auto';
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -278,6 +293,8 @@ function handleAnswer(selected) {
 
     if (correct) {
         scoreQuiz++;
+        SCorrecto.currentTime = 0;
+        SCorrecto.play();
         feedbackText.textContent = "¡Correcto! 🧠";
         feedbackText.style.color = "green";
         updateHUD();
@@ -288,12 +305,16 @@ function handleAnswer(selected) {
 
             // Si ya fue la última pregunta, terminar juego
             if (questionsAsked >= TOTAL_QUESTIONS) {
+                SFinal.currentTime = 0;
+                SFinal.play();
                 endGame();
             } else {
                 startCountdown();
             }
         }, 800);
     } else {
+        SError.currentTime = 0;
+        SError.play();
         feedbackText.textContent = "Incorrecto. Se reinicia el juego.";
         feedbackText.style.color = "red";
 
