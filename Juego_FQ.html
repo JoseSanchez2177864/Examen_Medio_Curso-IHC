@@ -1,0 +1,181 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Flappy Quiz - Física</title>
+    <link rel="stylesheet" href="J_FQ-Diseño.css" />
+</head>
+<body>
+    <div class="bg-shapes">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-circle small"></div>
+        <div class="shape shape-square"></div>
+        <div class="shape shape-square small"></div>
+        <div class="shape shape-diamond"></div>
+    </div>
+
+    <header id="mainHeader">
+    <div class="header-left">
+        <a href="index.html" class="logo">GameLearn</a>
+    </div>
+    <nav class="header-right">
+        <a href="index.html">Inicio</a>
+        <a href="#">Acerca</a>
+        <a href="#">Más Asignaturas</a>
+        <a href="#">Más Juegos</a>
+        <a href="#">Login</a>
+        <button class="btnSignUp" type="button">Regístrate!</button>
+    </nav>
+</header>
+
+<div id="welcomeModal" class="welcome-overlay">
+    <div class="welcome-box">
+        <h2>¡Bienvenido al Flappy Quiz!</h2>
+        <p>
+            En este juego pondrás a prueba tus conocimientos de física mientras 
+            esquivas obstáculos y respondes preguntas. <br><br>
+
+            <strong>Objetivo:</strong> Responder correctamente las 10 preguntas de física.<br>
+            <strong>Reglas:</strong> 
+            <ul>
+                <li>Solo aparece una pregunta al pasar cada tubo.</li>
+                <li>Si fallas una pregunta, el juego se reinicia.</li>
+                <li>Si chocas contra un tubo o el suelo, también se reinicia.</li>
+                <li>Al responder las 10 preguntas, el juego termina.</li>
+            </ul>
+
+            ¡Prepárate y demuestra tu dominio de la física!
+        </p>
+
+        <button id="startGameButton" class="welcome-btn">¡Comenzar!</button>
+    </div>
+</div>
+
+    <main id="mainContent">
+        <h1>Flappy Quiz - Física</h1>
+
+        <div id="infoPanel">
+            <div><strong>Tubos pasados:</strong> <span id="scorePipes">0</span></div>
+            <div><strong>Preguntas correctas:</strong> <span id="scoreQuiz">0</span></div>
+            <div><strong>Preguntas realizadas:</strong> <span id="questionsCount">0</span></div>
+        </div>
+
+        <div id="buttonsPanel">
+            <button id="btnReset" type="button">Reiniciar juego</button>
+            <button id="btnHome" type="button">Volver al inicio</button>
+        </div>
+
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+    </main>
+
+    <div id="overlayMessage" class="overlay hidden">
+    <div class="overlay-content">
+        <h2 id="overlayTitle">Flappy Quiz</h2>
+        <p id="overlayText">Presiona cualquier tecla para empezar</p>
+    </div>
+</div>
+
+    <div id="questionBox" class="hidden">
+        <h2>Pregunta de Física</h2>
+        <p id="questionText"></p>
+        <div id="optionsContainer"></div>
+        <p id="feedback"></p>
+    </div>
+
+    <script src="J_FQ-Script.js"></script>
+</body>
+</html>
+
+
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Flappy Quiz - Física</title>
+    <link rel="stylesheet" href="J_FQ-Diseño.css" />
+</head>
+<body>
+    <div class="bg-shapes">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-circle small"></div>
+        <div class="shape shape-square"></div>
+        <div class="shape shape-square small"></div>
+        <div class="shape shape-diamond"></div>
+    </div>
+
+    <header id="mainHeader">
+    <div class="header-left">
+        <a href="index.html" class="logo">GameLearn</a>
+    </div>
+    <nav class="header-right">
+        <a href="index.html">Inicio</a>
+        <a href="#">Acerca</a>
+        <a href="#">Más Asignaturas</a>
+        <a href="#">Más Juegos</a>
+        <a href="#">Login</a>
+        <button class="btnSignUp" type="button">Regístrate!</button>
+    </nav>
+</header>
+
+<div id="welcomeModal" class="welcome-overlay">
+    <div class="welcome-box">
+        <h2>¡Bienvenido al Flappy Quiz!</h2>
+        <p>
+            En este juego pondrás a prueba tus conocimientos de física mientras 
+            esquivas obstáculos y respondes preguntas. <br><br>
+
+            <strong>Objetivo:</strong> Responder correctamente las 10 preguntas de física.<br>
+            <strong>Reglas:</strong> 
+            <ul>
+                <li>Solo aparece una pregunta al pasar cada tubo.</li>
+                <li>Si fallas una pregunta, el juego se reinicia.</li>
+                <li>Si chocas contra un tubo o el suelo, también se reinicia.</li>
+                <li>Al responder las 10 preguntas, el juego termina.</li>
+            </ul>
+
+            ¡Prepárate y demuestra tu dominio de la física!
+        </p>
+
+        <button id="startGameButton" class="welcome-btn">¡Comenzar!</button>
+    </div>
+</div>
+
+    <main id="mainContent">
+        <h1>Flappy Quiz - Física</h1>
+
+        <div id="infoPanel">
+            <div><strong>Tubos pasados:</strong> <span id="scorePipes">0</span></div>
+            <div><strong>Preguntas correctas:</strong> <span id="scoreQuiz">0</span></div>
+            <div><strong>Preguntas realizadas:</strong> <span id="questionsCount">0</span></div>
+        </div>
+
+        <div id="buttonsPanel">
+            <button id="btnReset" type="button">Reiniciar juego</button>
+            <button id="btnHome" type="button">Volver al inicio</button>
+        </div>
+
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+    </main>
+
+    <div id="overlayMessage" class="overlay hidden">
+    <div class="overlay-content">
+        <h2 id="overlayTitle">Flappy Quiz</h2>
+        <p id="overlayText">Presiona cualquier tecla para empezar</p>
+    </div>
+</div>
+
+    <div id="questionBox" class="hidden">
+        <h2>Pregunta de Física</h2>
+        <p id="questionText"></p>
+        <div id="optionsContainer"></div>
+        <p id="feedback"></p>
+    </div>
+
+    <script src="J_FQ-Script.js"></script>
+</body>
+</html>
+
+
+>>>>>>> be0e305 (Añadi la tabla en juego de telarañas y añadi un juego de lamateria de matematicas)

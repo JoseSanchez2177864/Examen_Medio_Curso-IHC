@@ -1,0 +1,668 @@
+/* ======================================= */
+/* =========== FONDO GLOBAL  ============= */
+/* ======================================= */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #ffffff;
+    text-align: center;
+    overflow-x: hidden;
+    background: #050509;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================================= */
+/* ============ FONDO ANIMADO ============ */
+/* ======================================= */
+
+.bg-shapes {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+    background:
+            radial-gradient(circle at 15% 10%, #2b2438 0, transparent 45%),
+            radial-gradient(circle at 85% 20%, #1e2738 0, transparent 45%),
+            radial-gradient(circle at 15% 85%, #151820 0, transparent 45%),
+            linear-gradient(135deg, #171821 0%, #0c0c11 40%, #050509 75%, #000000 100%);
+    box-shadow:
+            inset 0 0 80px rgba(255, 255, 255, 0.03),
+            inset 0 0 60px rgba(0, 0, 0, 0.6);
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.28;
+    animation-duration: 18s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.shape-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #7a1b6c;
+    top: 25%;
+    left: -40px;
+    animation-name: floatCircle1;
+}
+.shape-circle.small {
+    width: 130px;
+    height: 130px;
+    background: #4a0d5a;
+    top: 65%;
+    left: 6%;
+    animation-name: floatCircle2;
+}
+
+.shape-square {
+    width: 200px;
+    height: 200px;
+    background: #3fe0cf;
+    top: 42%;
+    right: 14%;
+    transform: rotate(15deg);
+    animation-name: floatSquare1;
+}
+.shape-square.small {
+    width: 150px;
+    height: 150px;
+    background: #a0a0aa;
+    bottom: -30px;
+    left: 12%;
+    transform: rotate(45deg);
+    animation-name: floatSquare2;
+}
+
+.shape-diamond {
+    width: 220px;
+    height: 220px;
+    background: #3bd0b2;
+    top: 60%;
+    left: 58%;
+    transform: rotate(45deg);
+    animation-name: floatDiamond;
+}
+
+@keyframes floatCircle1 {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(30px, -30px); }
+    50%  { transform: translate(60px, 0); }
+    75%  { transform: translate(30px, 30px); }
+    100% { transform: translate(0, 0); }
+}
+@keyframes floatCircle2 {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(-20px, 20px); }
+    50%  { transform: translate(-40px, 0); }
+    75%  { transform: translate(-20px, -20px); }
+    100% { transform: translate(0, 0); }
+}
+@keyframes floatSquare1 {
+    0%   { transform: translate(0, 0) rotate(15deg); }
+    25%  { transform: translate(-25px, -25px) rotate(20deg); }
+    50%  { transform: translate(-50px, 0) rotate(25deg); }
+    75%  { transform: translate(-25px, 25px) rotate(20deg); }
+    100% { transform: translate(0, 0) rotate(15deg); }
+}
+@keyframes floatSquare2 {
+    0%   { transform: translate(0, 0) rotate(45deg); }
+    25%  { transform: translate(20px, -20px) rotate(50deg); }
+    50%  { transform: translate(40px, 0) rotate(55deg); }
+    75%  { transform: translate(20px, 20px) rotate(50deg); }
+    100% { transform: translate(0, 0) rotate(45deg); }
+}
+@keyframes floatDiamond {
+    0%   { transform: translate(0, 0) rotate(45deg); }
+    25%  { transform: translate(-30px, -30px) rotate(52deg); }
+    50%  { transform: translate(-60px, 0) rotate(60deg); }
+    75%  { transform: translate(-30px, 30px) rotate(52deg); }
+    100% { transform: translate(0, 0) rotate(45deg); }
+}
+
+/* ======================================= */
+/* ============ NAVBAR =================== */
+/* ======================================= */
+
+.navbar {
+    backdrop-filter: blur(12px);
+    background: rgba(5, 5, 12, 0.9) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    color: #ff007f !important;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.navbar-nav .nav-link {
+    color: #f5f5f5 !important;
+    transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff007f !important;
+}
+
+.btn-outline-light {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background: #ff007f;
+    border-color: #ff007f;
+    color: white;
+}
+
+/* ======================================= */
+/* ============ HEADER JUEGO ============= */
+/* ======================================= */
+
+.actividad-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 100px auto 30px auto;
+    padding: 0 30px;
+    flex-wrap: wrap;
+}
+
+.titulo-actividad {
+    font-family: 'Fredoka One', cursive;
+    font-weight: 700;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #ff51d9, #ffe470, #00f5ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 16px rgba(255, 81, 217, 0.6);
+    letter-spacing: 1px;
+}
+
+.puntaje {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 15px 30px;
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ======================================= */
+/* ============ CONTENEDOR JUEGO ========= */
+/* ======================================= */
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: aparecer 0.6s ease-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ======================================= */
+/* ============ ELEMENTOS JUEGO ========== */
+/* ======================================= */
+
+/* ÁREA DE JUEGO */
+#zonaJuego {
+    position: relative;
+    height: 500px;
+    margin: 40px 0;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+/* ECUACIONES CAYENDO */
+.ecuacion {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 30px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #fff;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    box-shadow:
+            0 8px 32px rgba(59, 130, 246, 0.3),
+            0 0 20px rgba(59, 130, 246, 0.2);
+    backdrop-filter: blur(10px);
+    animation: caer 4s linear forwards;
+    z-index: 5;
+    text-align: center;
+    min-width: 200px;
+}
+
+/* Animación de caída */
+@keyframes caer {
+    0% { top: -80px; opacity: 1; }
+    100% { top: 110vh; opacity: 0.3; }
+}
+
+/* Zona de golpe */
+#zonaGolpe {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 450px;
+    height: 140px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    box-shadow:
+            0 8px 32px rgba(59, 130, 246, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    text-align: center;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Input de respuesta */
+#respuesta {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    color: #ffffff;
+    font-size: 1.4rem;
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow:
+            0 8px 32px rgba(59, 130, 246, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    width: 350px;
+    margin: 30px auto;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#respuesta:focus {
+    outline: none;
+    border-color: rgba(59, 130, 246, 0.7);
+    box-shadow:
+            0 8px 32px rgba(59, 130, 246, 0.4),
+            0 0 20px rgba(59, 130, 246, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+#respuesta::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ======================================= */
+/* ============ BOTONES ================== */
+/* ======================================= */
+
+.btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 16px 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    margin: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+/* Botón pista */
+.btn-pista {
+    background: linear-gradient(135deg, #ed64a6 0%, #9f7aea 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(237, 100, 166, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-pista:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(237, 100, 166, 0.4);
+}
+
+/* Botones modales */
+.btn-success {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    border: none;
+}
+
+.btn-outline-primary {
+    background: transparent;
+    border: 2px solid #667eea;
+    color: #667eea;
+}
+
+.btn-outline-primary:hover {
+    background: #667eea;
+    color: white;
+}
+
+.btn-outline-success {
+    background: transparent;
+    border: 2px solid #48bb78;
+    color: #48bb78;
+}
+
+.btn-outline-success:hover {
+    background: #48bb78;
+    color: white;
+}
+
+.btn-outline-warning {
+    background: transparent;
+    border: 2px solid #ed8936;
+    color: #ed8936;
+}
+
+.btn-outline-warning:hover {
+    background: #ed8936;
+    color: white;
+}
+
+.btn-outline-danger {
+    background: transparent;
+    border: 2px solid #f56565;
+    color: #f56565;
+}
+
+.btn-outline-danger:hover {
+    background: #f56565;
+    color: white;
+}
+
+/* ======================================= */
+/* ============ MODALES ================== */
+/* ======================================= */
+
+.modal-content {
+    background: rgba(26, 32, 44, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    color: #e2e8f0;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    animation: aparecer 0.4s ease-out;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+}
+
+.modal-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.modal-body {
+    font-family: 'Poppins', sans-serif;
+    padding: 30px;
+}
+
+/* Modal de introducción */
+#modalIntroduccion .modal-content {
+    background: rgba(13, 17, 23, 0.98);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+/* Modal correcto */
+#modalCorrecto .modal-content {
+    background: rgba(72, 187, 120, 0.1);
+    border: 1px solid rgba(72, 187, 120, 0.3);
+}
+
+#modalCorrecto .modal-content h4 {
+    color: #48bb78;
+}
+
+/* Modal error */
+#modalError .modal-content {
+    background: rgba(245, 101, 101, 0.1);
+    border: 1px solid rgba(245, 101, 101, 0.3);
+}
+
+#modalError .modal-header {
+    background: rgba(245, 101, 101, 0.2) !important;
+    border: none;
+}
+
+/* Modal final */
+#modalFinal .modal-content {
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+#modalFinal .modal-content h3 {
+    color: #667eea;
+}
+
+/* ======================================= */
+/* ============ RESPONSIVE =============== */
+/* ======================================= */
+
+@media (max-width: 768px) {
+    .actividad-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    .titulo-actividad {
+        font-size: 2rem;
+        order: 1;
+    }
+
+    .puntaje {
+        order: 2;
+    }
+
+    .btn-pista {
+        order: 3;
+    }
+
+    .container {
+        padding: 25px 20px;
+        margin: 0 15px;
+    }
+
+    #zonaGolpe {
+        width: 350px;
+        height: 120px;
+        font-size: 1.5rem;
+    }
+
+    .ecuacion {
+        font-size: 1.5rem;
+        padding: 15px 25px;
+    }
+
+    #respuesta {
+        width: 280px;
+        font-size: 1.2rem;
+    }
+
+    #zonaJuego {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-actividad {
+        font-size: 1.7rem;
+    }
+
+    .puntaje {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    #zonaGolpe {
+        width: 280px;
+        height: 100px;
+        font-size: 1.3rem;
+        bottom: 20px;
+    }
+
+    .ecuacion {
+        font-size: 1.3rem;
+        padding: 12px 20px;
+    }
+
+    #respuesta {
+        width: 250px;
+        font-size: 1.1rem;
+        padding: 12px 20px;
+    }
+
+    #zonaJuego {
+        height: 350px;
+    }
+
+    .btn {
+        padding: 14px 30px;
+        font-size: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+/* ======================================= */
+/* ============ UTILIDADES =============== */
+/* ======================================= */
+
+.texto-gradiente {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.texto-destacado {
+    color: #48bb78;
+    font-weight: 600;
+}
+
+.sombra-suave {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.borde-cristal {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Ajustes para el contenedor principal */
+.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+/* Animaciones adicionales para las ecuaciones */
+.ecuacion {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.alert {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.alert-danger {
+    background: rgba(245, 101, 101, 0.2) !important;
+    border-color: #f56565;
+}
+
+.alert-success {
+    background: rgba(72, 187, 120, 0.2) !important;
+    border-color: #48bb78;
+}

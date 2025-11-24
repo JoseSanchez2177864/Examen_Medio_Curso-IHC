@@ -1,0 +1,167 @@
+/* ====== ESTILOS GENERALES ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at top left, #1a1a1a, #000);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* ====== FIGURAS DECORATIVAS ====== */
+.decor {
+    position: absolute;
+    opacity: 0.25;
+    animation: float 8s ease-in-out infinite alternate;
+}
+
+/* Figuras base */
+.circulo {
+    width: 150px;
+    height: 150px;
+    background: #ff006e;
+    border-radius: 50%;
+    top: 10%;
+    left: 12%;
+}
+
+.triangulo {
+    width: 0;
+    height: 0;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    border-bottom: 120px solid #2575fc;
+    bottom: 10%;
+    right: 15%;
+}
+
+.cuadrado {
+    width: 110px;
+    height: 110px;
+    background: #00f5d4;
+    top: 60%;
+    left: 5%;
+    rotate: 30deg;
+}
+
+.estrella {
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, #ff006e 25%, transparent 25%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 
+                       79% 91%, 50% 70%, 21% 91%, 32% 57%, 
+                       2% 35%, 39% 35%);
+    top: 55%;
+    left: 80%;
+    animation: spin 12s linear infinite;
+}
+
+/* Animación flotante */
+@keyframes float {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-25px) translateX(15px); }
+    100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ====== CAJA LOGIN ====== */
+.login-container {
+    width: 390px;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    z-index: 100;
+}
+
+.login-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.3rem;
+    color: #ff006e;
+}
+
+.login-subtitle {
+    color: #bbb;
+    margin-bottom: 25px;
+}
+
+/* Ícono Principal - Registro */
+.login-icon i {
+    font-size: 60px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+.input-group {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-group i {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    color: #999;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 45px;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    font-size: 14px;
+    outline: none;
+    border-radius: 6px;
+}
+
+/* Botón */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: #ff006e;
+    color: white;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.btn-login:hover {
+    background: #ff3c8b;
+    box-shadow: 0 0 12px #ff006e;
+}
+
+/* Link de registro/inicio sesión */
+.register-link {
+    margin-top: 15px;
+    font-size: 15px;
+    color: #ffffffd0;
+}
+
+.register-link a {
+    color: #8d7bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

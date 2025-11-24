@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identifica la Gráfica</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="J_N-Diseño.css">
+    <link rel="stylesheet" href="main-diseño.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body class="bg-light text-center">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">GameLearn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Acerca</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Más Asignaturas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Más Juegos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2" href="#">Regístrate!</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br><br><br>
+
+    <div class="container py-5">
+        <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap">
+            <div id="contenedorPuntaje" class="puntaje">
+                <i class="bi bi-star-fill"></i> Puntaje: 0/8
+            </div>
+            <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0"> Identifica la Gráfica</h2>
+            <button class="btn btn-pista btn-sm" id="btnPista">
+                <i class="bi bi-lightbulb-fill"></i> Pista
+            </button>
+        </div>
+        <br>
+
+        <div id="FuncionMatematica" style="padding: 20px;">
+            <div id="jxgbox" class="jxgbox" style="width: 100%; height: 300px;"></div>
+        </div>
+
+
+        <br>
+
+        <h5 class="mb-3">¿Cuál es la forma general de la gráfica de esta función?</h5>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <button id="btn1" class="btn btn-option btn-lg">Parábola</button>
+            <button id="btn2" class="btn btn-option btn-lg">**Hipérbola**</button>
+            <button id="btn3" class="btn btn-option btn-lg">Círculo</button>
+            <button id="btn4" class="btn btn-option btn-lg">Línea Recta</button>
+        </div><br>
+    </div>
+
+    <!-- ------------------------------------------------------------- -->
+    <!-- MODALES -->
+    <!-- ------------------------------------------------------------- -->
+
+    <!-- Modal de introducción (Usado para comenzar el juego) -->
+    <div class="modal fade" id="modalIntroduccion" tabindex="-1" aria-labelledby="modalIntroduccionLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido al Desafío de Funciones!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-start">
+                    <p>En este juego, tu misión es identificar correctamente el tipo de cada función matemática según su
+                        fórmula.</p>
+                    <ul class="text-start">
+                        <li><strong>Objetivo:</strong> Clasificar correctamente todas las funciones presentadas.</li>
+                        <li><strong>Pistas:</strong> Usa el botón de pista para resaltar la respuesta correcta, ¡pero
+                            úsalo con moderación!</li>
+                        <li><strong>Tipos de funciones:</strong> Línea recta, Parábola, Hipérbola, Función Exponencial,
+                            Función Logarítmica, Curva de Raíz Cuadrada, Función Cúbica, Senoide, Coseno, Tangente.</li>
+                    </ul>
+                    <p>¡Demuestra tu habilidad para reconocer funciones y completa el desafío!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">¡Comenzar!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de Correcto -->
+    <div class="modal fade" id="modalCorrecto" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+                <h4 class="mb-3 fw-bold">✅ ¡Correcto!</h4>
+                <p class="fs-5 mb-0">¡Bien hecho! Continúa con el siguiente evento.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Error (Con explicación) -->
+    <div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="errorTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-danger">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="errorTitulo">❌ Respuesta incorrecta</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="errorCuerpo">
+                    <!-- Aquí se insertará dinámicamente el comentario -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Felicitación -->
+    <div class="modal fade" id="modalFinal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+                <h3 class="mb-3 fw-bold">🎉 ¡Felicidades!</h3>
+                <p id="mensajeFinal" class="fs-5 mb-4"></p>
+
+                <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+                    <button id="btnInicio" class="btn btn-outline-primary" href="index.html">
+                        <i class="bi bi-house-door"></i> Inicio
+                    </button>
+                    <button id="btnRepetir" class="btn btn-outline-success" href="Juego_Nomenclatura.html">
+                        <i class="bi bi-arrow-repeat"></i> Repetir
+                    </button>
+                    <button id="btnMasJuegos" class="btn btn-outline-warning hero-btn" href="dashboard.html">
+                        <i class="bi bi-controller"></i> Más juegos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Imágenes de Fondo-->
+    <div class="decor circulo"></div>
+    <div class="decor triangulo"></div>
+    <div class="decor cuadrado"></div>
+    <div class="decor circulo small"></div>
+    <div class="decor circulo medium"></div>
+    <div class="decor estrella"></div>
+    <div class="decor triangulo small"></div>
+    <div class="decor cuadrado large"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="J_G-Script.js"></script>
+</body>
+
+</html>
