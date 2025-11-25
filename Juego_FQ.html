@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <title>Flappy Quiz - Física</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="J_N-Diseño.css" />
+    <link rel="stylesheet" href="main-diseño.css" />
+    <link rel="stylesheet" href="J_ML-Diseño.css" />
     <link rel="stylesheet" href="J_FQ-Diseño.css" />
 </head>
+
 <body>
     <div class="bg-shapes">
         <div class="shape shape-circle"></div>
@@ -17,83 +26,214 @@
     </div>
 
     <header id="mainHeader">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">GameLearn</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link active" href="dashboard.html">Más Juegos</a></li>
-          <li class="nav-item"><a class="nav-link" href="ranking.html">Tabla de Rankings</a></li>
-          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-          <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2" href="registro.html">Regístrate!</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-    <br><br>
-
-<div id="welcomeModal" class="welcome-overlay">
-    <div class="welcome-box">
-        <h2>¡Bienvenido al Flappy Quiz!</h2>
-        <p>
-            En este juego pondrás a prueba tus conocimientos de física mientras 
-            esquivas obstáculos y respondes preguntas. <br><br>
-
-            <strong>Objetivo:</strong> Responder correctamente las 10 preguntas de física.<br>
-            <strong>Reglas:</strong> 
-            <ul>
-                <li>Solo aparece una pregunta al pasar cada tubo.</li>
-                <li>Si fallas una pregunta, el juego se reinicia.</li>
-                <li>Si chocas contra un tubo o el suelo, también se reinicia.</li>
-                <li>Al responder las 10 preguntas, el juego termina.</li>
-            </ul>
-
-            ¡Prepárate y demuestra tu dominio de la física!
-        </p>
-
-        <button id="startGameButton" class="welcome-btn">¡Comenzar!</button>
-    </div>
-</div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">GameLearn</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="dashboard.html">Más Juegos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ranking.html">Tabla de Rankings</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                        <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2"
+                                href="registro.html">Regístrate!</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <main id="mainContent">
-        <h1>Flappy Quiz - Física</h1>
-
-        <div id="infoPanel">
-            <div><strong>Tubos pasados:</strong> <span id="scorePipes">0</span></div>
-            <div><strong>Preguntas correctas:</strong> <span id="scoreQuiz">0</span></div>
-            <div><strong>Preguntas realizadas:</strong> <span id="questionsCount">0</span></div>
+        <div class="container py-5">
+        <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap mb-4">
+            <div id="contenedorPuntaje" class="puntaje">
+                <i class="bi bi-star-fill"></i> Puntaje: <span id="scoreQuiz">0</span>/10
+            </div>
+            <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0">Flappy Quiz</h2>
+            <!-- Botón de Pista -->
+            <button class="btn btn-info btn-sm btn-uni" id="btnInfo" data-bs-toggle="modal" data-bs-target="#modalInfo">
+                <i class="bi bi-question-circle"></i> Ayuda
+            </button>
         </div>
 
-        <div id="buttonsPanel">
-            <button id="btnReset" type="button">Reiniciar juego</button>
-            <button id="btnHome" type="button">Volver al inicio</button>
+        <div id="infoPanel">
+            <div><strong></strong> <span id="scorePipes"></span></div>
+            <div><strong></strong> <span id="scoreQuiz"></span></div>
+            <div><strong></strong> <span id="questionsCount"></span></div>
         </div>
 
         <canvas id="gameCanvas" width="400" height="600"></canvas>
     </main>
 
     <div id="overlayMessage" class="overlay hidden">
-    <div class="overlay-content">
-        <h2 id="overlayTitle">Flappy Quiz</h2>
-        <p id="overlayText">Presiona cualquier tecla para empezar</p>
+        <div class="overlay-content">
+            <h2 id="overlayTitle">Flappy Quiz</h2>
+            <p id="overlayText">Presiona cualquier tecla para empezar</p>
+        </div>
     </div>
-</div>
+    <!-- Modal de introducción (Usado para comenzar el juego de Física) -->
+    <div class="modal fade" id="modalIntroduccion" tabindex="-1" aria-labelledby="modalIntroduccionLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido al Flappy Quiz!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-start">
+                    <p>
+                        En este juego pondrás a prueba tus conocimientos de física mientras
+                        esquivas obstáculos y respondes preguntas. <br><br>
 
-    <div id="questionBox" class="hidden">
-        <h2>Pregunta de Física</h2>
-        <p id="questionText"></p>
-        <div id="optionsContainer"></div>
-        <p id="feedback"></p>
+                        <strong>Objetivo:</strong> Responder correctamente las 10 preguntas de física.<br>
+                        <strong>Reglas:</strong>
+                    <ul>
+                        <li>Solo aparece una pregunta al pasar cada tubo.</li>
+                        <li>Si fallas una pregunta, el juego se reinicia.</li>
+                        <li>Si chocas contra un tubo o el suelo, también se reinicia.</li>
+                        <li>Al responder las 10 preguntas, el juego termina.</li>
+                    </ul>
+
+                    ¡Prepárate y demuestra tu dominio de la física!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        id="startGameButton">¡Comenzar!</button>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Modal de introducción (Usado para comenzar el juego de Física) -->
+    <div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="modalIntroduccionLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido al Flappy Quiz!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-start">
+                    <p>
+                        En este juego pondrás a prueba tus conocimientos de física mientras
+                        esquivas obstáculos y respondes preguntas. <br><br>
 
-    <script src="J_FQ-Script.js"></script>
+                        <strong>Objetivo:</strong> Responder correctamente las 10 preguntas de física.<br>
+                        <strong>Reglas:</strong>
+                    <ul>
+                        <li>Solo aparece una pregunta al pasar cada tubo.</li>
+                        <li>Si fallas una pregunta, el juego se reinicia.</li>
+                        <li>Si chocas contra un tubo o el suelo, también se reinicia.</li>
+                        <li>Al responder las 10 preguntas, el juego termina.</li>
+                    </ul>
+
+                    ¡Prepárate y demuestra tu dominio de la física!
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        id="startGameButton">Regresar a la
+                        actividad</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de introducción (Usado para comenzar el juego de Física) -->
+    <div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="modalIntroduccionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido al Laberinto Algebraico!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-start">
+                    <p>
+                        En este juego deberás encontrar la salida del laberinto resolviendo
+                        preguntas de matemáticas que bloquean ciertas puertas.
+                        <br><br>
+                        <strong>Objetivo:</strong> llegar a la meta resolviendo correctamente las preguntas.
+                        <br>
+                        <strong>Controles:</strong>
+                    <ul>
+                        <li>Usa las flechas del teclado (↑ ↓ ← →) o WASD para moverte.</li>
+                        <li>Las casillas especiales son puertas que se abren al contestar bien.</li>
+                        <li>Si fallas una pregunta, vuelves al inicio.</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Regresar a la
+                        actividad</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <!-- Modal de Correcto -->
+        <div class="modal fade" id="modalCorrecto" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+                    <h4 class="mb-3 fw-bold">✅ ¡Correcto!</h4>
+                    <p class="fs-5 mb-0">¡Bien hecho! Continúa con el siguiente evento.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Error (Con explicación) -->
+        <div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="errorTitulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-danger">
+                    <div class="modal-header bg-danger text-white">
+                        <h5 class="modal-title" id="errorTitulo">❌ Respuesta incorrecta</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body" id="errorCuerpo">
+                        <!-- Aquí se insertará dinámicamente el comentario -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal de Felicitación -->
+        <div class="modal fade" id="modalFinal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+                    <h3 class="mb-3 fw-bold">🎉 ¡Felicidades!</h3>
+                    <p id="mensajeFinal" class="fs-5 mb-4"></p>
+
+                    <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+                        <button id="btnInicio" class="btn btn-outline-primary" href="index.html">
+                            <i class="bi bi-house-door"></i> Inicio
+                        </button>
+                        <button id="btnRepetir" class="btn btn-outline-success" href="Juego_Nomenclatura.html">
+                            <i class="bi bi-arrow-repeat"></i> Repetir
+                        </button>
+                        <button id="btnMasJuegos" class="btn btn-outline-warning hero-btn" href="dashboard.html">
+                            <i class="bi bi-controller"></i> Más juegos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="questionBox" class="hidden">
+            <h2>Pregunta de Física</h2>
+            <p id="questionText"></p>
+            <div id="optionsContainer"></div>
+            <p id="feedback"></p>
+        </div>
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="J_FQ-Script.js"></script>
 </body>
+
 </html>
-
-

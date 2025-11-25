@@ -28,6 +28,100 @@
         box-shadow: 0 0 18px rgba(25, 135, 84, 0.8); 
     }
 }
+.btn-pista {
+    font-family: 'Fredoka One', cursive;
+
+    /* 💡 Degradado Azul/Verde NEÓN */
+    background: linear-gradient(90deg, #00eaff 0%, #00ffcc 100%);
+    color: #fff;
+    font-weight: 700;
+
+    /* 💡 Forma redondeada */
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    border: none;
+
+    transition: all 0.3s ease;
+
+    /* 💡 Glow NEÓN turquesa/cyan */
+    box-shadow: 
+        0 0 10px #00fff2,
+        0 0 20px #00eaff,
+        0 0 30px rgba(0, 255, 230, 0.6);
+
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+.btn-pista:hover {
+    transform: scale(1.05);
+    filter: brightness(1.25);
+
+    /* Glow más intenso al pasar el ratón */
+    box-shadow: 
+        0 0 15px #00fff2,
+        0 0 30px #00eaff,
+        0 0 50px rgba(0, 255, 230, 0.8);
+}
+
+
+.btn-pista:active {
+    transform: scale(0.98);
+}
+/* --- TABLA NEÓN --- */
+/* Asegura texto blanco en estado normal */
+#TUnidades td,
+#TUnidades th {
+    color: #fff ;
+}
+
+.table-neon tbody tr:hover td,
+.table-neon tbody tr:hover th {
+    background: #0ff !important;
+    color: #000 !important;     /* <--- ESTO SÍ CAMBIA EL COLOR */
+    font-weight: bold;
+    text-shadow: none !important;
+}
+
+
+/* Bordes y glow del marco */
+.table-neon {
+    color: #fff;
+    border: 1px solid #0ff;
+    box-shadow: 0 0 15px #0ff;
+}
+
+/* Encabezado neón */
+.table-neon thead th {
+    background: #000;
+    color: #0ff !important;
+    border-bottom: 2px solid #0ff;
+    text-shadow: 0 0 5px #0ff;
+}
+
+/* Celdas normales */
+.table-neon tbody td {
+    background: #111;
+    border-color: #0ff;
+    transition: 0.2s;
+}
+
+/* 🔥 HOVER NEÓN — ahora funciona siempre */
+.table-neon tbody :hover td {
+    background: #0ff !important;
+    color: #000 !important;
+    font-weight: bold;
+    text-shadow: none;
+    transition: 0.2s;
+}
+
+.table-neon td:hover {
+        background-color: rgba(0, 255, 255, 0.15);
+        box-shadow: 0 0 12px #0ff, inset 0 0 8px #0ff;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
 
 .center-circle {
@@ -151,18 +245,7 @@
     }
 } 
 
-/* === BOTÓN “Ver Tabla Periódica” === */
-.btn-tabla,
-button[data-bs-target="#tablaModal"] {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    box-shadow: 0 0 15px rgba(37, 117, 252, 0.4);
-}
 
-.btn-tabla:hover,
-button[data-bs-target="#tablaModal"]:hover {
-    background: linear-gradient(135deg, #2575fc, #6a11cb);
-    box-shadow: 0 0 20px rgba(37, 117, 252, 0.6);
-}
 
 /* === BOTONES GENERALES === */
 .btn,
@@ -215,19 +298,6 @@ background: transparent;
     background: #ffcc00;
     color: #fff;
     box-shadow: 0 0 10px #ffcc00;
-}
-
-/* === BOTÓN “Ver Tabla Periódica” === */
-.btn-tabla,
-button[data-bs-target="#tablaModal"] {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    box-shadow: 0 0 15px rgba(37, 117, 252, 0.4);
-}
-
-.btn-tabla:hover,
-button[data-bs-target="#tablaModal"]:hover {
-    background: linear-gradient(135deg, #2575fc, #6a11cb);
-    box-shadow: 0 0 20px rgba(37, 117, 252, 0.6);
 }
 
 /* === ENCABEZADO Y PUNTAJE === */
@@ -341,170 +411,6 @@ button[data-bs-target="#tablaModal"]:hover {
         0 0 40px rgba(37, 117, 252, 0.5),
         0 0 60px rgba(37, 117, 252, 0.4);
     transform: scale(1.03);
-}
-
-/* === PALETA DE BOTONES POR COMPUESTO === */
-#Hidrácidos {
-    background: #ff006e;
-}
-
-#Oxiácidos {
-    background: #7b2ff7;
-}
-
-#Sales\ Haloideas {
-    background: #00c9a7;
-}
-
-#Sales\ Ácidas {
-    background: #ff9f1c;
-}
-
-#Oxisales {
-    background: #00f5d4;
-}
-
-#Hidruros {
-    background: #06d6a0;
-}
-
-#Óxidos\ Metálicos {
-    background: #118ab2;
-}
-
-#Anhidridos {
-    background: #ef476f;
-}
-
-#Bases {
-    background: #fde047;
-}
-/* === TABLA PERIÓDICA === */
-.tabla-periodica {
-    display: grid;
-    grid-template-columns: repeat(18, 70px);
-    gap: 4px;
-    margin: auto;
-    padding: 10px;
-}
-
-.elemento,
-.espacio {
-    width: 70px;
-    height: 80px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #f1f1f1;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.25s ease-in-out;
-    text-align: center;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-}
-
-.elemento:hover {
-    transform: scale(1.15);
-    border: 2px solid #fff;
-    cursor: pointer;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-}
-
-.numero,
-.peso,
-.ox {
-    font-size: 10px;
-    opacity: 0.85;
-}
-
-.simbolo {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.espacio {
-    visibility: hidden;
-}
-
-/* === CONTENEDOR DE NOMBRE DE ELEMENTO === */
-#contenedor-nombre {
-    width: 220px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    text-align: center;
-    font-weight: 700;
-    color: #fff;
-    margin: 10px auto;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-/* === COLORES DE GRUPOS QUÍMICOS === */
-.alcalino:hover,
-#contenedor-nombre.alcalino {
-    background-color: rgba(0, 255, 255, 0.25);
-    box-shadow: 0 0 12px #00ffff;
-}
-
-.alcalinoterreos:hover,
-#contenedor-nombre.alcalinoterreos {
-    background-color: rgba(255, 100, 100, 0.25);
-    box-shadow: 0 0 12px #ff6666;
-}
-
-.metal:hover,
-#contenedor-nombre.metal {
-    background-color: rgba(102, 153, 255, 0.25);
-    box-shadow: 0 0 12px #6699ff;
-}
-
-.posttransicionales:hover,
-#contenedor-nombre.posttransicionales {
-    background-color: rgba(255, 170, 128, 0.25);
-    box-shadow: 0 0 12px #ffaa80;
-}
-
-.lantinidos:hover,
-#contenedor-nombre.lantinidos {
-    background-color: rgba(204, 255, 230, 0.25);
-    box-shadow: 0 0 12px #66ffcc;
-}
-
-.actinidos:hover,
-#contenedor-nombre.actinidos {
-    background-color: rgba(255, 179, 217, 0.25);
-    box-shadow: 0 0 12px #ff80bf;
-}
-
-.no-metal:hover,
-#contenedor-nombre.no-metal {
-    background-color: rgba(200, 230, 201, 0.25);
-    box-shadow: 0 0 12px #80ff80;
-}
-
-.metaloide:hover,
-#contenedor-nombre.metaloide {
-    background-color: rgba(255, 249, 196, 0.25);
-    box-shadow: 0 0 12px #ffff80;
-}
-
-.noble:hover,
-#contenedor-nombre.noble {
-    background-color: rgba(204, 102, 255, 0.25);
-    box-shadow: 0 0 12px #cc66ff;
-}
-
-.sintetico:hover,
-#contenedor-nombre.sintetico {
-    background-color: rgba(191, 191, 191, 0.25);
-    box-shadow: 0 0 12px #bfbfbf;
 }
 
 .center-circle {

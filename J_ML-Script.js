@@ -32,9 +32,13 @@ const feedbackText = document.getElementById("feedback");
 const btnReset = document.getElementById("btnReset");
 const btnHome = document.getElementById("btnHome");
 
-const welcomeModal = document.getElementById("welcomeModal");
+const welcomeModal = document.getElementById("modalIntroduccion");
 const startGameButton = document.getElementById("startGameButton");
+    let modal = new bootstrap.Modal(document.getElementById('modalIntroduccion'));
+    modal.show();
 
+
+if (infoPanel) infoPanel.style.display = "none";
 
 const rows = 15;
 const cols = 15;
@@ -97,52 +101,62 @@ const questions = [
     {
         question: "Resuelve: 2x + 3 = 11. ¿Cuál es x?",
         options: ["3", "4", "5", "8"],
-        correctIndex: 1
+        correctIndex: 1,
+        explanation: "Restamos 3 a 11 (nos queda 8) y luego dividimos entre 2. Por lo tanto, x = ..."
     },
     {
         question: "¿Cuál es la pendiente de la recta y = -3x + 2?",
         options: ["-3", "2", "3", "1/3"],
-        correctIndex: 0
+        correctIndex: 0,
+        explanation: "En la ecuación de la recta y = mx + b, 'm' es la pendiente. Aquí el coeficiente de x es ..."
     },
     {
         question: "Simplifica: (x^2)(x^3) =",
         options: ["x^5", "x^6", "x^8", "x^9"],
-        correctIndex: 0
+        correctIndex: 0,
+        explanation: "Cuando multiplicamos potencias con la misma base, se suman los exponentes: 2 + 3 = ..."
     },
     {
         question: "¿Cuál es la raíz cuadrada de 81?",
         options: ["7", "8", "9", "10"],
-        correctIndex: 2
+        correctIndex: 2,
+        explanation: "Buscamos un número que multiplicado por sí mismo de 81. 9 x 9 = ..."
     },
     {
         question: "Si f(x) = 3x - 1, ¿cuánto vale f(2)?",
         options: ["5", "4", "6", "3"],
-        correctIndex: 0
+        correctIndex: 0,
+        explanation: "Sustituimos x por 2: 3(2) - 1 = 6 - 1 = ..."
     },
     {
         question: "Factoriza: x^2 - 16",
         options: ["(x-4)(x+4)", "(x-8)(x+2)", "(x-16)(x+1)", "(x-2)(x+8)"],
-        correctIndex: 0
+        correctIndex: 0,
+        explanation: "Es una diferencia de cuadrados: a² - b² = (a-b)(a+b). La raíz de 16 es ..."
     },
     {
         question: "¿Cuál es el valor de cos(60°)?",
         options: ["0", "1", "1/2", "√3/2"],
-        correctIndex: 2
+        correctIndex: 2,
+        explanation: "Por identidades trigonométricas básicas, el coseno de 60 grados es 0.5 o ..."
     },
     {
         question: "Resuelve: 5x - 10 = 0. ¿Cuál es x?",
         options: ["0", "1", "2", "5"],
-        correctIndex: 2
+        correctIndex: 2,
+        explanation: "Despejamos x: 5x = 10, entonces x = 10 / 5, lo que resulta en ..."
     },
     {
         question: "¿Cuál es el resultado de 7^2?",
         options: ["14", "21", "49", "77"],
-        correctIndex: 2
+        correctIndex: 2,
+        explanation: "Elevar al cuadrado significa multiplicar el número por sí mismo: 7 x 7 = ..."
     },
     {
         question: "Si el promedio de 6, 8 y x es 10, ¿cuánto vale x?",
         options: ["12", "14", "16", "10"],
-        correctIndex: 2 // x = 16
+        correctIndex: 2,
+        explanation: "La suma (6 + 8 + x) / 3 = 10. Entonces 14 + x = 30. Despejando, x = ..."
     }
 ];
 
@@ -325,8 +339,13 @@ function handleAnswer(selected) {
         doorsOpened++;
         SCorrecto.currentTime = 0;
         SCorrecto.play();
-        feedbackText.textContent = "¡Correcto! La puerta se abre.";
-        feedbackText.style.color = "lime";
+        let modalCorrecto = new bootstrap.Modal(document.getElementById('modalCorrecto'));
+            modalCorrecto.show();
+            $("#modalCorrecto .modal-content").addClass("animate__animated animate__pulse");
+            setTimeout(() => {
+                modalCorrecto.hide();
+                mostrarCompuesto();
+            }, 2500);
         updateHUD();
 
         openDoor(currentDoor);
@@ -344,8 +363,15 @@ function handleAnswer(selected) {
             }
         }, 800);
     } else {
-        feedbackText.textContent = "Incorrecto. Vuelves al inicio.";
-        feedbackText.style.color = "red";
+        let modalError = new bootstrap.Modal(document.getElementById('modalError'));
+            $('#errorTitulo').text(`❌ Respuesta incorrecta`);
+            $('#errorCuerpo').html(`
+            <p class="fs-5 text-danger fw-bold">La respuesta correcta era: ${q.options[q.correctIndex]}</p>
+            <p class="mb-0 text-white">${q.explanation}</p>
+            <hr class="border-secondary">
+            <p class="small text-muted mb-0">Has sido devuelto al inicio del laberinto.</p>
+        `);
+            modalError.show();
         SError.currentTime = 0;
         SError.play();
 
@@ -378,12 +404,18 @@ function endGame(won) {
     isRunning = false;
     isPausedForQuestion = true;
     questionBox.classList.add("hidden");
-
-    overlay.classList.remove("hidden");
-    overlayTitle.textContent = won ? "¡Saliste del laberinto!" : "Fin del juego";
-    overlayText.innerHTML =
-        `Puertas abiertas: <strong>${doorsOpened}</strong><br>` +
-        `Respuestas correctas: <strong>${scoreQuiz}</strong> de ${questionsAsked}`;
+    let modalFinal = new bootstrap.Modal(document.getElementById('modalFinal'));
+        $('#mensajeFinal').html(`Tu puntaje final fue de <strong>${scoreQuiz}/4</strong>, y en tan solo <strong>${questionsAsked}</strong> preguntas ¡Excelente trabajo!`);
+        modalFinal.show();
+        document.getElementById('btnInicio').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+    document.getElementById('btnRepetir').addEventListener('click', () => {
+        location.reload();
+    });
+    document.getElementById('btnMasJuegos').addEventListener('click', () => {
+        window.location.href = 'dashboard.html';
+    });
 }
 
 
@@ -468,14 +500,33 @@ if (btnHome) {
 }
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    if (welcomeModal) {
-        welcomeModal.style.display = "flex";
-    }
-    if (overlay) {
-        overlay.classList.add("hidden");
-    }
-});
+// --- elimina o comenta este bloque (no ocultes el overlay aquí) ---
+// document.addEventListener("DOMContentLoaded", () => {
+//     if (welcomeModal) {
+//         welcomeModal.style.display = "flex";
+//     }
+//     if (overlay) {
+//         overlay.classList.add("hidden");
+//     }
+// });
+
+// --- añade esto en su lugar ---
+const modalEl = document.getElementById('modalIntroduccion');
+if (modalEl) {
+  // cuando el modal se oculte, mostramos el overlay con el mensaje de "presiona cualquier tecla"
+  modalEl.addEventListener('hidden.bs.modal', () => {
+    overlay.classList.remove('hidden');
+    overlayTitle.textContent = "Laberinto Algebraico";
+    overlayText.textContent = "Presiona cualquier tecla para comenzar";
+
+    // Opción A: dejar que el jugador presione cualquier tecla para iniciar (usa la lógica ya existente)
+    // isRunning permanece false hasta que el usuario presione una tecla.
+
+    // Opción B (si quieres comenzar inmediatamente al cerrar el modal):
+    // isRunning = true;
+  });
+}
+
 
 if (startGameButton) {
     startGameButton.addEventListener("click", () => {
