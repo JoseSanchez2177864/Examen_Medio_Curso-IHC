@@ -13,7 +13,7 @@ SCorrecto.preload = 'auto';
 SError.preload = 'auto';
 SFinal.preload = 'auto';
     
-    const META_CASOS = 25; 
+    const META_CASOS = 15; 
     let casosResueltos = 0;
     let totalStars = 0;
     let currentStarsPotential = 3; 
@@ -88,7 +88,21 @@ SFinal.preload = 'auto';
 
     
 
-    
+    function obtenerEnigmaSinRepetir() {
+    if (rondasDisponibles.length === 0) {
+        console.warn("⚠️ Ya no quedan enigmas disponibles");
+        return null;
+    }
+
+    // Selecciona un índice aleatorio
+    const index = Math.floor(Math.random() * rondasDisponibles.length);
+
+    // Extrae y elimina el enigma para que no se repita
+    const elegido = rondasDisponibles.splice(index, 1)[0];
+
+    return elegido;
+}
+
     window.unlockClue = function(clueNum) {
         if (clueNum === 2) {
             clue2.classList.remove('locked');
@@ -124,7 +138,6 @@ SFinal.preload = 'auto';
         modalIntro.show();
         totalStars = 0;
         casosResueltos = 0;
-        scoreDisplay.innerText = totalStars;
         updateRoundDisplay();
         
         
@@ -151,7 +164,7 @@ SFinal.preload = 'auto';
         }
 
       
-        rondaActualObj = rondasDisponibles[0];
+        rondaActualObj = obtenerEnigmaSinRepetir();
         
      
         currentStarsPotential = 3;
