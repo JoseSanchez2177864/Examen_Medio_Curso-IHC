@@ -192,6 +192,9 @@ function resetGame(fullReset = true) {
     findSpecialPositions();
 
     if (fullReset) {
+        overlay.classList.remove("hidden");
+    overlayTitle.textContent = "Laberinto Algebraico";
+    overlayText.textContent = "Usa las flechas o WASD para moverte";
     mazeLayout = [
         "###############",
         "#S..#...##....#",
@@ -221,10 +224,6 @@ function resetGame(fullReset = true) {
 
     questionBox.classList.add("hidden");
     feedbackText.textContent = "";
-
-    overlay.classList.remove("hidden");
-    overlayTitle.textContent = "Laberinto Algebraico";
-    overlayText.textContent = "Usa las flechas o WASD para moverte";
 
     updateHUD();
     drawMaze();
@@ -309,7 +308,8 @@ function showQuestionForDoor(doorChar) {
     isPausedForQuestion = true;
     currentDoor = doorChar;
     currentQuestionIndex = qIndex;
-
+overlay.classList.add("hidden");
+    overlay.style.display = "none";
     const q = questions[qIndex];
 
     questionsAsked++;
@@ -344,7 +344,6 @@ function handleAnswer(selected) {
             $("#modalCorrecto .modal-content").addClass("animate__animated animate__pulse");
             setTimeout(() => {
                 modalCorrecto.hide();
-                mostrarCompuesto();
             }, 2500);
         updateHUD();
 
@@ -371,7 +370,8 @@ function handleAnswer(selected) {
             <hr class="border-secondary">
             <p class="small text-muted mb-0">Has sido devuelto al inicio del laberinto.</p>
         `);
-            modalError.show();
+        
+        modalError.show();
         SError.currentTime = 0;
         SError.play();
 
@@ -515,7 +515,6 @@ const modalEl = document.getElementById('modalIntroduccion');
 if (modalEl) {
   // cuando el modal se oculte, mostramos el overlay con el mensaje de "presiona cualquier tecla"
   modalEl.addEventListener('hidden.bs.modal', () => {
-    overlay.classList.remove('hidden');
     overlayTitle.textContent = "Laberinto Algebraico";
     overlayText.textContent = "Presiona cualquier tecla para comenzar";
 
@@ -531,7 +530,6 @@ if (modalEl) {
 if (startGameButton) {
     startGameButton.addEventListener("click", () => {
         welcomeModal.style.display = "none";
-        overlay.classList.remove("hidden");
         overlayTitle.textContent = "Laberinto Algebraico";
         overlayText.textContent = "Presiona cualquier tecla para comenzar";
     });

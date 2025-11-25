@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Laberinto Algebraico - Matemáticas</title>
+    <title>GameLearn - Laberinto Algebraico</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 
@@ -114,49 +114,7 @@
             </div>
         </div>
     </div> 
-    <div class="container py-5">
-        <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap mb-4">
-            <div id="contenedorPuntaje" class="puntaje">
-                <i class="bi bi-star-fill"></i> Puntaje: <span id="scoreQuiz">0</span>/4
-            </div>
-            <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0">Laberinto Algebraico</h2>
-            <!-- Botón de Pista -->
-            <button class="btn btn-info btn-sm btn-uni" id="btnInfo" data-bs-toggle="modal"
-                data-bs-target="#modalInfo">
-                <i class="bi bi-question-circle"></i> Ayuda
-            </button>
-        </div>
-        <main id="mainContent">
-            <h1></h1>
-
-            <div id="infoPanel">
-                <div class="info-chip">
-                    <span class="chip-label"></span>
-                    <span class="chip-value" id="doorsOpened"></span>
-                </div>
-                <div class="info-chip">
-                    <span class="chip-label"></span>
-                    <span class="chip-value" id="scoreQuiz"></span>
-                </div>
-                <div class="info-chip">
-                    <span class="chip-label">Preguntas totales</span>
-                    <span class="chip-value" id="questionsCount"></span>
-                </div>
-            </div>
-
-
-            <canvas id="gameCanvas" width="600" height="600"></canvas>
-        </main>
-
-
-        <div id="overlayMessage" class="overlay hidden">
-            <div class="overlay-content">
-                <h2 id="overlayTitle">Laberinto Algebraico</h2>
-                <p id="overlayText">Usa las flechas para moverte</p>
-            </div>
-        </div>
-
-<!-- Modal de Correcto -->
+    <!-- Modal de Correcto -->
     <div class="modal fade" id="modalCorrecto" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center p-4 rounded-4 shadow-lg">
@@ -205,6 +163,49 @@
             </div>
         </div>
     </div>
+    <div class="container py-5">
+        <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap mb-4">
+            <div id="contenedorPuntaje" class="puntaje">
+                <i class="bi bi-star-fill"></i> Puntaje: <span id="scoreQuiz">0</span>/4
+            </div>
+            <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0">Laberinto Algebraico</h2>
+            <!-- Botón de Pista -->
+            <button class="btn btn-info btn-sm btn-uni" id="btnInfo" data-bs-toggle="modal"
+                data-bs-target="#modalInfo">
+                <i class="bi bi-question-circle"></i> Ayuda
+            </button>
+        </div>
+        <main id="mainContent">
+            <h1></h1>
+
+            <div id="infoPanel">
+                <div class="info-chip">
+                    <span class="chip-label"></span>
+                    <span class="chip-value" id="doorsOpened"></span>
+                </div>
+                <div class="info-chip">
+                    <span class="chip-label"></span>
+                    <span class="chip-value" id="scoreQuiz"></span>
+                </div>
+                <div class="info-chip">
+                    <span class="chip-label">Preguntas totales</span>
+                    <span class="chip-value" id="questionsCount"></span>
+                </div>
+            </div>
+
+
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+        </main>
+
+
+        <div id="overlayMessage" class="overlay hidden">
+            <div class="overlay-content">
+                <h2 id="overlayTitle">Laberinto Algebraico</h2>
+                <p id="overlayText">Usa las flechas para moverte</p>
+            </div>
+        </div>
+
+
         <div id="questionBox" class="hidden">
             <h2>Pregunta de Matemáticas</h2>
             <p id="questionText"></p>

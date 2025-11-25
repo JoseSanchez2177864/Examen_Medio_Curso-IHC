@@ -8,6 +8,11 @@ body {
     background: #000;
 }
 
+#questionBox {
+    z-index: 10000;
+}
+
+
 
 .bg-shapes {
     position: fixed;
