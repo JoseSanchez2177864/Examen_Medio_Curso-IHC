@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 
@@ -17,6 +18,19 @@
     <link rel="stylesheet" href="J_N-Diseño.css" />
     <link rel="stylesheet" href="J_ML-Diseño.css" />
 
+=======
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Laberinto Algebraico - Matemáticas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="J_ML-Diseño.css" />
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 </head>
 
 <body>
@@ -29,6 +43,7 @@
         <div class="shape shape-diamond"></div>
     </div>
 
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">GameLearn</a>
@@ -219,3 +234,191 @@
 </body>
 
 </html>
+=======
+    <header id="mainHeader">
+        <div class="header-left">
+            <a href="index.html" class="logo">GameLearn</a>
+        </div>
+        <nav class="header-right">
+            <a href="dashboard.html">Inicio</a>
+            <a href="#">Acerca</a>
+            <a href="#">Más Asignaturas</a>
+            <a href="#">Más Juegos</a>
+            <a href="#">Login</a>
+            <button class="btnSignUp" type="button">Regístrate!</button>
+        </nav>
+    </header>
+
+    <div id="welcomeModal" class="welcome-overlay">
+        <div class="welcome-box">
+            <h2>¡Bienvenido al Laberinto Algebraico!</h2>
+            <p>
+                En este juego deberás encontrar la salida del laberinto resolviendo
+                preguntas de matemáticas que bloquean ciertas puertas.
+                <br><br>
+                <strong>Objetivo:</strong> llegar a la meta resolviendo correctamente las preguntas.
+                <br>
+                <strong>Controles:</strong>
+                <ul>
+                    <li>Usa las flechas del teclado (↑ ↓ ← →) o WASD para moverte.</li>
+                    <li>Las casillas especiales son puertas que se abren al contestar bien.</li>
+                    <li>Si fallas una pregunta, vuelves al inicio.</li>
+                </ul>
+            </p>
+
+            <button id="startGameButton" class="welcome-btn">¡Comenzar!</button>
+        </div>
+    </div>
+
+    <main id="mainContent">
+        <h1>Laberinto Algebraico - Matemáticas</h1>
+
+        <div id="infoPanel">
+			<div class="info-chip">
+			<span class="chip-label">Puertas abiertas</span>
+			<span class="chip-value" id="doorsOpened">0</span>
+		</div>
+	<div class="info-chip">
+        <span class="chip-label">Respuestas correctas</span>
+        <span class="chip-value" id="scoreQuiz">0</span>
+    </div>
+    <div class="info-chip">
+        <span class="chip-label">Preguntas totales</span>
+        <span class="chip-value" id="questionsCount">0</span>
+    </div>
+	</div>
+
+        <div id="buttonsPanel">
+            <button id="btnReset" type="button">Reiniciar juego</button>
+            <button id="btnHome"  type="button">Volver al inicio</button>
+        </div>
+
+       
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+    </main>
+
+    
+    <div id="overlayMessage" class="overlay hidden">
+        <div class="overlay-content">
+            <h2 id="overlayTitle">Laberinto Algebraico</h2>
+            <p id="overlayText">Usa las flechas para moverte</p>
+        </div>
+    </div>
+
+ 
+    <div id="questionBox" class="hidden">
+        <h2>Pregunta de Matemáticas</h2>
+        <p id="questionText"></p>
+        <div id="optionsContainer"></div>
+        <p id="feedback"></p>
+    </div>
+
+    <script src="J_ML-Script.js"></script>
+</body>
+</html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Laberinto Algebraico - Matemáticas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="J_ML-Diseño.css" />
+</head>
+
+<body>
+
+    <div class="bg-shapes">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-circle small"></div>
+        <div class="shape shape-square"></div>
+        <div class="shape shape-square small"></div>
+        <div class="shape shape-diamond"></div>
+    </div>
+
+    <header id="mainHeader">
+        <div class="header-left">
+            <a href="index.html" class="logo">GameLearn</a>
+        </div>
+        <nav class="header-right">
+            <a href="dashboard.html">Inicio</a>
+            <a href="#">Acerca</a>
+            <a href="#">Más Asignaturas</a>
+            <a href="#">Más Juegos</a>
+            <a href="#">Login</a>
+            <button class="btnSignUp" type="button">Regístrate!</button>
+        </nav>
+    </header>
+
+    <div id="welcomeModal" class="welcome-overlay">
+        <div class="welcome-box">
+            <h2>¡Bienvenido al Laberinto Algebraico!</h2>
+            <p>
+                En este juego deberás encontrar la salida del laberinto resolviendo
+                preguntas de matemáticas que bloquean ciertas puertas.
+                <br><br>
+                <strong>Objetivo:</strong> llegar a la meta resolviendo correctamente las preguntas.
+                <br>
+                <strong>Controles:</strong>
+                <ul>
+                    <li>Usa las flechas del teclado (↑ ↓ ← →) o WASD para moverte.</li>
+                    <li>Las casillas especiales son puertas que se abren al contestar bien.</li>
+                    <li>Si fallas una pregunta, vuelves al inicio.</li>
+                </ul>
+            </p>
+
+            <button id="startGameButton" class="welcome-btn">¡Comenzar!</button>
+        </div>
+    </div>
+
+    <main id="mainContent">
+        <h1>Laberinto Algebraico - Matemáticas</h1>
+
+        <div id="infoPanel">
+			<div class="info-chip">
+			<span class="chip-label">Puertas abiertas</span>
+			<span class="chip-value" id="doorsOpened">0</span>
+		</div>
+	<div class="info-chip">
+        <span class="chip-label">Respuestas correctas</span>
+        <span class="chip-value" id="scoreQuiz">0</span>
+    </div>
+    <div class="info-chip">
+        <span class="chip-label">Preguntas totales</span>
+        <span class="chip-value" id="questionsCount">0</span>
+    </div>
+	</div>
+
+        <div id="buttonsPanel">
+            <button id="btnReset" type="button">Reiniciar juego</button>
+            <button id="btnHome"  type="button">Volver al inicio</button>
+        </div>
+
+       
+        <canvas id="gameCanvas" width="600" height="600"></canvas>
+    </main>
+
+    
+    <div id="overlayMessage" class="overlay hidden">
+        <div class="overlay-content">
+            <h2 id="overlayTitle">Laberinto Algebraico</h2>
+            <p id="overlayText">Usa las flechas para moverte</p>
+        </div>
+    </div>
+
+ 
+    <div id="questionBox" class="hidden">
+        <h2>Pregunta de Matemáticas</h2>
+        <p id="questionText"></p>
+        <div id="optionsContainer"></div>
+        <p id="feedback"></p>
+    </div>
+
+    <script src="J_ML-Script.js"></script>
+</body>
+</html>
+>>>>>>> be0e305 (Añadi la tabla en juego de telarañas y añadi un juego de lamateria de matematicas)
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be

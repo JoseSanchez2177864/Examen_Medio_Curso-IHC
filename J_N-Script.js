@@ -68,6 +68,7 @@ $(document).ready(function () {
         { compuesto: "PbC₂O₄", tipo: "Oxisales", iluminar: "", aparicion: false }
     ];
     let Errores = [
+<<<<<<< HEAD
     { 
         tipo: "Hidrácidos",
         comentario: "Se identifican porque el Hidrógeno (H) aparece al inicio seguido de un no metal. Cuando veas una fórmula que comienza con H y después un solo no metal (sin oxígeno), se trata de un HIDRÁCIDO."
@@ -114,6 +115,19 @@ $(document).ready(function () {
     }
 ];
 
+=======
+        { tipo: "Hidrácidos", comentario: "Este tipo de compuestos se pueden identificar al ver que el Hidrógeno (H) va antes de un no metal, es decir, otro elemento. Así que, cuando veas una H al incio, se trata de un ácido; y si le sigue un no metal, ten por seguro que se trata de un HIDRÁCIDO." },
+        { tipo: "Oxiácidos", comentario: "Este tipo de compuestos se pueden identificar al ver que el Hidrógeno (H) va antes de un polianión , es decir, un no metal con oxígeno. Así que, cuando veas una H al incio, se trata de un ácido; y más adelante ves una O, ten por seguro que se trata de un OXIÁCIDO." },
+        { tipo: "Sales Haloideas", comentario: "Este tipo de compuestos se pueden identificar al ver que hay un metal seguido de un no metal; son compuestos formados unicamente por dos elementos, Así que si ves un metal con un no metal (sin contar H) se trata de una SAL HALOIDEA" },
+        { tipo: "Anhidridos", comentario: "Este tipo de compuestos se pueden identificar al ver que el Oxígeno (O) va después de un no metal, es decir, otro elemento. Así que, cuando veas una O al final, se trata de un óxido; y si antes ves un no metal, ten por seguro que se trata de un ÓXIDO NO METÁLICO (ANHIDRIDO)." },
+        { tipo: "Bases", comentario: "Este tipo de compuestos se pueden identificar al ver que hay un Hidróxido (OH)  después de un metal, es decir, otro elemento. Así que, cuando veas una OH al final, ten por seguro que se trata de un HIDRÓXIDO (BASE)." },
+        { tipo: "Óxidos Metálicos", comentario: "Este tipo de compuestos se pueden identificar al ver que el Oxígeno (O) va después de un metal, es decir, otro elemento. Así que, cuando veas una O al final, se trata de un óxido; y si antes ves un metal, ten por seguro que se trata de un ÓXIDO METÁLICO." },
+        { tipo: "Hidruros", comentario: "Este tipo de compuestos se pueden identificar al ver que el Hidrógeno (H) va después de un metal, es decir, otro elemento; son compuestos de dos elementos a diferencia de las bases. Así que, cuando veas una H al final y antes un metal, ten por seguro que se trata de un tipo de HIDRURO." },
+        { tipo: "Sales Ácidas", comentario: "Este tipo de compuestos se pueden identificar al ver que en alguno de los tipos de sal (OXISAL O SAL HALOIDEA), después del metal ves una H (Hidrógeno) y después un no metal o un polianión; este es el único compuesto formado que puede ser formado por 4 elementos. Así que, cuando veas una H en medio del compuesto, ten por seguro que se trata de una SAL ÁCIDA." },
+        { tipo: "Oxisales", comentario: "Este tipo de compuestos se pueden identificar al ver que hay un metal seguido de un polianión, es decir, un no metal con un Oxígeno (O); son compuestos formados unicamente por tres elementos, Así que si ves un metal, una O y un no metal, se trata de una OXISAL" },
+
+    ]
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
     function obtenerCompuestoAleatorio() {
         while (Total < 15) {
             let disponibles = Compuestos.filter(c => !c.aparicion);
@@ -128,6 +142,7 @@ $(document).ready(function () {
         // Selector para tus botones de opción
         $('.btn-option').removeClass('ayuda-correcta');
     }
+<<<<<<< HEAD
     function colorearCompuesto(compuesto) {
         const polianiones = ["CO₃", "SO₄", "PO₄", "ClO", "NO₃"];
         const metales = ["Na", "K", "Li", "Ca", "Mg", "Fe", "Pb", "Ag", "Pt", "Ba", "Rb", "Hg", "Mn", "Al"];
@@ -201,6 +216,81 @@ $(document).ready(function () {
         let html = $('#Compuesto').html();
         $('#Compuesto').html(html.replace(regex, `<span class="iluminado">$1</span>`));
     }
+=======
+function colorearCompuesto(compuesto) {
+    const polianiones = ["CO₃", "SO₄", "PO₄", "ClO", "NO₃"];
+    const metales = ["Na", "K", "Li", "Ca", "Mg", "Fe", "Pb", "Ag", "Pt", "Ba", "Rb", "Hg", "Mn", "Al"];
+    const noMetales = ["Cl", "Br", "I", "S", "Se", "P", "N"];
+
+    // Ordenar por longitud descendente para que símbolos largos se detecten primero
+    polianiones.sort((a, b) => b.length - a.length);
+    metales.sort((a, b) => b.length - a.length);
+    noMetales.sort((a, b) => b.length - a.length);
+
+    let resultado = '';
+    let i = 0;
+
+    while (i < compuesto.length) {
+        let encontrado = false;
+
+        // Checar polianiones
+        for (let p of polianiones) {
+            if (compuesto.substr(i, p.length) === p) {
+                resultado += `<span class="polianion">${p}</span>`;
+                i += p.length;
+                encontrado = true;
+                break;
+            }
+        }
+        if (encontrado) continue;
+
+        // Checar metales
+        for (let m of metales) {
+            if (compuesto.substr(i, m.length) === m) {
+                resultado += `<span class="metal">${m}</span>`;
+                i += m.length;
+                encontrado = true;
+                break;
+            }
+        }
+        if (encontrado) continue;
+
+        // Checar no metales
+        for (let n of noMetales) {
+            if (compuesto.substr(i, n.length) === n) {
+                resultado += `<span class="no-metal">${n}</span>`;
+                i += n.length;
+                encontrado = true;
+                break;
+            }
+        }
+        if (encontrado) continue;
+
+        // Si no coincide nada, agregar el carácter tal cual
+        resultado += compuesto[i];
+        i++;
+    }
+
+    return resultado;
+}
+
+
+
+// Iluminar parte específica (H, O, OH, etc.)
+function iluminarParte(compuesto) {
+    let simbolo = compuesto.iluminar;
+    if (!simbolo) return;
+
+    // Escapar caracteres especiales
+    let escaped = simbolo.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    
+    // Solo iluminar lo que NO está ya dentro de un span
+    let regex = new RegExp(`(?![^<]*>)(` + escaped + `)(?![^<]*>)`, "g");
+
+    let html = $('#Compuesto').html();
+    $('#Compuesto').html(html.replace(regex, `<span class="iluminado">$1</span>`));
+}
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 
     function mostrarCompuesto() {
         clearTimeout(ayudaTimer);   // ya lo tenías, perfecto
@@ -209,8 +299,11 @@ $(document).ready(function () {
         let compuesto = obtenerCompuestoAleatorio();
         if (!compuesto) return;
         $('.btn-lg').removeClass('btnError btnSiguiente');
+<<<<<<< HEAD
         $('.btn-lg').removeClass('opcion-tenue');
         $('#btnPista').prop('disabled', false);
+=======
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
         let compuestoHTML = colorearCompuesto(compuesto.compuesto);
         $('#Compuesto').html(compuestoHTML);
         setTimeout(() => $('#Compuesto').removeClass('resaltado'), 1000);
@@ -338,6 +431,7 @@ $(document).ready(function () {
         window.location.href = 'dashboard.html';
     });
 });
+<<<<<<< HEAD
 
 // ===== BOTÓN PISTA =====
 $('#btnPista').on('click', function () {
@@ -362,3 +456,5 @@ $('#btnPista').on('click', function () {
     $(this).prop('disabled', true);
 });
 
+=======
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be

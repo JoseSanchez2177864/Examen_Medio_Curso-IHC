@@ -76,6 +76,7 @@
     color: red;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.6);
 }
+<<<<<<< HEAD
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -326,6 +327,9 @@
     background: #f56565;
     color: white;
 }
+=======
+
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 /* === BOTONES GENERALES === */
 .btn,
 #btnInicio,
@@ -623,12 +627,15 @@ button[data-bs-target="#tablaModal"]:hover {
     transition: 0.2s;
 }
 
+<<<<<<< HEAD
 .opcion-tenue {
     opacity: 0.25 !important;
     filter: grayscale(100%);
     pointer-events: none;
 }
 
+=======
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 
 .modal-content {
     background: rgba(20, 20, 20, 0.95);

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 
 body {
     font-family: 'Quicksand', sans-serif;
@@ -233,3 +237,243 @@ h1, h2, h3, h4, h5, .navbar-brand, .btn {
     letter-spacing: 1px;
 
 }
+<<<<<<< HEAD
+=======
+=======
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #121212; 
+    color: white;
+    min-height: 100vh;
+}
+
+
+h1, h2, h3, h4, h5, .navbar-brand, .btn {
+    font-family: 'Fredoka One', cursive;
+}
+
+
+.navbar-brand {
+    color: #ff006e !important; 
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgba(255, 0, 110, 0.3);
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+}
+
+
+.btn-outline-light {
+    border-radius: 50px;
+    padding: 5px 20px;
+}
+
+
+.actividad-header {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+#contenedorPuntaje {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px 15px;
+    border-radius: 50px;
+    color: #ffd700;
+    font-weight: bold;
+    border: 1px solid #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.titulo-actividad {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+
+.enigma-panel {
+    max-width: 700px;
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.enigma-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, #00f5d4, transparent);
+    animation: scan 4s infinite linear;
+}
+
+@keyframes scan {
+    0% { top: 0; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.panel-header {
+    color: #00f5d4;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    border-bottom: 1px dashed rgba(0, 245, 212, 0.3);
+    padding-bottom: 10px;
+}
+
+
+.clue-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.clue-text {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.badge-clue {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+}
+
+
+.clue-box.locked {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.clue-box.locked:hover {
+    background: rgba(255, 215, 0, 0.1); 
+    border-color: #ffd700;
+}
+
+.clue-box.locked .unlocked-content { display: none; }
+
+.clue-box.locked .locked-content {
+    display: block;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.clue-box.locked .locked-content i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+
+.clue-box.active, .clue-box.unlocked {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #00f5d4;
+}
+
+.clue-box.unlocked .locked-content { display: none; }
+
+.clue-box.unlocked {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.btn-option-enigma {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-option-enigma:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #00f5d4;
+    color: #00f5d4;
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.3);
+}
+
+.btn-option-enigma.correct {
+    background: rgba(0, 255, 127, 0.2) !important;
+    border-color: #00ff7f !important;
+    color: #00ff7f !important;
+}
+
+.btn-option-enigma.incorrect {
+    background: rgba(255, 0, 85, 0.2) !important;
+    border-color: #ff0055 !important;
+    color: #ff0055 !important;
+}
+
+
+.modal-content {
+    background: rgba(15, 15, 15, 0.95) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+
+
+.modal-header.bg-danger {
+    background: linear-gradient(135deg, #ff006e, #990033) !important;
+    box-shadow: 0 5px 15px rgba(255, 0, 110, 0.3);
+}
+
+.btn-tabla {
+    background: linear-gradient(135deg, #ff9900, #ffcc00);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 20px;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+}
+
+.btn-tabla:hover {
+    box-shadow: 0 0 25px rgba(255, 204, 0, 0.7);
+    color: #000;
+}
+
+#correctAnswerReveal {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    letter-spacing: 1px;
+
+}
+>>>>>>> be0e305 (Añadi la tabla en juego de telarañas y añadi un juego de lamateria de matematicas)
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be

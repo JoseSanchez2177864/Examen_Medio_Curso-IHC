@@ -6,6 +6,7 @@ let ecuaciones = [];
 let intervaloEcuaciones;
 let intervaloAnimacion;
 let velocidad = 2000;
+<<<<<<< HEAD
 let velocidadCaida = 0.5;
 let nivel = 1;
 let ecuacionesResueltas = 0;
@@ -13,6 +14,12 @@ let ecuacionesResueltas = 0;
 
 
 
+=======
+let velocidadCaida = 2;
+let nivel = 1;
+let ecuacionesResueltas = 0;
+
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 // Elementos DOM
 const btnInicio = document.getElementById('btnInicio');
 const btnPista = document.getElementById('btnPista');

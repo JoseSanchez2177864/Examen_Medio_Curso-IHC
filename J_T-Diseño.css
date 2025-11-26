@@ -28,6 +28,7 @@
         box-shadow: 0 0 18px rgba(25, 135, 84, 0.8); 
     }
 }
+<<<<<<< HEAD
 .btn-pista {
     font-family: 'Fredoka One', cursive;
 
@@ -122,6 +123,8 @@
         font-weight: bold;
         cursor: pointer;
     }
+=======
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 
 
 .center-circle {
@@ -245,7 +248,22 @@
     }
 } 
 
+<<<<<<< HEAD
 
+=======
+/* === BOTÓN “Ver Tabla Periódica” === */
+.btn-tabla,
+button[data-bs-target="#tablaModal"] {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    box-shadow: 0 0 15px rgba(37, 117, 252, 0.4);
+}
+
+.btn-tabla:hover,
+button[data-bs-target="#tablaModal"]:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    box-shadow: 0 0 20px rgba(37, 117, 252, 0.6);
+}
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 
 /* === BOTONES GENERALES === */
 .btn,
@@ -300,6 +318,22 @@ background: transparent;
     box-shadow: 0 0 10px #ffcc00;
 }
 
+<<<<<<< HEAD
+=======
+/* === BOTÓN “Ver Tabla Periódica” === */
+.btn-tabla,
+button[data-bs-target="#tablaModal"] {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    box-shadow: 0 0 15px rgba(37, 117, 252, 0.4);
+}
+
+.btn-tabla:hover,
+button[data-bs-target="#tablaModal"]:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    box-shadow: 0 0 20px rgba(37, 117, 252, 0.6);
+}
+
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 /* === ENCABEZADO Y PUNTAJE === */
 .actividad-header {
     display: flex;
@@ -413,6 +447,173 @@ background: transparent;
     transform: scale(1.03);
 }
 
+<<<<<<< HEAD
+=======
+/* === PALETA DE BOTONES POR COMPUESTO === */
+#Hidrácidos {
+    background: #ff006e;
+}
+
+#Oxiácidos {
+    background: #7b2ff7;
+}
+
+#Sales\ Haloideas {
+    background: #00c9a7;
+}
+
+#Sales\ Ácidas {
+    background: #ff9f1c;
+}
+
+#Oxisales {
+    background: #00f5d4;
+}
+
+#Hidruros {
+    background: #06d6a0;
+}
+
+#Óxidos\ Metálicos {
+    background: #118ab2;
+}
+
+#Anhidridos {
+    background: #ef476f;
+}
+
+#Bases {
+    background: #fde047;
+}
+/* === TABLA PERIÓDICA === */
+.tabla-periodica {
+    display: grid;
+    grid-template-columns: repeat(18, 70px);
+    gap: 4px;
+    margin: auto;
+    padding: 10px;
+}
+
+.elemento,
+.espacio {
+    width: 70px;
+    height: 80px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #f1f1f1;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.25s ease-in-out;
+    text-align: center;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.elemento:hover {
+    transform: scale(1.15);
+    border: 2px solid #fff;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.numero,
+.peso,
+.ox {
+    font-size: 10px;
+    opacity: 0.85;
+}
+
+.simbolo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.espacio {
+    visibility: hidden;
+}
+
+/* === CONTENEDOR DE NOMBRE DE ELEMENTO === */
+#contenedor-nombre {
+    width: 220px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    margin: 10px auto;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* === COLORES DE GRUPOS QUÍMICOS === */
+.alcalino:hover,
+#contenedor-nombre.alcalino {
+    background-color: rgba(0, 255, 255, 0.25);
+    box-shadow: 0 0 12px #00ffff;
+}
+
+.alcalinoterreos:hover,
+#contenedor-nombre.alcalinoterreos {
+    background-color: rgba(255, 100, 100, 0.25);
+    box-shadow: 0 0 12px #ff6666;
+}
+
+.metal:hover,
+#contenedor-nombre.metal {
+    background-color: rgba(102, 153, 255, 0.25);
+    box-shadow: 0 0 12px #6699ff;
+}
+
+.posttransicionales:hover,
+#contenedor-nombre.posttransicionales {
+    background-color: rgba(255, 170, 128, 0.25);
+    box-shadow: 0 0 12px #ffaa80;
+}
+
+.lantinidos:hover,
+#contenedor-nombre.lantinidos {
+    background-color: rgba(204, 255, 230, 0.25);
+    box-shadow: 0 0 12px #66ffcc;
+}
+
+.actinidos:hover,
+#contenedor-nombre.actinidos {
+    background-color: rgba(255, 179, 217, 0.25);
+    box-shadow: 0 0 12px #ff80bf;
+}
+
+.no-metal:hover,
+#contenedor-nombre.no-metal {
+    background-color: rgba(200, 230, 201, 0.25);
+    box-shadow: 0 0 12px #80ff80;
+}
+
+.metaloide:hover,
+#contenedor-nombre.metaloide {
+    background-color: rgba(255, 249, 196, 0.25);
+    box-shadow: 0 0 12px #ffff80;
+}
+
+.noble:hover,
+#contenedor-nombre.noble {
+    background-color: rgba(204, 102, 255, 0.25);
+    box-shadow: 0 0 12px #cc66ff;
+}
+
+.sintetico:hover,
+#contenedor-nombre.sintetico {
+    background-color: rgba(191, 191, 191, 0.25);
+    box-shadow: 0 0 12px #bfbfbf;
+}
+
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 .center-circle {
     position: absolute;
     top: 50%;
@@ -439,3 +640,74 @@ background: transparent;
     min-width: 120px; 
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+/* =============================== */
+/*      MODAL DE POLIANIONES       */
+/* =============================== */
+
+.tabla-polianiones-content {
+    background: rgba(25, 25, 25, 0.95);
+    border: 2px solid rgba(0, 140, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 140, 255, 0.4);
+    backdrop-filter: blur(8px);
+}
+
+.intro-text {
+    color: #d0d0d0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Tabla */
+.tabla-polianiones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fila-pol {
+    display: grid;
+    grid-template-columns: 60px 120px 150px 120px 200px 120px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.fila-pol:hover {
+    transform: scale(1.03);
+    background: rgba(0, 140, 255, 0.15);
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.4);
+}
+
+.formula { font-weight: bold; font-size: 1.1rem; }
+
+.icono { font-size: 1.5rem; }
+
+/* Notas */
+.notas-pol {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.07);
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.15);
+}
+.notas-pol ul li { color: #ddd; }
+
+/* Iconos por familia */
+.ion-azufre { color: #ffd700; }
+.ion-carbono { color: #ff9800; }
+.ion-nitrogeno { color: #4da0ff; }
+.ion-fosforo { color: #bb86fc; }
+.ion-cloro { color: #00e676; }
+>>>>>>> be0e305 (Añadi la tabla en juego de telarañas y añadi un juego de lamateria de matematicas)
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be

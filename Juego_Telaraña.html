@@ -4,14 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
   <title>GameLearn - Telaraña</title>
+=======
+  <title>Juego de Telaraña</title>
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<<<<<<< HEAD
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
     rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+=======
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
   <link rel="stylesheet" href="J_T-Diseño.css">
   <link rel="stylesheet" href="main-diseño.css">
 </head>
@@ -29,10 +36,18 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+<<<<<<< HEAD
           <li class="nav-item"><a class="nav-link active" href="dashboard.html">Más Juegos</a></li>
           <li class="nav-item"><a class="nav-link" href="ranking.html">Tabla de Rankings</a></li>
           <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
           <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2" href="registro.html">Regístrate!</a></li>
+=======
+          <li class="nav-item"><a class="nav-link" href="#">Acerca</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Más Asignaturas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Más Juegos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+          <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2" href="#">Regístrate!</a></li>
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
         </ul>
       </div>
     </div>
@@ -42,9 +57,15 @@
     <div id="contenedorPuntaje" class="puntaje">
       <i class="bi bi-star-fill"></i> Puntaje: 0/15
     </div>
+<<<<<<< HEAD
     <h2 class="titulo-actividad text-center flex-grow-1 mb-0" id="Titulo"> Nombra el Compuesto</h2>
     <button class="btn btn-pista" data-bs-toggle="modal" data-bs-target="#modalPolianiones">
       Tabla de Polianiones
+=======
+    <h2 class="titulo-actividad text-center flex-grow-1 mb-0"> Nombra el Compuesto</h2>
+    <button class="btn btn-tabla" data-bs-toggle="modal" data-bs-target="#tablaModal">
+      Ver Tabla Periódica
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
     </button>
   </div>
 
@@ -66,7 +87,11 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header bg-info text-white">
+<<<<<<< HEAD
           <h5 class="modal-title" id="modalIntroduccionLabel">Bienvenido al Juego de Nomenclatura</h5>
+=======
+          <h5 class="modal-title" id="modalIntroduccionLabel">Bienvenido al Jugo de Nomenclatura</h5>
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
           <button type="button" class="btn-close btnSiguiente" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
@@ -86,6 +111,7 @@
   </div>
 
   <!-- Modal de Felicitación -->
+<<<<<<< HEAD
   <div class="modal fade" id="modalFinal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content text-center p-4 rounded-4 shadow-lg">
@@ -106,6 +132,28 @@
       </div>
     </div>
   </div>
+=======
+<div class="modal fade" id="modalFinal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+      <h3 class="mb-3 fw-bold">🎉 ¡Felicidades!</h3>
+      <p id="mensajeFinal" class="fs-5 mb-4"></p>
+
+      <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+        <button id="btnInicio" class="btn btn-outline-primary" href="index.html">
+          <i class="bi bi-house-door"></i> Inicio
+        </button>
+        <button id="btnRepetir" class="btn btn-outline-success" href="Juego_Telaraña.html">
+          <i class="bi bi-arrow-repeat"></i> Repetir
+        </button>
+        <button id="btnMasJuegos" class="btn btn-outline-warning" href="dashboard.html">
+          <i class="bi bi-controller"></i> Más juegos
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 
 
   <!-- Modal de Correcto -->
@@ -136,6 +184,976 @@
     </div>
   </div>
 
+<<<<<<< HEAD
+=======
+  <!-- Modal Tabla Periódica -->
+  <div class="modal fade" id="tablaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tabla Periódica</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" style="overflow-x: auto;">
+          <div class="tabla-periodica mx-auto">
+
+            <!-- Hidrógeno -->
+            <div class="elemento no-metal" id="Hidrógeno">
+              <div class="numero">1</div>
+              <div class="simbolo">H</div>
+              <div class="peso">1.008</div>
+              <div class="ox">+1, -1</div>
+            </div>
+
+            <!-- Helio -->
+            <div class="elemento noble" id="Helio" style="grid-column: 18">
+              <div class="numero">2</div>
+              <div class="simbolo">He</div>
+              <div class="peso">4.003</div>
+              <div class="ox">0</div>
+            </div>
+
+            <!-- Litio -->
+            <div class="elemento alcalino" id="Litio" style="grid-row: 2">
+              <div class="numero">3</div>
+              <div class="simbolo">Li</div>
+              <div class="peso">6.941</div>
+              <div class="ox">+1</div>
+            </div>
+
+            <!-- Berilio -->
+            <div class="elemento alcalinoterreos" id="Berilio" style="grid-row: 2">
+              <div class="numero">4</div>
+              <div class="simbolo">Be</div>
+              <div class="peso">9.012</div>
+              <div class="ox">+2</div>
+            </div>
+
+            <!-- Boro -->
+            <div class="elemento metaloide" id="Boro" style="grid-row: 2; grid-column: 13">
+              <div class="numero">5</div>
+              <div class="simbolo">B</div>
+              <div class="peso">10.81</div>
+              <div class="ox">+3</div>
+            </div>
+
+            <!-- Carbono -->
+            <div class="elemento no-metal" id="Carbono" style="grid-row: 2; grid-column: 14">
+              <div class="numero">6</div>
+              <div class="simbolo">C</div>
+              <div class="peso">12.01</div>
+              <div class="ox">+4, -4</div>
+            </div>
+
+            <!-- Nitrógeno -->
+            <div class="elemento no-metal" id="Nitrógeno" style="grid-row: 2; grid-column: 15">
+              <div class="numero">7</div>
+              <div class="simbolo">N</div>
+              <div class="peso">14.00</div>
+              <div class="ox">+-1, +-2, +-3, +-4, +-5</div>
+            </div>
+
+            <!-- Oxígeno -->
+            <div class="elemento no-metal" id="Oxígeno" style="grid-row: 2; grid-column: 16">
+              <div class="numero">8</div>
+              <div class="simbolo">O</div>
+              <div class="peso">16.00</div>
+              <div class="ox">-2</div>
+            </div>
+
+            <!-- Fluor -->
+            <div class="elemento no-metal" id="Fluor" style="grid-row: 2; grid-column: 17">
+              <div class="numero">9</div>
+              <div class="simbolo">F</div>
+              <div class="peso">18.99</div>
+              <div class="ox">-1</div>
+            </div>
+
+            <!-- Neón -->
+            <div class="elemento noble" id="Neón" style="grid-row: 2; grid-column: 18">
+              <div class="numero">10</div>
+              <div class="simbolo">Ne</div>
+              <div class="peso">20.17</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Sodio -->
+            <div class="elemento alcalino" id="Sodio" style="grid-row: 3; grid-column: 1">
+              <div class="numero">11</div>
+              <div class="simbolo">Na</div>
+              <div class="peso">22.98</div>
+              <div class="ox">+1</div>
+            </div>
+
+            <!-- Magnesio -->
+            <div class="elemento alcalinoterreos" id="Magnesio" style="grid-row: 3; grid-column: 2">
+              <div class="numero">12</div>
+              <div class="simbolo">Mg</div>
+              <div class="peso">24.30</div>
+              <div class="ox">+2</div>
+            </div>
+
+            <!-- Contenedor para mostrar nombre -->
+            <div id="contenedor-nombre" style="grid-row: 3; grid-column: 6">
+              <p id="nombreElemento">Pasa el cursor sobre un elemento para ver su nombre</p>
+            </div>
+
+            <!-- Aluminio -->
+            <div class="elemento posttransicionales" id="Aluminio" style="grid-row: 3; grid-column: 13">
+              <div class="numero">13</div>
+              <div class="simbolo">Al</div>
+              <div class="peso">26.98</div>
+              <div class="ox">+3</div>
+            </div>
+
+            <!-- Silicio -->
+            <div class="elemento metaloide" id="Silicio" style="grid-row: 3; grid-column: 14">
+              <div class="numero">14</div>
+              <div class="simbolo">Si</div>
+              <div class="peso">28.08</div>
+              <div class="ox">+2, +-4</div>
+            </div>
+
+            <!-- Fósforo -->
+            <div class="elemento no-metal" id="Fósforo" style="grid-row: 3; grid-column: 15">
+              <div class="numero">15</div>
+              <div class="simbolo">P</div>
+              <div class="peso">30.97</div>
+              <div class="ox">+-3, +-5</div>
+            </div>
+
+            <!-- Azufre -->
+            <div class="elemento no-metal" id="Azufre" style="grid-row: 3; grid-column: 16">
+              <div class="numero">16</div>
+              <div class="simbolo">S</div>
+              <div class="peso">32.06</div>
+              <div class="ox">+-2, +4, +6</div>
+            </div>
+
+            <!-- Cloro -->
+            <div class="elemento no-metal" id="Cloro" style="grid-row: 3; grid-column: 17">
+              <div class="numero">17</div>
+              <div class="simbolo">Cl</div>
+              <div class="peso">35.45</div>
+              <div class="ox">+-1, +3, +5, +7</div>
+            </div>
+
+            <!-- Argón -->
+            <div class="elemento noble" id="Argón" style="grid-row: 3; grid-column: 18">
+              <div class="numero">18</div>
+              <div class="simbolo">Ar</div>
+              <div class="peso">39.94</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Potasio -->
+            <div class="elemento alcalino" id="Potasio" style="grid-row: 4; grid-column: 1">
+              <div class="numero">19</div>
+              <div class="simbolo">K</div>
+              <div class="peso">39.09</div>
+              <div class="ox">+1</div>
+            </div>
+
+            <!-- Calcio -->
+            <div class="elemento alcalinoterreos" id="Calcio" style="grid-row: 4; grid-column: 2">
+              <div class="numero">20</div>
+              <div class="simbolo">Ca</div>
+              <div class="peso">40.07</div>
+              <div class="ox">+2</div>
+            </div>
+
+            <!-- Escandio -->
+            <div class="elemento metal" id="Escandio" style="grid-row: 4; grid-column: 3">
+              <div class="numero">21</div>
+              <div class="simbolo">Sc</div>
+              <div class="peso">44.95</div>
+              <div class="ox">+3</div>
+            </div>
+
+            <!-- Titanio -->
+            <div class="elemento metal" id="Titanio" style="grid-row: 4; grid-column: 4">
+              <div class="numero">22</div>
+              <div class="simbolo">Ti</div>
+              <div class="peso">47.86</div>
+              <div class="ox">+2, +3, +4</div>
+            </div>
+
+            <!-- Vanadio -->
+            <div class="elemento metal" id="Vanadio" style="grid-row: 4; grid-column: 5">
+              <div class="numero">23</div>
+              <div class="simbolo">V</div>
+              <div class="peso">50.94</div>
+              <div class="ox">+2, +3, +4, +5</div>
+            </div>
+
+            <!-- Cromo -->
+            <div class="elemento metal" id="Cromo" style="grid-row: 4; grid-column: 6">
+              <div class="numero">24</div>
+              <div class="simbolo">Cr</div>
+              <div class="peso">51.99</div>
+              <div class="ox">+2, +3, +6</div>
+            </div>
+
+            <!-- Manganeso -->
+            <div class="elemento metal" id="Manganeso" style="grid-row: 4; grid-column: 7">
+              <div class="numero">25</div>
+              <div class="simbolo">Mn</div>
+              <div class="peso">54.93</div>
+              <div class="ox">+2, +3, +4, +5, +6, +7</div>
+            </div>
+
+            <!-- Hierro -->
+            <div class="elemento metal" id="Hierro" style="grid-row: 4; grid-column: 8">
+              <div class="numero">26</div>
+              <div class="simbolo">Fe</div>
+              <div class="peso">55.84</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Cobalto -->
+            <div class="elemento metal" id="Cobalto" style="grid-row: 4; grid-column: 9">
+              <div class="numero">27</div>
+              <div class="simbolo">Co</div>
+              <div class="peso">58.93</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Niquel -->
+            <div class="elemento metal" id="Niquel" style="grid-row: 4; grid-column: 10">
+              <div class="numero">28</div>
+              <div class="simbolo">Ni</div>
+              <div class="peso">58.69</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Cobre -->
+            <div class="elemento metal" id="Cobre" style="grid-row: 4; grid-column: 11">
+              <div class="numero">29</div>
+              <div class="simbolo">Cu</div>
+              <div class="peso">63.54</div>
+              <div class="ox">+1, +2</div>
+            </div>
+
+            <!-- Zinc -->
+            <div class="elemento metal" id="Zinc" style="grid-row: 4; grid-column: 12">
+              <div class="numero">30</div>
+              <div class="simbolo">Zn</div>
+              <div class="peso">65.38</div>
+              <div class="ox">+2</div>
+            </div>
+
+            <!-- Galio -->
+            <div class="elemento posttransicionales" id="Galio" style="grid-row: 4; grid-column: 13">
+              <div class="numero">31</div>
+              <div class="simbolo">Ga</div>
+              <div class="peso">69.72</div>
+              <div class="ox">+1, +3</div>
+            </div>
+
+            <!-- Germanio -->
+            <div class="elemento metaloide" id="Germanio" style="grid-row: 4; grid-column: 14">
+              <div class="numero">32</div>
+              <div class="simbolo">Ge</div>
+              <div class="peso">72.64</div>
+              <div class="ox">+2, +4</div>
+            </div>
+
+            <!-- Arsénico -->
+            <div class="elemento metaloide" id="Arsénico" style="grid-row: 4; grid-column: 15">
+              <div class="numero">33</div>
+              <div class="simbolo">As</div>
+              <div class="peso">74.92</div>
+              <div class="ox">+-3, +5</div>
+            </div>
+
+            <!-- Selenio -->
+            <div class="elemento no-metal" id="Selenio" style="grid-row: 4; grid-column: 16">
+              <div class="numero">34</div>
+              <div class="simbolo">Se</div>
+              <div class="peso">78.96</div>
+              <div class="ox">-2, +4, +6</div>
+            </div>
+
+            <!-- Bromo -->
+            <div class="elemento no-metal" id="Bromo" style="grid-row: 4; grid-column: 17">
+              <div class="numero">35</div>
+              <div class="simbolo">Br</div>
+              <div class="peso">79.90</div>
+              <div class="ox">+-1, +3, +5, +7</div>
+            </div>
+
+            <!-- Kriptón -->
+            <div class="elemento noble" id="Kriptón" style="grid-row: 4; grid-column: 18">
+              <div class="numero">36</div>
+              <div class="simbolo">Kr</div>
+              <div class="peso">83.79</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Rubidio -->
+            <div class="elemento alcalino" id="Rubidio" style="grid-row: 5; grid-column: 1">
+              <div class="numero">37</div>
+              <div class="simbolo">Rb</div>
+              <div class="peso">85.46</div>
+              <div class="ox">+1</div>
+            </div>
+
+            <!-- Estroncio -->
+            <div class="elemento alcalinoterreos" id="Estroncio" style="grid-row: 5; grid-column: 2">
+              <div class="numero">38</div>
+              <div class="simbolo">Sr</div>
+              <div class="peso">87.62</div>
+              <div class="ox">+2</div>
+            </div>
+
+            <!-- Itrio -->
+            <div class="elemento metal" id="Itrio" style="grid-row: 5; grid-column: 3">
+              <div class="numero">39</div>
+              <div class="simbolo">Y</div>
+              <div class="peso">88.90</div>
+              <div class="ox">+3</div>
+            </div>
+
+            <!-- Zirconio -->
+            <div class="elemento metal" id="Zirconio" style="grid-row: 5; grid-column: 4">
+              <div class="numero">40</div>
+              <div class="simbolo">Zr</div>
+              <div class="peso">91.22</div>
+              <div class="ox">+3, +4</div>
+            </div>
+
+            <!-- Niobio -->
+            <div class="elemento metal" id="Niobio" style="grid-row: 5; grid-column: 5">
+              <div class="numero">41</div>
+              <div class="simbolo">Nb</div>
+              <div class="peso">92.90</div>
+              <div class="ox">+2, +3, +4, +5</div>
+            </div>
+
+            <!-- Molibdeno -->
+            <div class="elemento metal" id="Molibdeno" style="grid-row: 5; grid-column: 6">
+              <div class="numero">42</div>
+              <div class="simbolo">Mo</div>
+              <div class="peso">95.95</div>
+              <div class="ox">+2, +3, +4, +5, +6</div>
+            </div>
+
+            <!-- Tecnecio -->
+            <div class="elemento metal" id="Tecnecio" style="grid-row: 5; grid-column: 7">
+              <div class="numero">43</div>
+              <div class="simbolo">Tc</div>
+              <div class="peso">98</div>
+              <div class="ox">+4, 5, +6, +7</div>
+            </div>
+
+            <!-- Rutenio -->
+            <div class="elemento metal" id="Rutenio" style="grid-row: 5; grid-column: 8">
+              <div class="numero">44</div>
+              <div class="simbolo">Ru</div>
+              <div class="peso">101.07</div>
+              <div class="ox">+2, +3, +4, +5, +6, +7</div>
+            </div>
+
+            <!-- Rodio -->
+            <div class="elemento metal" id="Rodio" style="grid-row: 5; grid-column: 9">
+              <div class="numero">45</div>
+              <div class="simbolo">Rh</div>
+              <div class="peso">102.91</div>
+              <div class="ox">+2, +3, +4, +5, +6</div>
+            </div>
+
+            <!-- Paladio -->
+            <div class="elemento metal" id="Paladio" style="grid-row: 5; grid-column: 10">
+              <div class="numero">46</div>
+              <div class="simbolo">Pd</div>
+              <div class="peso">106.42</div>
+              <div class="ox">+2, +4</div>
+            </div>
+
+            <!-- Plata -->
+            <div class="elemento metal" id="Plata" style="grid-row: 5; grid-column: 11">
+              <div class="numero">47</div>
+              <div class="simbolo">Ag</div>
+              <div class="peso">107.87</div>
+              <div class="ox">+1</div>
+            </div>
+
+            <!-- Cadmio -->
+            <div class="elemento metal" id="Cadmio" style="grid-row: 5; grid-column: 12">
+              <div class="numero">48</div>
+              <div class="simbolo">Cd</div>
+              <div class="peso">112.41</div>
+              <div class="ox">+2</div>
+            </div>
+
+            <!-- Indio -->
+            <div class="elemento posttransicionales" id="Indio" style="grid-row: 5; grid-column: 13">
+              <div class="numero">49</div>
+              <div class="simbolo">In</div>
+              <div class="peso">114.82</div>
+              <div class="ox">+1, +3</div>
+            </div>
+
+            <!-- Estaño -->
+            <div class="elemento posttransicionales" id="Estaño" style="grid-row: 5; grid-column: 14">
+              <div class="numero">50</div>
+              <div class="simbolo">Sn</div>
+              <div class="peso">118.71</div>
+              <div class="ox">+2, +4</div>
+            </div>
+
+            <!-- Antimonio -->
+            <div class="elemento metaloide" id="Antimonio" style="grid-row: 5; grid-column: 15">
+              <div class="numero">51</div>
+              <div class="simbolo">Sb</div>
+              <div class="peso">121.76</div>
+              <div class="ox">+-3, +-5</div>
+            </div>
+
+            <!-- Telurio -->
+            <div class="elemento metaloide" id="Telurio" style="grid-row: 5; grid-column: 16">
+              <div class="numero">52</div>
+              <div class="simbolo">Te</div>
+              <div class="peso">127.60</div>
+              <div class="ox">+-2, +4, +6</div>
+            </div>
+
+            <!-- Yodo -->
+            <div class="elemento no-metal" id="Yodo" style="grid-row: 5; grid-column: 17">
+              <div class="numero">53</div>
+              <div class="simbolo">I</div>
+              <div class="peso">126.90</div>
+              <div class="ox">+-1, +3, +5, +7</div>
+            </div>
+
+            <!-- Xenón -->
+            <div class="elemento noble" id="Xenón" style="grid-row: 5; grid-column: 18">
+              <div class="numero">54</div>
+              <div class="simbolo">Xe</div>
+              <div class="peso">131.29</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Cesio -->
+            <div class="elemento alcalino" id="Cesio" style="grid-row: 6; grid-column: 1">
+              <div class="numero">55</div>
+              <div class="simbolo">Cs</div>
+              <div class="peso">132.91</div>
+              <div class="ox">+1</div>
+            </div>
+
+            <!-- Bario -->
+            <div class="elemento alcalinoterreos" id="Bario" style="grid-row: 6; grid-column: 2">
+              <div class="numero">56</div>
+              <div class="simbolo">Ba</div>
+              <div class="peso">137.33</div>
+              <div class="ox">+2</div>
+            </div>
+
+            <!-- Lantano -->
+            <div class="elemento lantinidos" id="Lantano" style="grid-row: 6; grid-column: 3">
+              <div class="numero">57</div>
+              <div class="simbolo">La</div>
+              <div class="peso">138.91</div>
+              <div class="ox">+3</div>
+            </div>
+
+            <!-- Hafnio -->
+            <div class="elemento metal" id="Hafnio" style="grid-row: 6; grid-column: 4">
+              <div class="numero">72</div>
+              <div class="simbolo">Hf</div>
+              <div class="peso">178.49</div>
+              <div class="ox">+3, +4</div>
+            </div>
+
+            <!-- Tántalo -->
+            <div class="elemento metal" id="Tántalo" style="grid-row: 6; grid-column: 5">
+              <div class="numero">73</div>
+              <div class="simbolo">Ta</div>
+              <div class="peso">180.95</div>
+              <div class="ox">+3, +4, +5</div>
+            </div>
+
+            <!-- Tungsteno -->
+            <div class="elemento metal" id="Tungsteno" style="grid-row: 6; grid-column: 6">
+              <div class="numero">74</div>
+              <div class="simbolo">W</div>
+              <div class="peso">183.84</div>
+              <div class="ox">+2, +3, +4, +5, +6</div>
+            </div>
+
+            <!-- Renio -->
+            <div class="elemento metal" id="Renio" style="grid-row: 6; grid-column: 7">
+              <div class="numero">75</div>
+              <div class="simbolo">Re</div>
+              <div class="peso">186.21</div>
+              <div class="ox">+2, +3, +4, +6, +7</div>
+            </div>
+
+            <!-- Osmio -->
+            <div class="elemento metal" id="Osmio" style="grid-row: 6; grid-column: 8">
+              <div class="numero">76</div>
+              <div class="simbolo">Os</div>
+              <div class="peso">190.23</div>
+              <div class="ox">+2, +3, +4, +5, +6, +7</div>
+            </div>
+
+            <!-- Iridio -->
+            <div class="elemento metal" id="Iridio" style="grid-row: 6; grid-column: 9">
+              <div class="numero">77</div>
+              <div class="simbolo">Ir</div>
+              <div class="peso">192.22</div>
+              <div class="ox">+2, +3, +4, +5, +6</div>
+            </div>
+
+            <!-- Platino -->
+            <div class="elemento metal" id="Platino" style="grid-row: 6; grid-column: 10">
+              <div class="numero">78</div>
+              <div class="simbolo">Pt</div>
+              <div class="peso">195.08</div>
+              <div class="ox">+2, +4</div>
+            </div>
+
+            <!-- Oro -->
+            <div class="elemento metal" id="Oro" style="grid-row: 6; grid-column: 11">
+              <div class="numero">79</div>
+              <div class="simbolo">Au</div>
+              <div class="peso">196.97</div>
+              <div class="ox">+1, +3</div>
+            </div>
+
+            <!-- Mercurio -->
+            <div class="elemento metal" id="Mercurio" style="grid-row: 6; grid-column: 12">
+              <div class="numero">80</div>
+              <div class="simbolo">Hg</div>
+              <div class="peso">200.59</div>
+              <div class="ox">+1, +2</div>
+            </div>
+
+            <!-- Talio -->
+            <div class="elemento posttransicionales" id="Talio" style="grid-row: 6; grid-column: 13">
+              <div class="numero">81</div>
+              <div class="simbolo">Tl</div>
+              <div class="peso">204.38</div>
+              <div class="ox">+1, +3</div>
+            </div>
+
+            <!-- Plomo -->
+            <div class="elemento posttransicionales" id="Plomo" style="grid-row: 6; grid-column: 14">
+              <div class="numero">82</div>
+              <div class="simbolo">Pb</div>
+              <div class="peso">207.20</div>
+              <div class="ox">+2, +4</div>
+            </div>
+
+            <!-- Bismuto -->
+            <div class="elemento posttransicionales" id="Bismuto" style="grid-row: 6; grid-column: 15">
+              <div class="numero">83</div>
+              <div class="simbolo">Bi</div>
+              <div class="peso">208.98</div>
+              <div class="ox">+3, +5</div>
+            </div>
+
+            <!-- Polonio -->
+            <div class="elemento posttransicionales" id="Polonio" style="grid-row: 6; grid-column: 16">
+              <div class="numero">84</div>
+              <div class="simbolo">Po</div>
+              <div class="peso">209</div>
+              <div class="ox">+-2, +4, +6</div>
+            </div>
+
+            <!-- Astato -->
+            <div class="elemento posttransicionales" id="Astato" style="grid-row: 6; grid-column: 17">
+              <div class="numero">85</div>
+              <div class="simbolo">At</div>
+              <div class="peso">210</div>
+              <div class="ox">+-1, +5</div>
+            </div>
+
+            <!-- Radón -->
+            <div class="elemento noble" id="Radón" style="grid-row: 6; grid-column: 18">
+              <div class="numero">86</div>
+              <div class="simbolo">Rn</div>
+              <div class="peso">222</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Francio -->
+            <div class="elemento alcalino" id="Francio" style="grid-row: 7; grid-column: 1">
+              <div class="numero">87</div>
+              <div class="simbolo">Fr</div>
+              <div class="peso">223</div>
+              <div class="ox">+1</div>
+            </div>
+
+            <!-- Radio -->
+            <div class="elemento alcalinoterreos" id="Radio" style="grid-row: 7; grid-column: 2">
+              <div class="numero">88</div>
+              <div class="simbolo">Rb</div>
+              <div class="peso">226</div>
+              <div class="ox">+2</div>
+            </div>
+
+            <!-- Actinio -->
+            <div class="elemento actinidos" id="Actinio" style="grid-row: 7; grid-column: 3">
+              <div class="numero">89</div>
+              <div class="simbolo">Ac</div>
+              <div class="peso">227</div>
+              <div class="ox">+3</div>
+            </div>
+
+            <!-- Rutherfordio -->
+            <div class="elemento metal" id="Rutherfordio" style="grid-row: 7; grid-column: 4">
+              <div class="numero">104</div>
+              <div class="simbolo">Rf</div>
+              <div class="peso">267</div>
+              <div class="ox">+3, +4</div>
+            </div>
+
+            <!-- Dubnio -->
+            <div class="elemento metal" id="Dubnio" style="grid-row: 7; grid-column: 5">
+              <div class="numero">105</div>
+              <div class="simbolo">Db</div>
+              <div class="peso">262</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Seaborgio -->
+            <div class="elemento metal" id="Seaborgio" style="grid-row: 7; grid-column: 6">
+              <div class="numero">106</div>
+              <div class="simbolo">Sg</div>
+              <div class="peso">269</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Bohrio -->
+            <div class="elemento metal" id="Bohrio" style="grid-row: 7; grid-column: 7">
+              <div class="numero">107</div>
+              <div class="simbolo">Bh</div>
+              <div class="peso">264</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Hasio -->
+            <div class="elemento metal" id="Hasio" style="grid-row: 7; grid-column: 8">
+              <div class="numero">108</div>
+              <div class="simbolo">Hs</div>
+              <div class="peso">269</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Meitnerio -->
+            <div class="elemento sintetico" id="Meitnerio" style="grid-row: 7; grid-column: 9">
+              <div class="numero">109</div>
+              <div class="simbolo">Mt</div>
+              <div class="peso">278</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Darmastatio -->
+            <div class="elemento sintetico" id="Darmastatio" style="grid-row: 7; grid-column: 10">
+              <div class="numero">110</div>
+              <div class="simbolo">Ds</div>
+              <div class="peso">281</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Roentgenio -->
+            <div class="elemento sintetico" id="Roentgenio" style="grid-row: 7; grid-column: 11">
+              <div class="numero">111</div>
+              <div class="simbolo">Rg</div>
+              <div class="peso">282</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Copernicio -->
+            <div class="elemento sintetico" id="Copernicio" style="grid-row: 7; grid-column: 12">
+              <div class="numero">112</div>
+              <div class="simbolo">Cn</div>
+              <div class="peso">285</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Nihonio -->
+            <div class="elemento sintetico" id="Nihonio" style="grid-row: 7; grid-column: 13">
+              <div class="numero">113</div>
+              <div class="simbolo">Nh</div>
+              <div class="peso">286</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Flerovio -->
+            <div class="elemento sintetico" id="Flerovio" style="grid-row: 7; grid-column: 14">
+              <div class="numero">114</div>
+              <div class="simbolo">Fl</div>
+              <div class="peso">289</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Moscovio -->
+            <div class="elemento sintetico" id="Moscovio" style="grid-row: 7; grid-column: 15">
+              <div class="numero">115</div>
+              <div class="simbolo">Mc</div>
+              <div class="peso">289</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Livermorio -->
+            <div class="elemento sintetico" id="Livermorio" style="grid-row: 7; grid-column: 16">
+              <div class="numero">116</div>
+              <div class="simbolo">Lv</div>
+              <div class="peso">293</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Teneso -->
+            <div class="elemento sintetico" id="Teneso" style="grid-row: 7; grid-column: 17">
+              <div class="numero">117</div>
+              <div class="simbolo">Ts</div>
+              <div class="peso">294</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Oganesón -->
+            <div class="elemento noble" id="Oganesón" style="grid-row: 7; grid-column: 18">
+              <div class="numero">118</div>
+              <div class="simbolo">Og</div>
+              <div class="peso">294</div>
+              <div class="ox"></div>
+            </div>
+
+            <!-- Cerio -->
+            <div class="elemento lantinidos" id="Cerio" style="grid-row: 8; grid-column: 4">
+              <div class="numero">58</div>
+              <div class="simbolo">Ce</div>
+              <div class="peso">140.12</div>
+              <div class="ox">+3, +4</div>
+            </div>
+
+            <!-- Praseodimio -->
+            <div class="elemento lantinidos" id="Praseodimio" style="grid-row: 8; grid-column: 5">
+              <div class="numero">59</div>
+              <div class="simbolo">Pr</div>
+              <div class="peso">140.91</div>
+              <div class="ox">+3, +4</div>
+            </div>
+
+            <!-- Neodimio -->
+            <div class="elemento lantinidos" id="Neodimio" style="grid-row: 8; grid-column: 6">
+              <div class="numero">60</div>
+              <div class="simbolo">Nd</div>
+              <div class="peso">144.24</div>
+              <div class="ox">+2, +3, +4</div>
+            </div>
+
+            <!-- Prometio -->
+            <div class="elemento lantinidos" id="Prometio" style="grid-row: 8; grid-column: 7">
+              <div class="numero">61</div>
+              <div class="simbolo">Pm</div>
+              <div class="peso">145</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Samario -->
+            <div class="elemento lantinidos" id="Samario" style="grid-row: 8; grid-column: 8">
+              <div class="numero">62</div>
+              <div class="simbolo">Sm</div>
+              <div class="peso">150.36</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Europio -->
+            <div class="elemento lantinidos" id="Europio" style="grid-row: 8; grid-column: 9">
+              <div class="numero">63</div>
+              <div class="simbolo">Eu</div>
+              <div class="peso">161.96</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Gadolinio -->
+            <div class="elemento lantinidos" id="Gadolinio" style="grid-row: 8; grid-column: 10">
+              <div class="numero">64</div>
+              <div class="simbolo">Gd</div>
+              <div class="peso">157.25</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Terbio -->
+            <div class="elemento lantinidos" id="Terbio" style="grid-row: 8; grid-column: 11">
+              <div class="numero">65</div>
+              <div class="simbolo">Tb</div>
+              <div class="peso">158.93</div>
+              <div class="ox">+2, +3, +4</div>
+            </div>
+
+            <!-- Disprosio -->
+            <div class="elemento lantinidos" id="Disprosio" style="grid-row: 8; grid-column: 12">
+              <div class="numero">66</div>
+              <div class="simbolo">Dy</div>
+              <div class="peso">162.5</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Holmio -->
+            <div class="elemento lantinidos" id="Holmio" style="grid-row: 8; grid-column: 13">
+              <div class="numero">67</div>
+              <div class="simbolo">Ho</div>
+              <div class="peso">164.93</div>
+              <div class="ox">+1, +2, +3</div>
+            </div>
+
+            <!-- Erbio -->
+            <div class="elemento lantinidos" id="Erbio" style="grid-row: 8; grid-column: 14">
+              <div class="numero">68</div>
+              <div class="simbolo">Er</div>
+              <div class="peso">167.26</div>
+              <div class="ox">+1, +2, +3</div>
+            </div>
+
+            <!-- Tulio -->
+            <div class="elemento lantinidos" id="Tulio" style="grid-row: 8; grid-column: 15">
+              <div class="numero">69</div>
+              <div class="simbolo">Tm</div>
+              <div class="peso">168.93</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Iterbio -->
+            <div class="elemento lantinidos" id="Iterbio" style="grid-row: 8; grid-column: 16">
+              <div class="numero">70</div>
+              <div class="simbolo">Yb</div>
+              <div class="peso">173.04</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Lutecio -->
+            <div class="elemento lantinidos" id="Lutecio" style="grid-row: 8; grid-column: 17">
+              <div class="numero">71</div>
+              <div class="simbolo">Lu</div>
+              <div class="peso">174.97</div>
+              <div class="ox">+3</div>
+            </div>
+
+            <!-- Torio -->
+            <div class="elemento actinidos" id="Torio" style="grid-row: 9; grid-column: 4">
+              <div class="numero">90</div>
+              <div class="simbolo">Th</div>
+              <div class="peso">232.04</div>
+              <div class="ox">+2, +3, +4</div>
+            </div>
+
+            <!-- Protactinio -->
+            <div class="elemento actinidos" id="Protactinio" style="grid-row: 9; grid-column: 5">
+              <div class="numero">91</div>
+              <div class="simbolo">Pa</div>
+              <div class="peso">231.04</div>
+              <div class="ox">+4, +5</div>
+            </div>
+
+            <!-- Uranio -->
+            <div class="elemento actinidos" id="Uranio" style="grid-row: 9; grid-column: 6">
+              <div class="numero">92</div>
+              <div class="simbolo">U</div>
+              <div class="peso">238.03</div>
+              <div class="ox">+4, +6</div>
+            </div>
+
+            <!-- Neptunio -->
+            <div class="elemento actinidos" id="Neptunio" style="grid-row: 9; grid-column: 7">
+              <div class="numero">93</div>
+              <div class="simbolo">Np</div>
+              <div class="peso">237.05</div>
+              <div class="ox">+3, +4, +5, +6, +7</div>
+            </div>
+
+            <!-- Plutonio -->
+            <div class="elemento actinidos" id="Plutonio" style="grid-row: 9; grid-column: 8">
+              <div class="numero">94</div>
+              <div class="simbolo">Pu</div>
+              <div class="peso">244</div>
+              <div class="ox">+3, +4, +5, +6</div>
+            </div>
+
+            <!-- Americio -->
+            <div class="elemento actinidos" id="Americio" style="grid-row: 9; grid-column: 9">
+              <div class="numero">95</div>
+              <div class="simbolo">Am</div>
+              <div class="peso">243</div>
+              <div class="ox">+2, +3, +4, +5, +6</div>
+            </div>
+
+            <!-- Curio -->
+            <div class="elemento actinidos" id="Curio" style="grid-row: 9; grid-column: 10">
+              <div class="numero">96</div>
+              <div class="simbolo">Am</div>
+              <div class="peso">247</div>
+              <div class="ox">+3, +4</div>
+            </div>
+
+            <!-- Berkelio -->
+            <div class="elemento actinidos" id="Berkelio" style="grid-row: 9; grid-column: 11">
+              <div class="numero">97</div>
+              <div class="simbolo">Bk</div>
+              <div class="peso">247</div>
+              <div class="ox">+2, +3, +4</div>
+            </div>
+
+            <!-- Californio -->
+            <div class="elemento actinidos" id="Californio" style="grid-row: 9; grid-column: 12">
+              <div class="numero">98</div>
+              <div class="simbolo">Cf</div>
+              <div class="peso">251</div>
+              <div class="ox">+2, +3, +4</div>
+            </div>
+
+            <!-- Einstenio -->
+            <div class="elemento actinidos" id="Einstenio" style="grid-row: 9; grid-column: 13">
+              <div class="numero">99</div>
+              <div class="simbolo">Es</div>
+              <div class="peso">252</div>
+              <div class="ox">+2, +3, +4</div>
+            </div>
+
+            <!-- Fermio -->
+            <div class="elemento actinidos" id="Fermio" style="grid-row: 9; grid-column: 14">
+              <div class="numero">100</div>
+              <div class="simbolo">Fm</div>
+              <div class="peso">257</div>
+              <div class="ox">+2, +3, +4</div>
+            </div>
+
+            <!-- Mendelevio -->
+            <div class="elemento actinidos" id="Mendelevio" style="grid-row: 9; grid-column: 15">
+              <div class="numero">101</div>
+              <div class="simbolo">Md</div>
+              <div class="peso">258</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Nobelio -->
+            <div class="elemento actinidos" id="Nobelio" style="grid-row: 9; grid-column: 16">
+              <div class="numero">102</div>
+              <div class="simbolo">No</div>
+              <div class="peso">259</div>
+              <div class="ox">+2, +3</div>
+            </div>
+
+            <!-- Lawrencio -->
+            <div class="elemento actinidos" id="Lawrencio" style="grid-row: 9; grid-column: 17">
+              <div class="numero">103</div>
+              <div class="simbolo">Lw</div>
+              <div class="peso">262</div>
+              <div class="ox">+3</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<<<<<<< HEAD
+=======
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
   <!-- BOTÓN PARA ABRIR TABLA -->
   <button class="btn btn-tabla mt-3" data-bs-toggle="modal" data-bs-target="#modalPolianiones">
     📘 Tabla de Polianiones
@@ -144,6 +1162,7 @@
   <!-- ===================== -->
   <!--   MODAL POLIANIONES   -->
   <!-- ===================== -->
+<<<<<<< HEAD
   <!-- MODAL POLIANIONES -->
   <div class="modal fade" id="modalPolianiones" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -154,10 +1173,20 @@
             Tabla Didáctica de Polianiones
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+=======
+  <div class="modal fade" id="modalPolianiones" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content tabla-polianiones-content">
+
+        <div class="modal-header bg-info">
+          <h4 class="modal-title">📘 Tabla Didáctica de Polianiones</h4>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
         </div>
 
         <div class="modal-body">
 
+<<<<<<< HEAD
           <div class="table-responsive">
             <table class="table table-bordered table-neon text-center align-middle">
               <thead>
@@ -298,11 +1327,139 @@
           </div>
 
         </div>
+=======
+          <!-- Descripción inicial -->
+          <p class="intro-text">
+            Aquí puedes consultar los **polianiones más comunes** y aquellos que aparecen dentro del juego,
+            junto con sus **nombres**, **ácidos correspondientes**, **sales típicas** y sus **reglas de nomenclatura**.
+          </p>
+
+          <!-- TABLA PRINCIPAL -->
+          <div class="tabla-polianiones">
+
+            <!-- === FILAS DE POLIANIONES === -->
+            <!-- Cada fila es un polianión -->
+
+            <div class="fila-pol">
+              <span class="icono ion-azufre">🟡</span>
+              <span class="formula">SO₄²⁻</span>
+              <span class="nombre">Sulfato</span>
+              <span class="terminacion">-ato</span>
+              <span class="acido">Ácido sulfúrico (H₂SO₄)</span>
+              <span class="sal">Na₂SO₄</span>
+            </div>
+
+            <div class="fila-pol">
+              <span class="icono ion-azufre">🟡</span>
+              <span class="formula">SO₃²⁻</span>
+              <span class="nombre">Sulfito</span>
+              <span class="terminacion">-ito</span>
+              <span class="acido">Ácido sulfuroso (H₂SO₃)</span>
+              <span class="sal">Na₂SO₃</span>
+            </div>
+
+            <div class="fila-pol">
+              <span class="icono ion-carbono">🟠</span>
+              <span class="formula">CO₃²⁻</span>
+              <span class="nombre">Carbonato</span>
+              <span class="terminacion">-ato</span>
+              <span class="acido">Ácido carbónico (H₂CO₃)</span>
+              <span class="sal">CaCO₃</span>
+            </div>
+
+            <div class="fila-pol">
+              <span class="icono ion-carbono">🟠</span>
+              <span class="formula">HCO₃⁻</span>
+              <span class="nombre">Bicarbonato</span>
+              <span class="terminacion">Hidrogenocarbonato</span>
+              <span class="acido">Ácido carbónico (H₂CO₃)</span>
+              <span class="sal">NaHCO₃</span>
+            </div>
+
+            <div class="fila-pol">
+              <span class="icono ion-nitrogeno">🔵</span>
+              <span class="formula">NO₃⁻</span>
+              <span class="nombre">Nitrato</span>
+              <span class="terminacion">-ato</span>
+              <span class="acido">Ácido nítrico (HNO₃)</span>
+              <span class="sal">NaNO₃</span>
+            </div>
+
+            <div class="fila-pol">
+              <span class="icono ion-nitrogeno">🔵</span>
+              <span class="formula">NO₂⁻</span>
+              <span class="nombre">Nitrito</span>
+              <span class="terminacion">-ito</span>
+              <span class="acido">Ácido nitroso (HNO₂)</span>
+              <span class="sal">KNO₂</span>
+            </div>
+
+            <div class="fila-pol">
+              <span class="icono ion-fosforo">🟣</span>
+              <span class="formula">PO₄³⁻</span>
+              <span class="nombre">Fosfato</span>
+              <span class="terminacion">-ato</span>
+              <span class="acido">Ácido fosfórico (H₃PO₄)</span>
+              <span class="sal">Na₃PO₄</span>
+            </div>
+
+            <div class="fila-pol">
+              <span class="icono ion-fosforo">🟣</span>
+              <span class="formula">HPO₄²⁻</span>
+              <span class="nombre">Fosfato ácido</span>
+              <span class="terminacion">Hidrogenofosfato</span>
+              <span class="acido">Ácido fosfórico (H₃PO₄)</span>
+              <span class="sal">K₂HPO₄</span>
+            </div>
+
+            <div class="fila-pol">
+              <span class="icono ion-cloro">🟢</span>
+              <span class="formula">ClO⁻</span>
+              <span class="nombre">Hipoclorito</span>
+              <span class="terminacion">hipo–ito</span>
+              <span class="acido">Ácido hipocloroso (HClO)</span>
+              <span class="sal">NaClO</span>
+            </div>
+
+            <div class="fila-pol">
+              <span class="icono ion-cloro">🟢</span>
+              <span class="formula">ClO₄⁻</span>
+              <span class="nombre">Perclorato</span>
+              <span class="terminacion">per–ato</span>
+              <span class="acido">Ácido perclórico (HClO₄)</span>
+              <span class="sal">KClO₄</span>
+            </div>
+
+            <!-- Puedes añadir más si quieres -->
+
+          </div>
+
+          <!-- Notas didácticas -->
+          <div class="notas-pol">
+            <h5>📌 Reglas rápidas</h5>
+            <ul>
+              <li>Si el ion termina en <strong>-ato</strong> → el ácido termina en <strong>-ico</strong>.</li>
+              <li>Si el ion termina en <strong>-ito</strong> → el ácido termina en <strong>-oso</strong>.</li>
+              <li>Hipo–ito &lt; –ito &lt; –ato &lt; per–ato (más oxígeno → “per–” y “-ico”).</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
       </div>
     </div>
   </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> be0e305 (Añadi la tabla en juego de telarañas y añadi un juego de lamateria de matematicas)
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 
   <!-- Imágenes de Fondo-->
   <div class="decor circulo"></div>

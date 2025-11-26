@@ -7,6 +7,7 @@ body {
     overflow-x: hidden;
     padding: 60px 20px;
 }
+<<<<<<< HEAD
 /* ====== DASHBOARD: TÍTULO Y SUBTÍTULO ====== */
 .navbar {
     position: fixed;
@@ -51,6 +52,8 @@ body {
     color: #fff !important;
     box-shadow: 0 0 10px #ff006e;
 }
+=======
+>>>>>>> 5cae40df87ce054170b1c5452462d1e629d4f9be
 
 /* FIGURAS */
 .decor {
