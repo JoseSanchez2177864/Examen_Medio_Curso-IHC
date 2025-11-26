@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Archivo CSS -->
+    <link rel="stylesheet" href="login.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fredoka+One&display=swap" rel="stylesheet">
+
+    <!-- Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- FIGURAS DECORATIVAS -->
+    <div class="decor circulo medium"></div>
+    <div class="decor triangulo small"></div>
+    <div class="decor cuadrado"></div>
+    <div class="decor estrella"></div>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="login-container">
+
+        <h2 class="login-title">¡Bienvenido!</h2>
+        <p class="login-subtitle">Inicia sesión para continuar</p>
+
+        <form action="#" method="POST" class="login-form">
+
+            <!-- Nombre de usuario-->
+            <div class="input-group">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Usuario" required>
+            </div>
+
+            <!-- Contraseña-->
+            <div class="input-group">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="Contraseña" required>
+            </div>
+
+            <!-- BOTÓN - Login-->
+            <button type="button" class="btn-login" onclick="location.href='index.html'">
+                INGRESAR
+            </button>
+
+            <!-- Enlace a registro -->
+            <p class="register-link">
+                ¿No tienes una cuenta aún? 
+                <a href="registro.html">Regístrate aquí</a>
+            </p>
+
+        </form>
+    </div>
+
+</body>
+</html>

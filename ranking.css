@@ -1,0 +1,269 @@
+/* Fondo general */
+body {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+    padding: 60px 20px;
+}
+/* ====== DASHBOARD: TÍTULO Y SUBTÍTULO ====== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.navbar-brand {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.5rem;
+    color: #ff006e !important;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff006e !important;
+}
+
+#btnSesion,
+.nav-link.btn {
+    border: 2px solid #fff;
+    border-radius: 50px;
+    background: transparent;
+    padding: 8px 20px !important;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.nav-link.btn:hover {
+    background: #ff006e !important;
+    border-color: #ff006e !important;
+    color: #fff !important;
+    box-shadow: 0 0 10px #ff006e;
+}
+
+/* FIGURAS */
+.decor {
+    position: absolute;
+    opacity: .25;
+    animation: float 8s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.circulo { width: 140px; height: 140px; border-radius: 50%; background: #ff006e; top: 10%; left: 10%; }
+.triangulo {
+    width: 0; height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 140px solid #ffd700;
+    bottom: 15%; right: 10%; rotate: 25deg;
+}
+.cuadrado.large { width: 120px; height: 120px; background: #00f5d4; top: 40%; left: 75%; rotate: 30deg; }
+.estrella {
+    width: 100px; height: 100px;
+    background: radial-gradient(circle, #ff006e 20%, transparent 20%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 
+                       79% 91%, 50% 70%, 21% 91%, 32% 57%, 
+                       2% 35%, 39% 35%);
+    top: 65%; left: 15%; animation: spin 12s linear infinite;
+}
+
+/* Animaciones */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-25px); }
+    100% { transform: translateY(0); }
+}
+@keyframes spin {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+
+/* Botón volver */
+.btn-back {
+    position: fixed;
+    top: 20px; left: 20px;
+    padding: 10px 25px;
+    background: #ff006e;
+    color: white;
+    font-weight: 600;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: .3s;
+    z-index: 10;
+}
+.btn-back:hover {
+    background: #ff3c8b;
+    box-shadow: 0 0 12px #ff006e;
+}
+
+/* Contenedor principal */
+.ranking-container {
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.08);
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 1000px;
+    margin: 80px auto;
+    box-shadow: 0 0 25px rgba(0,0,0,.35);
+}
+
+/* Título */
+.ranking-title {
+    text-align: center;
+    font-size: 2.7rem;
+    margin-bottom: 30px;
+    font-family: 'Fredoka One', cursive;
+    color: #ff006e;
+}
+
+/* Tabla */
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-table th,
+.ranking-table td {
+    padding: 18px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.ranking-table thead tr {
+    background: rgba(255,0,110,0.35);
+}
+
+/* Filas */
+.ranking-table tbody tr {
+    background: rgba(255,255,255,0.10);
+    transition: .3s;
+}
+.ranking-table tbody tr:hover {
+    background: rgba(255,255,255,0.22);
+    transform: scale(1.01);
+}
+
+/* ------- AVATARES PIXEL FRAME ------- */
+.jugador {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-frame {
+    width: 55px;
+    height: 55px;
+    padding: 4px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    /* Marco pixel brillante */
+    image-rendering: pixelated;
+    border: 3px solid #fff;
+    box-shadow: 0 0 8px #fff;
+    background: rgba(255,255,255,0.15);
+}
+
+.avatar-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* MARCOS ESPECIALES TOP 3 */
+.avatar-frame.oro {
+    border-color: #ffd700;
+    box-shadow: 0 0 12px #ffd700;
+}
+.avatar-frame.plata {
+    border-color: #dceafe;
+    box-shadow: 0 0 12px #dceafe;
+}
+.avatar-frame.bronce {
+    border-color: #cd7f32;
+    box-shadow: 0 0 12px #cd7f32;
+}
+
+/* Filas Top 3 */
+/* Renglones destacados */
+.top-1 {
+    background-color: #FFD700 !important;
+    color: #000; 
+    font-size: 1.2rem; 
+    font-weight: 700;
+}
+
+.top-2 {
+    background-color: #C0C0C0 !important; 
+    color: #000;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.top-3 {
+    background-color: #CD7F32 !important;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.top-1 td,
+.top-2 td,
+.top-3 td {
+    background-color: inherit;
+    font-size: 20px;
+    font-weight: 700;
+    animation: neonBlink 1.5s infinite alternate;
+}
+
+
+.avatar-frame img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Glow según posición */
+.avatar-frame.oro img {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px #ffd700;
+}
+
+.avatar-frame.plata img {
+    border-color: #c0c0c0;
+    box-shadow: 0 0 10px #c0c0c0;
+}
+
+.avatar-frame.bronce img {
+    border-color: #cd7f32;
+    box-shadow: 0 0 10px #cd7f32;
+}
+
+/* Animaciones y Hover de las filas */
+.ranking-table tbody tr:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.25); /* un poco más brillante */
+    box-shadow: 0 0 15px rgba(255, 0, 110, 0.5);
+}
+
+@keyframes neonBlink {
+    from { text-shadow: 0 0 5px #fff, 0 0 10px #ff0, 0 0 20px #ff0; }
+    to { text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0; }
+}

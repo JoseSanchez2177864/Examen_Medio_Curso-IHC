@@ -1,0 +1,944 @@
+/* === ELEMENTOS PRINCIPALES === */
+.compound {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 50px 0;
+}
+
+#Titulo {
+    text-shadow:
+        0 0 5px #ff007f,
+        0 0 10px #ff007f,
+        0 0 20px #ff007f,
+        0 0 40px #ff007f;
+}
+
+.ayuda-correcta {
+    animation: ayudaPulso 1.3s ease-in-out infinite;
+    border: 3px solid #198754 !important;
+    /* más grueso */
+    border-radius: 10px;
+    /* suave y moderno */
+}
+
+@keyframes ayudaPulso {
+    0% {
+        box-shadow: 0 0 0 rgba(25, 135, 84, 0);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 18px rgba(25, 135, 84, 0.8);
+        transform: scale(1.03);
+        /* pequeño zoom elegante */
+    }
+
+    100% {
+        box-shadow: 0 0 0 rgba(25, 135, 84, 0);
+        transform: scale(1);
+    }
+}
+
+.metal {
+    color: #4a90e2;
+    font-weight: bold;
+    text-shadow: 0 0 3px #4a90e2, 0 0 6px #4a90e2;
+    animation: brilloDiscreto 1.2s ease-in-out;
+}
+
+.no-metal {
+    color: #7ed321;
+    font-weight: bold;
+    text-shadow: 0 0 3px #7ed321, 0 0 6px #7ed321;
+    animation: brilloDiscreto 1.2s ease-in-out;
+}
+
+.polianion {
+    color: #b37eff;
+    font-weight: bold;
+    text-shadow: 0 0 3px #b37eff, 0 0 6px #b37eff;
+    animation: brilloDiscreto 1.2s ease-in-out;
+}
+
+@keyframes brilloDiscreto {
+
+    0%,
+    100% {
+        text-shadow: 0 0 2px currentColor;
+    }
+
+    50% {
+        text-shadow: 0 0 8px currentColor;
+    }
+}
+
+.highlight {
+    color: red;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.6);
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: aparecer 0.6s ease-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ======================================= */
+/* ============ ELEMENTOS JUEGO ========== */
+/* ======================================= */
+
+/* ÁREA DE JUEGO */
+#zonaJuego {
+    position: relative;
+    height: 500px;
+    margin: 40px 0;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+/* ECUACIONES CAYENDO */
+.ecuacion {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 30px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #fff;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(59, 130, 246, 0.4);
+    box-shadow:
+            0 8px 32px rgba(59, 130, 246, 0.3),
+            0 0 20px rgba(59, 130, 246, 0.2);
+    backdrop-filter: blur(10px);
+    animation: caer 4s linear forwards;
+    z-index: 5;
+    text-align: center;
+    min-width: 200px;
+}
+
+/* Animación de caída */
+@keyframes caer {
+    0% { top: -80px; opacity: 1; }
+    100% { top: 110vh; opacity: 0.3; }
+}
+
+/* Zona de golpe */
+.zona-golpe {
+    width: 80%;
+    margin: 30px auto;
+    padding: 18px 25px;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem;
+    color: #ffe3e3;
+
+    background: rgba(40, 0, 0, 0.55); /* Fondo rojo oscuro */
+    border-radius: 16px;
+    position: relative;
+
+    /* 🔥 Borde neón rojo */
+    box-shadow: 
+        0 0 10px #ff3b3b,
+        0 0 25px #ff3b3b,
+        inset 0 0 10px rgba(255, 60, 60, 0.3);
+
+    border: 2px solid #ff3b3b;
+
+    /* 🔥 Pulso rojo animado */
+    animation: glowPulseRed 2s infinite alternate;
+}
+
+/* Animación neón ROJO */
+@keyframes glowPulseRed {
+    0% {
+        box-shadow:
+            0 0 10px #ff3b3b,
+            0 0 20px #ff3b3b,
+            inset 0 0 5px rgba(255, 60, 60, 0.2);
+    }
+    100% {
+        box-shadow:
+            0 0 15px #ff6b6b,
+            0 0 35px #ff6b6b,
+            inset 0 0 12px rgba(255, 60, 60, 0.5);
+    }
+}
+
+
+
+/* Input de respuesta */
+#respuesta {
+    width: 60%;
+    padding: 12px 18px;
+    font-size: 1.2rem;
+    font-family: 'Fredoka One', cursive;
+    text-align: center;
+
+    color: #ffe3e3;
+    background: rgba(30, 0, 0, 0.65); /* Fondo rojizo oscuro */
+    border: 2px solid #ff3b3b;
+    border-radius: 14px;
+
+    box-shadow: 
+        0 0 8px #ff3b3b,
+        inset 0 0 10px rgba(255, 60, 60, 0.25);
+
+    transition: 0.3s ease;
+}
+
+#respuesta:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 
+        0 0 12px #ff6b6b,
+        0 0 30px #ff6b6b,
+        inset 0 0 15px rgba(255, 60, 60, 0.4);
+}
+
+
+
+#respuesta::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ======================================= */
+/* ============ BOTONES ================== */
+/* ======================================= */
+
+.btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 16px 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    margin: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+/* Botón pista */
+.btn-pista {
+    background: linear-gradient(135deg, #ed64a6 0%, #9f7aea 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(237, 100, 166, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-pista:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(237, 100, 166, 0.4);
+}
+
+/* Botones modales */
+.btn-success {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    border: none;
+}
+
+.btn-outline-primary {
+    background: transparent;
+    border: 2px solid #667eea;
+    color: #667eea;
+}
+
+.btn-outline-primary:hover {
+    background: #667eea;
+    color: white;
+}
+
+.btn-outline-success {
+    background: transparent;
+    border: 2px solid #48bb78;
+    color: #48bb78;
+}
+
+.btn-outline-success:hover {
+    background: #48bb78;
+    color: white;
+}
+
+.btn-outline-warning {
+    background: transparent;
+    border: 2px solid #ed8936;
+    color: #ed8936;
+}
+
+.btn-outline-warning:hover {
+    background: #ed8936;
+    color: white;
+}
+
+.btn-outline-danger {
+    background: transparent;
+    border: 2px solid #f56565;
+    color: #f56565;
+}
+
+.btn-outline-danger:hover {
+    background: #f56565;
+    color: white;
+}
+/* === BOTONES GENERALES === */
+.btn,
+#btnInicio,
+#btnSiguiente,
+.btn-tabla,
+button[data-bs-target="#tablaModal"] {
+    font-family: 'Fredoka One', cursive;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.3);
+}
+
+.btn i {
+    margin-right: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px currentColor;
+    filter: brightness(1.1);
+}
+
+/* === BOTONES ESPECIALES === */
+#btnInicio {
+    border: 2px solid #2575fc;
+    color: #2575fc;
+    background: transparent;
+}
+
+#btnInicio:hover {
+    background: #2575fc;
+    color: #fff;
+    box-shadow: 0 0 10px #2575fc;
+}
+
+#btnRepetir {
+    border: 2px solid #00f5d4;
+    background: transparent;
+    color: #00f5d4;
+}
+
+#btnRepetir:hover {
+    background: #00f5d4;
+    color: #fff;
+    box-shadow: 0 0 10px #00f5d4;
+}
+
+#btnMasJuegos {
+    background: transparent;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+}
+
+#btnMasJuegos:hover {
+    background: #ffcc00;
+    color: #fff;
+    box-shadow: 0 0 10px #ffcc00;
+}
+
+/* === PALETA DE BOTONES POR COMPUESTO === */
+/* 🔹 Estilo base general */
+.btn-option {
+    width: 140px;
+    height: 90px;
+    border-radius: 45px;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding: 0 10px;
+    margin: 10px;
+}
+
+/* 🔹 Hover: efecto neón general */
+.btn-option:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+    border-color: currentColor;
+}
+
+/* 🔸 Colores personalizados por tipo de compuesto */
+.btn-hidracido {
+    color: #ff2b7a;
+}
+
+.btn-oxiácido {
+    color: #a74bff;
+}
+
+.btn-sal-haloidea {
+    color: #00e6b8;
+}
+
+.btn-sal-acida {
+    color: #ffa836;
+}
+
+.btn-oxisal {
+    color: #00ffe1;
+}
+
+.btn-hidruro {
+    color: #00ccff;
+}
+
+.btn-oxido-metalico {
+    color: #00b7ff;
+}
+
+.btn-oxido-no-metalico {
+    color: #ff4b8e;
+}
+
+.btn-base {
+    color: #ffe94b;
+}
+
+/* === BOTONES PRINCIPALES Y SECUNDARIOS === */
+.btn-lg {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-lg:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.45);
+}
+
+.btn-outline-primary {
+    border: 2px solid #3b82f6;
+    color: #3b82f6;
+    background: #fff;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.btn-outline-primary:hover {
+    background: #3b82f6;
+    color: #fff;
+}
+
+/* === BOTÓN “Ver Tabla Periódica” === */
+.btn-tabla,
+button[data-bs-target="#tablaModal"] {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    box-shadow: 0 0 15px rgba(37, 117, 252, 0.4);
+}
+
+.btn-tabla:hover,
+button[data-bs-target="#tablaModal"]:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    box-shadow: 0 0 20px rgba(37, 117, 252, 0.6);
+}
+
+/* === ENCABEZADO Y PUNTAJE === */
+.actividad-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.titulo-actividad {
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+    font-size: 2.2rem;
+}
+
+.puntaje {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 10px 25px;
+    color: #0d6efd;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    transition: 0.3s ease;
+}
+
+.puntaje i {
+    color: #ffd700;
+    text-shadow: 0 0 8px #ffd700;
+}
+
+.puntaje:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.5);
+}
+
+.btn-pista {
+    font-family: 'Fredoka One', cursive;
+
+    /* 💡 Fondo con degradado morado/rosa como en la imagen */
+    background: linear-gradient(90deg, #9d4edd 0%, #ff007f 100%);
+    color: #fff;
+    font-weight: 700;
+
+    /* 💡 Forma de cápsula (más ancho que alto) */
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    border: none;
+
+    transition: all 0.3s ease;
+
+    /* 💡 ILUMINADO NEÓN PINK/PURPLE */
+    box-shadow: 0 0 10px #ff007f, 0 0 20px #9d4edd, 0 0 30px rgba(255, 0, 127, 0.6);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.btn-pista:hover {
+    transform: scale(1.05);
+    /* Efecto de levantamiento */
+    filter: brightness(1.2);
+    /* Glow más intenso al pasar el ratón */
+    box-shadow: 0 0 15px #ff007f, 0 0 30px #9d4edd, 0 0 50px rgba(255, 0, 127, 0.8);
+}
+
+.btn-pista:active {
+    transform: scale(0.98);
+}
+
+/* === MODALES === */
+
+
+/* --- TABLA NEÓN --- */
+/* Asegura texto blanco en estado normal */
+#TUnidades td,
+#TUnidades th {
+    color: #fff;
+}
+
+.table-neon tbody tr:hover td,
+.table-neon tbody tr:hover th {
+    background: #0ff !important;
+    color: #000 !important;     /* <--- ESTO SÍ CAMBIA EL COLOR */
+    font-weight: bold;
+    text-shadow: none !important;
+}
+
+
+/* Bordes y glow del marco */
+.table-neon {
+    color: #fff;
+    border: 1px solid #0ff;
+    box-shadow: 0 0 15px #0ff;
+}
+
+/* Encabezado neón */
+.table-neon thead th {
+    background: #000;
+    color: #0ff !important;
+    border-bottom: 2px solid #0ff;
+    text-shadow: 0 0 5px #0ff;
+}
+
+/* Celdas normales */
+.table-neon tbody td {
+    background: #111;
+    border-color: #0ff;
+    transition: 0.2s;
+}
+
+/* 🔥 HOVER NEÓN — ahora funciona siempre */
+.table-neon tbody tr:hover td {
+    background: #0ff !important;
+    color: #000 !important;
+    font-weight: bold;
+    text-shadow: none;
+    transition: 0.2s;
+}
+
+.opcion-tenue {
+    opacity: 0.25 !important;
+    filter: grayscale(100%);
+    pointer-events: none;
+}
+
+
+.modal-content {
+    background: rgba(20, 20, 20, 0.95);
+    color: #fff;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 0, 110, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(255, 0, 110, 0.3);
+    animation: aparecer 0.4s ease-out;
+}
+
+#modalCorrecto .modal-content {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+    color: #166534;
+}
+
+#modalFinal .modal-content {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    color: #1e3a8a;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}
+
+.modal-header.bg-info {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-header.bg-danger {
+    background: linear-gradient(135deg, #ff006e, #ff3c8b);
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-body p,
+.modal-body li {
+    font-family: 'Quicksand', sans-serif;
+    color: #ccc;
+}
+
+/* === ANIMACIONES === */
+@keyframes aparecer {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#modalCorrecto h4,
+#modalFinal h3 {
+    animation: pop 0.6s ease-in-out;
+}
+
+.iluminado {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffaa00;
+    animation: brillo 1.2s ease-in-out;
+}
+
+@keyframes brillo {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px #ffd700;
+    }
+
+    50% {
+        text-shadow: 0 0 30px #ffcc00;
+    }
+}
+
+/* === CONTENEDORES === */
+/* === CONTENEDOR DE PUNTAJE CON BRILLO AZUL === */
+#contenedorPuntaje {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 8px 15px;
+    border-radius: 12px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:
+        0 0 10px rgba(37, 117, 252, 0.4),
+        0 0 20px rgba(37, 117, 252, 0.3),
+        0 0 40px rgba(37, 117, 252, 0.2);
+    /* 💡 Efecto neón azul */
+    border: 2px solid rgba(37, 117, 252, 0.4);
+    transition: all 0.3s ease;
+}
+
+#contenedorPuntaje:hover {
+    box-shadow:
+        0 0 20px rgba(37, 117, 252, 0.6),
+        0 0 40px rgba(37, 117, 252, 0.5),
+        0 0 60px rgba(37, 117, 252, 0.4);
+    transform: scale(1.03);
+}
+
+/* === BOTONES CON EFECTO NEÓN AZUL (MISMO ESTILO QUE EL SEGUNDO CSS) === */
+.btn-option {
+    position: relative;
+    width: 140px;
+    height: 90px;
+    border-radius: 45px;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(37, 117, 252, 0.3);
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* 🔹 Hover con animación azul brillante */
+.btn-option:hover {
+    transform: scale(1.08);
+    border-color: #2575fc;
+    box-shadow:
+        0 0 20px #2575fc,
+        0 0 40px rgba(37, 117, 252, 0.5),
+        0 0 60px rgba(37, 117, 252, 0.3);
+    background: rgba(37, 117, 252, 0.15);
+}
+
+/* 🔹 Estado correcto e incorrecto mantienen el efecto neón */
+.btn-option.correct {
+    background: rgba(0, 255, 153, 0.2);
+    border-color: #00f5d4;
+    box-shadow: 0 0 20px #00f5d4, 0 0 40px rgba(0, 255, 204, 0.5);
+    color: #00f5d4;
+}
+
+.btn-option.incorrect {
+    background: rgba(255, 0, 110, 0.2);
+    border-color: #ff006e;
+    box-shadow: 0 0 20px #ff006e, 0 0 40px rgba(255, 0, 110, 0.5);
+    color: #ff006e;
+}
+
+
+#Compuesto {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 70px;
+}
+
+/* === TABLA PERIÓDICA === */
+.tabla-periodica {
+    display: grid;
+    grid-template-columns: repeat(18, 70px);
+    gap: 4px;
+    margin: auto;
+    padding: 10px;
+}
+
+.elemento,
+.espacio {
+    width: 70px;
+    height: 80px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #f1f1f1;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.25s ease-in-out;
+    text-align: center;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.elemento:hover {
+    transform: scale(1.15);
+    border: 2px solid #fff;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.numero,
+.peso,
+.ox {
+    font-size: 10px;
+    opacity: 0.85;
+}
+
+.simbolo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.espacio {
+    visibility: hidden;
+}
+
+/* === CONTENEDOR DE NOMBRE DE ELEMENTO === */
+#contenedor-nombre {
+    width: 220px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    margin: 10px auto;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* === COLORES DE GRUPOS QUÍMICOS === */
+.alcalino:hover,
+#contenedor-nombre.alcalino {
+    background-color: rgba(0, 255, 255, 0.25);
+    box-shadow: 0 0 12px #00ffff;
+}
+
+.alcalinoterreos:hover,
+#contenedor-nombre.alcalinoterreos {
+    background-color: rgba(255, 100, 100, 0.25);
+    box-shadow: 0 0 12px #ff6666;
+}
+
+.metal:hover,
+#contenedor-nombre.metal {
+    background-color: rgba(102, 153, 255, 0.25);
+    box-shadow: 0 0 12px #6699ff;
+}
+
+.posttransicionales:hover,
+#contenedor-nombre.posttransicionales {
+    background-color: rgba(255, 170, 128, 0.25);
+    box-shadow: 0 0 12px #ffaa80;
+}
+
+.lantinidos:hover,
+#contenedor-nombre.lantinidos {
+    background-color: rgba(204, 255, 230, 0.25);
+    box-shadow: 0 0 12px #66ffcc;
+}
+
+.actinidos:hover,
+#contenedor-nombre.actinidos {
+    background-color: rgba(255, 179, 217, 0.25);
+    box-shadow: 0 0 12px #ff80bf;
+}
+
+.no-metal:hover,
+#contenedor-nombre.no-metal {
+    background-color: rgba(200, 230, 201, 0.25);
+    box-shadow: 0 0 12px #80ff80;
+}
+
+.metaloide:hover,
+#contenedor-nombre.metaloide {
+    background-color: rgba(255, 249, 196, 0.25);
+    box-shadow: 0 0 12px #ffff80;
+}
+
+.noble:hover,
+#contenedor-nombre.noble {
+    background-color: rgba(204, 102, 255, 0.25);
+    box-shadow: 0 0 12px #cc66ff;
+}
+
+.sintetico:hover,
+#contenedor-nombre.sintetico {
+    background-color: rgba(191, 191, 191, 0.25);
+    box-shadow: 0 0 12px #bfbfbf;
+}
+
+/* === TÍTULOS === */
+h5 {
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+}
+
+h4,
+h3 {
+    color: #000;
+}

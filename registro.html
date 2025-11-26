@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+
+    <!-- Archivo CSS -->
+    <link rel="stylesheet" href="login.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fredoka+One&display=swap" rel="stylesheet">
+
+    <!-- Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    
+    <!-- FIGURAS DECORATIVAS -->
+    <div class="decor circulo medium"></div>
+    <div class="decor triangulo small"></div>
+    <div class="decor cuadrado"></div>
+    <div class="decor estrella"></div>
+
+     <div class="login-container">
+
+        <!-- Ícono principal-->
+         <div class="login-icon">
+            <i class="fa-solid fa-user-plus"></i>
+         </div>
+
+         <!-- Formulario del registro-->
+          <form class="login-form" id="form-registro">
+
+            <h2 class="login-title">¡Crea tu Cuenta!</h2>
+
+            <!-- CAMPO - Nombre -->
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+            </div>
+
+            <!-- CAMPO - Correo -->
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" placeholder="Correo electrónico" required>
+            </div>
+
+            <!-- CAMPO - Nombre de usuario -->
+            <div class="input-group">
+                <i class="fas fa-address-card"></i>
+                <input type="text" name="usuario" placeholder="Nombre de usuario" required>
+            </div>
+
+            <!-- CAMPO - Contraseña -->
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="contrasena" placeholder="Contraseña" required>
+            </div>
+
+            <!-- CAMPO - Confirmar Contarseña -->
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="confirmar_contrasena" placeholder="Confirmar contraseña" required>
+            </div>
+
+            <!-- BOTÓN - Registrar -->
+            <button type="button" class="btn-login" onclick="registroExitoso()">
+                REGISTRARME
+            </button>
+
+            <!-- Link de inicio de sesión -->
+            <p class="register-link">
+                ¿Ya tienes una cuenta? 
+                <a href="login.html">Inicia sesión aquí</a>
+            </p>
+          </form>
+     </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+     <script>
+    function registroExitoso() {
+        Swal.fire({
+            title: "¡Registro exitososo!",
+            text: "Tu cuenta ha sido creada correctamente.",
+            icon: "success",
+            confirmButtonText: "Comenzar",
+            confirmButtonColor: "#ff006e",
+            background: "rgba(0,0,0,0.8)",
+            color: "#fff",
+            allowOutsideClick: false
+        }).then(() => {
+            window.location.href = "index.html";
+        });
+    }
+    </script>
+</body>
+</html>

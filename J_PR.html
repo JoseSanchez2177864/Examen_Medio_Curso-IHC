@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiro Parabólico - GameLearn</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="J_PR.css">
+</head>
+
+<body>
+
+<!-- FONDO CON FORMAS -->
+<div class="bg-shapes">
+  <div class="shape shape-circle"></div>
+  <div class="shape shape-circle small"></div>
+  <div class="shape shape-square"></div>
+  <div class="shape shape-square small"></div>
+  <div class="shape shape-diamond"></div>
+</div>
+
+<!-- BARRA DE NAVEGACIÓN -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">GameLearn</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Acerca</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Más Asignaturas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Más Juegos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2" href="#">Regístrate!</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<br><br><br>
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="container py-5">
+  <!-- HEADER CON PUNTAJE Y TÍTULO -->
+  <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap">
+    <div id="contenedorPuntaje" class="puntaje">
+      <i class="bi bi-star-fill"></i> Puntaje: <span id="puntaje">0</span>
+    </div>
+    <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0">🎯 Tiro Parabólico</h2>
+    <button class="btn btn-pista btn-sm" id="btnPista">
+      <i class="bi bi-lightbulb-fill"></i> Pista
+    </button>
+  </div>
+  <br>
+
+  <!-- BOTÓN INICIO -->
+  <div class="text-center mt-4">
+    <button id="btnInicio" class="btn">Iniciar Juego</button>
+  </div>
+
+  <!-- ÁREA DE JUEGO -->
+  <div class="game-container">
+    <canvas id="gameCanvas" width="800" height="500"></canvas>
+
+    <!-- CONTROLES -->
+    <div class="controls-container">
+      <div class="control-group">
+        <label for="angulo">Ángulo: <span id="anguloValue">45°</span></label>
+        <input type="range" id="angulo" min="10" max="80" value="45" class="form-range">
+      </div>
+
+      <div class="control-group">
+        <label for="velocidad">Velocidad: <span id="velocidadValue">50</span> m/s</label>
+        <input type="range" id="velocidad" min="20" max="100" value="50" class="form-range">
+      </div>
+
+      <div class="control-group">
+        <label for="gravedad">Gravedad: <span id="gravedadValue">9.8</span> m/s²</label>
+        <input type="range" id="gravedad" min="1" max="20" value="9.8" step="0.1" class="form-range">
+      </div>
+
+      <button id="btnDisparar" class="btn btn-disparar" disabled>
+        <i class="bi bi-send-fill"></i> Disparar
+      </button>
+
+      <button id="btnReset" class="btn btn-reset">
+        <i class="bi bi-arrow-clockwise"></i> Reiniciar
+      </button>
+    </div>
+  </div>
+
+  <!-- INFORMACIÓN DEL PROYECTIL -->
+  <div class="info-container mt-4">
+    <div class="row text-center">
+      <div class="col-md-3">
+        <div class="info-card">
+          <h6>Altura Máxima</h6>
+          <p id="alturaMaxima">0 m</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info-card">
+          <h6>Alcance</h6>
+          <p id="alcance">0 m</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info-card">
+          <h6>Tiempo Vuelo</h6>
+          <p id="tiempoVuelo">0 s</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="info-card">
+          <h6>Nivel</h6>
+          <p id="nivel">1</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALES -->
+
+<!-- Modal de introducción -->
+<div class="modal fade" id="modalIntroduccion" tabindex="-1" aria-labelledby="modalIntroduccionLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido a Tiro Parabólico!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-start">
+        <p>En este juego, aplicarás los principios del tiro parabólico para alcanzar objetivos.</p>
+        <ul class="text-start">
+          <li><strong>Objetivo:</strong> Ajusta el ángulo y velocidad para impactar el blanco.</li>
+          <li><strong>Controles:</strong> Usa los deslizadores para modificar parámetros.</li>
+          <li><strong>Física:</strong> Observa cómo cambia la trayectoria con diferentes valores.</li>
+          <li><strong>Fórmula:</strong> x = v₀·cos(θ)·t, y = v₀·sin(θ)·t - ½gt²</li>
+        </ul>
+        <p>¡Demuestra tus conocimientos de física y alcanza la mayor puntuación!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">¡Comenzar!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Correcto -->
+<div class="modal fade" id="modalCorrecto" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+      <h4 class="mb-3 fw-bold">✅ ¡Objetivo Alcanzado!</h4>
+      <p class="fs-5 mb-0">¡Perfecto cálculo! Pasando al siguiente nivel.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Error -->
+<div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="errorTitulo" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-danger">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="errorTitulo">❌ Fallaste el objetivo</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body" id="errorCuerpo">
+        <!-- Aquí se insertará dinámicamente el comentario -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Reintentar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Felicitación -->
+<div class="modal fade" id="modalFinal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+      <h3 class="mb-3 fw-bold">🎉 ¡Felicidades!</h3>
+      <p id="mensajeFinal" class="fs-5 mb-4">Completaste todos los niveles. Puntaje: <span id="puntajeFinal"></span></p>
+
+      <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+        <button id="btnInicioModal" class="btn btn-outline-primary">
+          <i class="bi bi-house-door"></i> Inicio
+        </button>
+        <button id="btnRepetir" class="btn btn-outline-success">
+          <i class="bi bi-arrow-repeat"></i> Repetir
+        </button>
+        <button id="btnMasJuegos" class="btn btn-outline-warning">
+          <i class="bi bi-controller"></i> Más juegos
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap + Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="J_PR.js"></script>
+</body>
+
+</html>
