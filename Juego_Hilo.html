@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameLearn - Juego de Épocas</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- CSS personalizado integrado -->
+    <link rel="stylesheet" href="J_H-Diseño.css">
+    <link rel="stylesheet" href="main-diseño.css">
+
+</head>
+
+<body class="text-center">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">GameLearn</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="dashboard.html">Más Juegos</a></li>
+          <li class="nav-item"><a class="nav-link" href="ranking.html">Tabla de Rankings</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2" href="registro.html">Regístrate!</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <br><br><br>
+
+    <div class="container py-5">
+        <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap mb-4">
+            <div id="contenedorPuntaje" class="puntaje">
+                <i class="bi bi-star-fill"></i> Puntaje: 0/15
+            </div>
+            <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0"> Acomoda el Evento Histórico</h2>
+            <!-- Botón de Pista -->
+            <button class="btn btn-pista btn-sm" id="btnPista">
+                <i class="bi bi-lightbulb-fill"></i> Pista
+            </button>
+        </div>
+
+        <!-- EVENTO HISTÓRICO A CLASIFICAR -->
+        <div id="EventoHistorico" class="compound p-4 border rounded shadow-sm">
+            <!-- Aquí se insertará dinámicamente el evento (ej: "Caída del Imperio Romano de Occidente") -->
+            <p class="h3 mb-0" id="eventoTexto">Cargando evento...</p>
+        </div>
+        <br>
+
+        <!-- Pregunta -->
+        <h5 class="mb-3 fw-bold">¿A qué Periodo Histórico corresponde este evento?</h5>
+
+        <!-- Botones de opciones -->
+        <div class="d-flex justify-content-center gap-3 flex-wrap" id="contenedorOpciones">
+            <!-- Los botones se insertarán dinámicamente aquí -->
+        </div>
+    </div>
+
+    <!-- ------------------------------------------------------------- -->
+    <!-- MODALES -->
+    <!-- ------------------------------------------------------------- -->
+
+    <!-- Modal de introducción (Usado para comenzar el juego) -->
+    <div class="modal fade" id="modalIntroduccion" tabindex="-1" aria-labelledby="modalIntroduccionLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido al Desafío Histórico!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-start">
+                    <p>Prepárate para poner a prueba tus conocimientos de historia. Tu misión es ubicar correctamente
+                        los grandes eventos en su periodo histórico correspondiente.</p>
+                    <ul class="text-start">
+                        <li><strong>Objetivo:</strong> Clasificar correctamente 15 eventos históricos.</li>
+                        <li><strong>Pistas:</strong> Usa el botón de pista para revelar la respuesta correcta, ¡pero
+                            cuidado, úsalo con moderación!</li>
+                        <li><strong>Periodos históricos:</strong> Prehistoria, Antigüedad, Edad Media, Edad Moderna y
+                            Edad Contemporánea.</li>
+                    </ul>
+                    <p class="mt-2">¡Demuestra cuánto sabes y diviértete en el proceso!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">¡Comenzar!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal de Correcto -->
+    <div class="modal fade" id="modalCorrecto" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+                <h4 class="mb-3 fw-bold">✅ ¡Correcto!</h4>
+                <p class="fs-5 mb-0">¡Bien hecho! Continúa con el siguiente evento.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Error (Con explicación) -->
+    <div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="errorTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-danger">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="errorTitulo">❌ Respuesta incorrecta</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="errorCuerpo">
+                    <!-- Aquí se insertará dinámicamente el comentario -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Felicitación -->
+    <div class="modal fade" id="modalFinal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+                <h3 class="mb-3 fw-bold">🎉 ¡Felicidades!</h3>
+                <p id="mensajeFinal" class="fs-5 mb-4"></p>
+
+                <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+                    <button id="btnInicio" class="btn btn-outline-primary" href="index.html">
+                        <i class="bi bi-house-door"></i> Inicio
+                    </button>
+                    <button id="btnRepetir" class="btn btn-outline-success" href="Juego_Nomenclatura.html">
+                        <i class="bi bi-arrow-repeat"></i> Repetir
+                    </button>
+                    <button id="btnMasJuegos" class="btn btn-outline-warning hero-btn" href="dashboard.html">
+                        <i class="bi bi-controller"></i> Más juegos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Imágenes de Fondo-->
+    <div class="decor circulo"></div>
+    <div class="decor triangulo"></div>
+    <div class="decor cuadrado"></div>
+    <div class="decor circulo small"></div>
+    <div class="decor circulo medium"></div>
+    <div class="decor estrella"></div>
+    <div class="decor triangulo small"></div>
+    <div class="decor cuadrado large"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- JavaScript del Juego integrado -->
+    <script src="J_H-Script.js"></script>
+
+</body>
+
+</html>

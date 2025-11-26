@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameLearn - Rompe Ecuaciones</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="J_N-Diseño.css">
+  <link rel="stylesheet" href="main-diseño.css">
+
+</head>
+
+<body>
+
+  <!-- FONDO CON FORMAS -->
+  <div class="bg-shapes">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-circle small"></div>
+        <div class="shape shape-square"></div>
+        <div class="shape shape-square small"></div>
+        <div class="shape shape-diamond"></div>
+    </div>
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">GameLearn</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Acerca</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Más Asignaturas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Más Juegos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+          <li class="nav-item"><a class="nav-link btn btn-outline-light " href="#">Regístrate!</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <br><br><br>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="container py-5">
+    <!-- HEADER CON PUNTAJE Y TÍTULO -->
+    <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap">
+      <div id="contenedorPuntaje" class="puntaje">
+        <i class="bi bi-star-fill"></i> Puntaje: <span id="puntaje">0</span>
+      </div>
+      <h2 id="Titulo" class="titulo-actividad text-center flex-grow-1 mb-0">🔥 Rompe Ecuaciones</h2>
+      <button class="btn btn-pista btn-sm" id="btnPista">
+        <i class="bi bi-lightbulb-fill"></i> Pista
+      </button>
+    </div>
+    <br>
+
+    <!-- BOTÓN INICIO -->
+    <div class="text-center mt-4">
+      <button id="btnInicio" class="btn">Iniciar Juego</button>
+    </div>
+
+    <!-- ÁREA DE JUEGO -->
+    <div id="zonaJuego" style="position: relative; height: 500px; margin: 20px 0;"></div>
+
+    <!-- ZONA DE GOLPE -->
+    <div id="zonaGolpe" class="zona-golpe">Escribe la respuesta aquí</div>
+
+    <!-- INPUT DE RESPUESTA -->
+    <div class="text-center mt-4">
+      <input type="text" id="respuesta" class="form-control mx-auto text-center" placeholder="...">
+    </div>
+  </div>
+
+  <!-- MODALES -->
+
+  <!-- Modal de introducción -->
+  <div class="modal fade" id="modalIntroduccion" tabindex="-1" aria-labelledby="modalIntroduccionLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="modalIntroduccionLabel">¡Bienvenido a Rompe Ecuaciones!</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-start">
+          <p>En este juego, tu misión es resolver ecuaciones matemáticas antes de que lleguen al fondo.</p>
+          <ul class="text-start">
+            <li><strong>Objetivo:</strong> Resuelve correctamente las ecuaciones que caen.</li>
+            <li><strong>Instrucciones:</strong> Escribe la respuesta en el campo de texto y presiona Enter.</li>
+            <li><strong>Pistas:</strong> Usa el botón de pista si necesitas ayuda con alguna ecuación.</li>
+            <li><strong>Tipos de ecuaciones:</strong> Lineales, cuadráticas, exponenciales y más.</li>
+          </ul>
+          <p>¡Demuestra tu habilidad matemática y alcanza la mayor puntuación!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">¡Comenzar!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Correcto -->
+  <div class="modal fade" id="modalCorrecto" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+        <h4 class="mb-3 fw-bold">✅ ¡Correcto!</h4>
+        <p class="fs-5 mb-0">¡Bien hecho! Continúa con la siguiente ecuación.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Error -->
+  <div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="errorTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-danger">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="errorTitulo">❌ Respuesta incorrecta</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body" id="errorCuerpo">
+          <!-- Aquí se insertará dinámicamente el comentario -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Continuar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Felicitación -->
+  <div class="modal fade" id="modalFinal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+        <h3 class="mb-3 fw-bold">🎉 ¡Felicidades!</h3>
+        <p id="mensajeFinal" class="fs-5 mb-4">Tu puntaje final fue: <span id="puntajeFinal"></span></p>
+
+        <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+          <button id="btnInicioModal" class="btn btn-outline-primary" href="index.html">
+            <i class="bi bi-house-door"></i> Inicio
+          </button>
+          <button id="btnRepetir" class="btn btn-outline-success">
+            <i class="bi bi-arrow-repeat"></i> Repetir
+          </button>
+          <button id="btnMasJuegos" class="btn btn-outline-warning hero-btn" href="dashboard.html">
+            <i class="bi bi-controller"></i> Más juegos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Imágenes de Fondo-->
+        <div class="decor circulo"></div>
+        <div class="decor triangulo"></div>
+        <div class="decor cuadrado"></div>
+        <div class="decor circulo small"></div>
+        <div class="decor circulo medium"></div>
+        <div class="decor estrella"></div>
+        <div class="decor triangulo small"></div>
+        <div class="decor cuadrado large"></div>
+  <!-- Bootstrap + Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="J_P.js"></script>
+</body>
+
+</html>

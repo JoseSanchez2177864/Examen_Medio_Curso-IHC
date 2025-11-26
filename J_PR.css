@@ -1,0 +1,369 @@
+/* ESTILOS PERSONALIZADOS PARA TIRO PARABÓLICO - TEMA OSCURO */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #121212;
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* FONDO CON FORMAS */
+.bg-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.05;
+    background: white;
+}
+
+.shape-circle {
+    border-radius: 50%;
+}
+
+.shape-square {
+    border-radius: 10px;
+}
+
+.shape-diamond {
+    transform: rotate(45deg);
+}
+
+.shape-circle:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -100px;
+}
+
+.shape-circle.small {
+    width: 150px;
+    height: 150px;
+    bottom: 50px;
+    left: 50px;
+}
+
+.shape-square:nth-child(3) {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    right: 20%;
+}
+
+.shape-square.small {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+}
+
+.shape-diamond {
+    width: 250px;
+    height: 250px;
+    top: 30%;
+    left: -50px;
+}
+
+/* TIPOGRAFÍA */
+h1, h2, h3, h4, h5, .navbar-brand, .btn {
+    font-family: 'Fredoka One', cursive;
+}
+
+/* BARRA DE NAVEGACIÓN */
+.navbar-brand {
+    color: #ff006e !important;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgba(255, 0, 110, 0.3);
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+}
+
+.btn-outline-light {
+    border-radius: 50px;
+    padding: 5px 20px;
+}
+
+/* ENCABEZADO DE ACTIVIDAD */
+.actividad-header {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+#contenedorPuntaje {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px 15px;
+    border-radius: 50px;
+    color: #ffd700;
+    font-weight: bold;
+    border: 1px solid #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.titulo-actividad {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    color: #ffd700;
+}
+
+/* PANEL DE ENIGMA (PARA CANVAS Y CONTROLES) */
+.enigma-panel {
+    max-width: 100%;
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.enigma-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, #00f5d4, transparent);
+    animation: scan 4s infinite linear;
+}
+
+@keyframes scan {
+    0% { top: 0; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.panel-header {
+    color: #00f5d4;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    border-bottom: 1px dashed rgba(0, 245, 212, 0.3);
+    padding-bottom: 10px;
+}
+
+/* CONTENEDOR DEL JUEGO */
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+    align-items: flex-start;
+}
+
+/* CANVAS */
+#gameCanvas {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+}
+
+/* CONTROLES */
+.controls-container {
+    min-width: 300px;
+}
+
+.control-group {
+    margin-bottom: 20px;
+}
+
+.control-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* ESTILOS PARA CAJAS DE INFORMACIÓN */
+.clue-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.clue-text {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #ffd700;
+}
+
+.badge-clue {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+}
+
+.clue-box.active, .clue-box.unlocked {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #00f5d4;
+}
+
+/* BOTONES */
+.btn-tabla {
+    background: linear-gradient(135deg, #ff9900, #ffcc00);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 20px;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+}
+
+.btn-tabla:hover {
+    box-shadow: 0 0 25px rgba(255, 204, 0, 0.7);
+    color: #000;
+}
+
+.btn-option-enigma {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-option-enigma:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #00f5d4;
+    color: #00f5d4;
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.3);
+}
+
+.btn-option-enigma:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-option-enigma:disabled:hover {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-pista {
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 8px 20px;
+}
+
+/* CONTROLES DESLIZANTES */
+.form-range {
+    width: 100%;
+}
+
+.form-range::-webkit-slider-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 8px;
+}
+
+.form-range::-webkit-slider-thumb {
+    background: #00f5d4;
+    border: none;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    box-shadow: 0 0 10px rgba(0, 245, 212, 0.5);
+}
+
+.form-range::-moz-range-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 8px;
+    border: none;
+}
+
+.form-range::-moz-range-thumb {
+    background: #00f5d4;
+    border: none;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    box-shadow: 0 0 10px rgba(0, 245, 212, 0.5);
+}
+
+/* INFORMACIÓN */
+.info-container {
+    background: rgba(30, 30, 30, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* MODALES */
+.modal-content {
+    background: rgba(15, 15, 15, 0.95) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    color: white;
+}
+
+.modal-header.bg-danger {
+    background: linear-gradient(135deg, #ff006e, #990033) !important;
+    box-shadow: 0 5px 15px rgba(255, 0, 110, 0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #gameCanvas {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+    }
+
+    .controls-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .actividad-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

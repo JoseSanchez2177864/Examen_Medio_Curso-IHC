@@ -1,0 +1,441 @@
+.web-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    border-radius: 50%;
+}
+
+#Titulo{
+    text-shadow:
+        0 0 5px #ff007f,
+        0 0 10px #ff007f,
+        0 0 20px #ff007f,
+        0 0 40px #ff007f;
+}
+
+.ayuda-correcta {
+    animation: ayudaPulso 1.3s ease-in-out infinite;
+    border: 3px solid #198754 !important; /* más grueso */
+    border-radius: 10px; /* suave y moderno */
+}
+
+@keyframes ayudaPulso {
+    0%, 100% { 
+        box-shadow: 0 0 0 rgba(25, 135, 84, 0); 
+    }
+    50% { 
+        box-shadow: 0 0 18px rgba(25, 135, 84, 0.8); 
+    }
+}
+.btn-pista {
+    font-family: 'Fredoka One', cursive;
+
+    /* 💡 Degradado Azul/Verde NEÓN */
+    background: linear-gradient(90deg, #00eaff 0%, #00ffcc 100%);
+    color: #fff;
+    font-weight: 700;
+
+    /* 💡 Forma redondeada */
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    border: none;
+
+    transition: all 0.3s ease;
+
+    /* 💡 Glow NEÓN turquesa/cyan */
+    box-shadow: 
+        0 0 10px #00fff2,
+        0 0 20px #00eaff,
+        0 0 30px rgba(0, 255, 230, 0.6);
+
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+.btn-pista:hover {
+    transform: scale(1.05);
+    filter: brightness(1.25);
+
+    /* Glow más intenso al pasar el ratón */
+    box-shadow: 
+        0 0 15px #00fff2,
+        0 0 30px #00eaff,
+        0 0 50px rgba(0, 255, 230, 0.8);
+}
+
+
+.btn-pista:active {
+    transform: scale(0.98);
+}
+/* --- TABLA NEÓN --- */
+/* Asegura texto blanco en estado normal */
+#TUnidades td,
+#TUnidades th {
+    color: #fff ;
+}
+
+.table-neon tbody tr:hover td,
+.table-neon tbody tr:hover th {
+    background: #0ff !important;
+    color: #000 !important;     /* <--- ESTO SÍ CAMBIA EL COLOR */
+    font-weight: bold;
+    text-shadow: none !important;
+}
+
+
+/* Bordes y glow del marco */
+.table-neon {
+    color: #fff;
+    border: 1px solid #0ff;
+    box-shadow: 0 0 15px #0ff;
+}
+
+/* Encabezado neón */
+.table-neon thead th {
+    background: #000;
+    color: #0ff !important;
+    border-bottom: 2px solid #0ff;
+    text-shadow: 0 0 5px #0ff;
+}
+
+/* Celdas normales */
+.table-neon tbody td {
+    background: #111;
+    border-color: #0ff;
+    transition: 0.2s;
+}
+
+/* 🔥 HOVER NEÓN — ahora funciona siempre */
+.table-neon tbody :hover td {
+    background: #0ff !important;
+    color: #000 !important;
+    font-weight: bold;
+    text-shadow: none;
+    transition: 0.2s;
+}
+
+.table-neon td:hover {
+        background-color: rgba(0, 255, 255, 0.15);
+        box-shadow: 0 0 12px #0ff, inset 0 0 8px #0ff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+
+.center-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);;
+  border: 3px solid #2575fc;
+  box-shadow: 0 0 25px rgba(37,117,252,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.8rem;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.center-circle:hover {
+  box-shadow: 0 0 30px #2575fc;
+}
+
+.modal-content {
+    background: rgba(20, 20, 20, 0.95);
+    color: #fff;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 0, 110, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(255, 0, 110, 0.3);
+    animation: aparecer 0.4s ease-out;
+}
+
+/* === MODALES === */
+.modal-content {
+    background: rgba(20, 20, 20, 0.95);
+    color: #fff;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 0, 110, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(255, 0, 110, 0.3);
+    animation: aparecer 0.4s ease-out;
+}
+
+#modalCorrecto .modal-content {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+    color: #166534;
+}
+
+#modalFinal .modal-content {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    color: #1e3a8a;
+}
+
+.modal-header,
+.modal-footer {
+    border: none;
+}
+
+.modal-header.bg-info {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-header.bg-danger {
+    background: linear-gradient(135deg, #ff006e, #ff3c8b);
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-body p,
+.modal-body li {
+    font-family: 'Quicksand', sans-serif;
+    color: #ccc;
+}
+
+/* === ANIMACIONES === */
+@keyframes aparecer {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#modalCorrecto h4,
+#modalFinal h3 {
+    animation: pop 0.6s ease-in-out;
+}
+
+@keyframes brillo {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px #ffd700;
+    }
+
+    50% {
+        text-shadow: 0 0 30px #ffcc00;
+    }
+} 
+
+
+
+/* === BOTONES GENERALES === */
+.btn,
+#btnInicio,
+#btnSiguiente,
+.btn-tabla,
+button[data-bs-target="#tablaModal"] {
+    font-family: 'Fredoka One', cursive;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.3);
+}
+
+/* === BOTONES ESPECIALES === */
+#btnInicio {
+    border: 2px solid #2575fc;
+    color: #2575fc;
+    background: transparent;
+}
+
+#btnInicio:hover {
+    background: #2575fc;
+    color: #fff;
+    box-shadow: 0 0 10px #2575fc;
+}
+
+#btnRepetir {
+    border: 2px solid #00f5d4;
+background: transparent;
+    color: #00f5d4;
+}
+
+#btnRepetir:hover {
+    background: #00f5d4;
+    color: #fff;
+    box-shadow: 0 0 10px #00f5d4;
+}
+
+#btnMasJuegos {
+    background: transparent;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+}
+
+#btnMasJuegos:hover {
+    background: #ffcc00;
+    color: #fff;
+    box-shadow: 0 0 10px #ffcc00;
+}
+
+/* === ENCABEZADO Y PUNTAJE === */
+.actividad-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.titulo-actividad {
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+    font-size: 2.2rem;
+}
+
+.puntaje {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 10px 25px;
+    color: #0d6efd;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    transition: 0.3s ease;
+}
+
+/* === BOTONES CON EFECTO NEÓN AZUL (MISMO ESTILO QUE EL SEGUNDO CSS) === */
+.btn-option {
+  position: relative;
+  width: 140px;
+  height: 90px;
+  border-radius: 45px;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 6px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(37,117,252,0.3);
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* 🔹 Hover con animación azul brillante */
+.btn-option:hover {
+  border-color: #2575fc;
+  box-shadow: 
+      0 0 20px #2575fc,
+      0 0 40px rgba(37,117,252,0.5),
+      0 0 60px rgba(37,117,252,0.3);
+  background: rgba(37,117,252,0.15);
+}
+
+/* 🔹 Estado correcto e incorrecto mantienen el efecto neón */
+.btn-option.correct {
+  background: rgba(0, 255, 153, 0.2);
+  border-color: #00f5d4;
+  box-shadow: 0 0 20px #00f5d4, 0 0 40px rgba(0,255,204,0.5);
+  color: #00f5d4;
+}
+
+.btn-option.incorrect {
+  background: rgba(255, 0, 110, 0.2);
+  border-color: #ff006e;
+  box-shadow: 0 0 20px #ff006e, 0 0 40px rgba(255,0,110,0.5);
+  color: #ff006e;
+}
+
+.puntaje i {
+    color: #ffd700;
+    text-shadow: 0 0 8px #ffd700;
+}
+
+.puntaje:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* === CONTENEDORES === */
+#contenedorPuntaje {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 8px 15px;
+    border-radius: 12px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 
+        0 0 10px rgba(37, 117, 252, 0.4),
+        0 0 20px rgba(37, 117, 252, 0.3),
+        0 0 40px rgba(37, 117, 252, 0.2); /* 💡 Efecto neón azul */
+    border: 2px solid rgba(37, 117, 252, 0.4);
+    transition: all 0.3s ease;
+}
+
+#contenedorPuntaje:hover {
+    box-shadow: 
+        0 0 20px rgba(37, 117, 252, 0.6),
+        0 0 40px rgba(37, 117, 252, 0.5),
+        0 0 60px rgba(37, 117, 252, 0.4);
+    transform: scale(1.03);
+}
+
+.center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;  
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);;
+    border: 3px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 32px; 
+    z-index: 10;
+}
+
+.btn-circle {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 15px 20px;
+    font-size: 16px;
+    min-width: 120px; 
+}
+

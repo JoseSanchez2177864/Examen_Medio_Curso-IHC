@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameLearn - Telaraña</title>
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="J_T-Diseño.css">
+  <link rel="stylesheet" href="main-diseño.css">
+</head>
+
+<body class="bg-light text-center p-5">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">GameLearn</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="dashboard.html">Más Juegos</a></li>
+          <li class="nav-item"><a class="nav-link" href="ranking.html">Tabla de Rankings</a></li>
+          <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link btn btn-outline-light ms-2" href="registro.html">Regístrate!</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br><br><br>
+  <div class="actividad-header d-flex justify-content-between align-items-center flex-wrap">
+    <div id="contenedorPuntaje" class="puntaje">
+      <i class="bi bi-star-fill"></i> Puntaje: 0/15
+    </div>
+    <h2 class="titulo-actividad text-center flex-grow-1 mb-0" id="Titulo"> Nombra el Compuesto</h2>
+    <button class="btn btn-pista" data-bs-toggle="modal" data-bs-target="#modalPolianiones">
+      Tabla de Polianiones
+    </button>
+  </div>
+
+  <div class="web-container">
+    <div id="circle" class="center-circle"></div>
+
+    <button id="btn-1" class="btn btn-option btn-circle" style="top: 20%; left: 18%;"></button>
+    <button id="btn-2" class="btn btn-option btn-circle" style="top: 50%; left: 10%;"></button>
+    <button id="btn-3" class="btn btn-option btn-circle" style="top: 80%; left: 18%;"></button>
+
+    <button id="btn-4" class="btn btn-option btn-circle" style="top: 20%; left: 82%;"></button>
+    <button id="btn-5" class="btn btn-option btn-circle" style="top: 50%; left: 90%;"></button>
+    <button id="btn-6" class="btn btn-option btn-circle" style="top: 80%; left: 82%;"></button>
+  </div>
+
+  <!-- Modal de introducción -->
+  <div class="modal fade" id="modalIntroduccion" tabindex="-1" aria-labelledby="modalIntroduccionLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title" id="modalIntroduccionLabel">Bienvenido al Juego de Nomenclatura</h5>
+          <button type="button" class="btn-close btnSiguiente" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>En este juego deberás nombrar correctamente el compuesto químico que aparece en la
+            pantalla.</p>
+          <ul class="text-start">
+            <li>Observa el compuesto mostrado.</li>
+            <li>Haz clic en los botones corresppondientes a su nombre (no es necesario que sea en orden).</li>
+            <li>¡Intenta responder correctamente todos los compuestos!</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success btnSiguiente" data-bs-dismiss="modal">¡Comenzar!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Felicitación -->
+  <div class="modal fade" id="modalFinal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+        <h3 class="mb-3 fw-bold">🎉 ¡Felicidades!</h3>
+        <p id="mensajeFinal" class="fs-5 mb-4"></p>
+
+        <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+          <button id="btnInicio" class="btn btn-outline-primary" href="index.html">
+            <i class="bi bi-house-door"></i> Inicio
+          </button>
+          <button id="btnRepetir" class="btn btn-outline-success" href="Juego_Telaraña.html">
+            <i class="bi bi-arrow-repeat"></i> Repetir
+          </button>
+          <button id="btnMasJuegos" class="btn btn-outline-warning" href="dashboard.html">
+            <i class="bi bi-controller"></i> Más juegos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal de Correcto -->
+  <div class="modal fade" id="modalCorrecto" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4 rounded-4 shadow-lg">
+        <h4 class="mb-3 fw-bold">✅ ¡Correcto!</h4>
+        <p class="fs-5 mb-0">¡Bien hecho! Continúa con el siguiente compuesto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Error -->
+  <div class="modal fade" id="modalError" tabindex="-1" aria-labelledby="errorTitulo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-danger">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="errorTitulo">❌ Respuesta incorrecta</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body" id="errorCuerpo">
+          <!-- Aquí se insertará dinámicamente el comentario -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÓN PARA ABRIR TABLA -->
+  <button class="btn btn-tabla mt-3" data-bs-toggle="modal" data-bs-target="#modalPolianiones">
+    📘 Tabla de Polianiones
+  </button>
+
+  <!-- ===================== -->
+  <!--   MODAL POLIANIONES   -->
+  <!-- ===================== -->
+  <!-- MODAL POLIANIONES -->
+  <div class="modal fade" id="modalPolianiones" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" style="color:#0ff; text-shadow:0 0 10px #0ff;">
+            Tabla Didáctica de Polianiones
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="table-responsive">
+            <table class="table table-bordered table-neon text-center align-middle">
+              <thead>
+                <tr>
+                  <th>Carga -1</th>
+                  <th>Carga -2</th>
+                  <th>Carga -3</th>
+                  <th>Carga +1</th>
+                </tr>
+              </thead>
+
+              <tbody id="TUnidades">
+
+                <!-- FILA 1 -->
+                <tr>
+                  <td><strong>NO₃⁻</strong><br>Nitrato</td>
+                  <td><strong>SO₄²⁻</strong><br>Sulfato</td>
+                  <td><strong>PO₄³⁻</strong><br>Fosfato</td>
+                  <td><strong>NH₄⁺</strong><br>Amonio</td>
+                </tr>
+
+                <!-- FILA 2 -->
+                <tr>
+                  <td><strong>NO₂⁻</strong><br>Nitrito</td>
+                  <td><strong>SO₃²⁻</strong><br>Sulfito</td>
+                  <td><strong>PO₃³⁻</strong><br>Fosfito</td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 3 -->
+                <tr>
+                  <td><strong>ClO⁻</strong><br>Hipoclorito</td>
+                  <td><strong>CO₃²⁻</strong><br>Carbonato</td>
+                  <td><strong>AsO₄³⁻</strong><br>Arsenato</td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 4 -->
+                <tr>
+                  <td><strong>ClO₂⁻</strong><br>Clorito</td>
+                  <td><strong>C₂O₄²⁻</strong><br>Oxalato</td>
+                  <td><strong>AsO₃³⁻</strong><br>Arsenito</td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 5 -->
+                <tr>
+                  <td><strong>ClO₃⁻</strong><br>Clorato</td>
+                  <td><strong>CrO₄²⁻</strong><br>Cromato</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 6 -->
+                <tr>
+                  <td><strong>ClO₄⁻</strong><br>Perclorato</td>
+                  <td><strong>Cr₂O₇²⁻</strong><br>Dicromato</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 7 -->
+                <tr>
+                  <td><strong>HCO₃⁻</strong><br>Bicarbonato</td>
+                  <td><strong>S₂O₃²⁻</strong><br>Tiosulfato</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 8 -->
+                <tr>
+                  <td><strong>OH⁻</strong><br>Hidróxido</td>
+                  <td><strong>O₂²⁻</strong><br>Peróxido</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 9 -->
+                <tr>
+                  <td><strong>CN⁻</strong><br>Cianuro</td>
+                  <td><strong>MnO₄²⁻</strong><br>Manganato</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 10 -->
+                <tr>
+                  <td><strong>MnO₄⁻</strong><br>Permanganato</td>
+                  <td><strong>HPO₄²⁻</strong><br>Hidrogenofosfato</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 11 -->
+                <tr>
+                  <td><strong>HS⁻</strong><br>Hidrogenosulfuro</td>
+                  <td><strong>HCO₄²⁻</strong><br>Carbonito</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 12 -->
+                <tr>
+                  <td><strong>HSO₄⁻</strong><br>Hidrogenosulfato</td>
+                  <td><strong>SO₂²⁻</strong><br>Hiposulfito</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 13 -->
+                <tr>
+                  <td><strong>HSO₃⁻</strong><br>Hidrogenosulfito</td>
+                  <td><strong>S₂O₈²⁻</strong><br>Persulfato</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 14 -->
+                <tr>
+                  <td><strong>H₂PO₄⁻</strong><br>Dihidrogenofosfato</td>
+                  <td><strong>OS₂²⁻</strong><br>Tioperóxido</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <!-- FILA 15 -->
+                <tr>
+                  <td><strong>CH₃COO⁻</strong><br>Acetato</td>
+                  <td><strong>CO₂²⁻</strong><br>Carbonito</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+              </tbody>
+
+
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Imágenes de Fondo-->
+  <div class="decor circulo"></div>
+  <div class="decor triangulo"></div>
+  <div class="decor cuadrado"></div>
+  <div class="decor circulo small"></div>
+  <div class="decor circulo medium"></div>
+  <div class="decor estrella"></div>
+  <div class="decor triangulo small"></div>
+  <div class="decor cuadrado large"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="J_T-Script.js"></script>
+</body>
+
+</html>
