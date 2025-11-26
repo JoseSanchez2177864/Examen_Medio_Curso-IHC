@@ -213,7 +213,6 @@ SFinal.preload = 'auto';
             SCorrecto.currentTime = 0;
         SCorrecto.play();
             
-            scoreDisplay.innerText = totalStars;
 
        
             rondasDisponibles.shift();
@@ -265,6 +264,7 @@ SFinal.preload = 'auto';
         SFinal.currentTime = 0;
     SFinal.play();
         document.getElementById('finalScore').innerText = totalStars;
+        document.getElementById('score').innerText = casosResueltos
         modalFinal.show();
     }
 
